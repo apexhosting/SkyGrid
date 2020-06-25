@@ -1,0 +1,24 @@
+{
+  "homeLocations": [
+    [
+      [
+        "skygrid-world",
+        0.5,
+        229.0,
+        0.5,
+        0.0,
+        0.0
+      ],
+      1
+    ]
+  ],
+  "uniqueId": "c0a68af6-e4ee-4b2b-b6bd-4287d97f0755",
+  "playerName": "robert_beckley",
+  "resets": {},
+  "locale": "",
+  "deaths": {
+    "skygrid-world": 0
+  },
+  "pendingKicks": [],
+  "flagsDisplayMode": "EXPERT"
+}

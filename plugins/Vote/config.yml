@@ -1,0 +1,65 @@
+config-version: 1.0
+Commands-msgs:
+  perm-denied: '%prefix% &cUnable to comlete your request! &7You need permission!'
+  plugin-reloaded: '%prefix% &7The &6config &7has been &areloaded.'
+Log-To-Console: true
+Vote-Reminder:
+  Enabled: true
+  msg:
+  - '&8--------- %prefix% &8---------'
+  - '&6Remember to vote for the &2Server!, &3&l%player%'
+  - '&eEarn &2&nrewards &7and &a&ncash in-game!'
+  - '&6Use the command &b&l/vote &6for more info!'
+  - '&8---------------------------'
+Economy:
+  Enabled: false
+  amount: '5.00'
+  message: '&7Thanks for voting &6%name%, &b%amount%&r &7has been added to your account.'
+Broadcast:
+  Enabled: true
+  Custom-Prefix: '&c&l[&6Vote&c&l]'
+  Message: '%prefix_custom% &a&n%username%&r &7has voted on: &6&n%service%&r &7at
+    &3%timestamp%'
+Commands:
+- give %player% 264 2
+- give %player% 400 5
+Inform-msg: '%prefix% &aCommands Executed!'
+Vote-Gui:
+  settings:
+    gui-name: '&aVote &b&l>>'
+    gui-size: 9
+  weblinks:
+    settings:
+      item-name: ENCHANTED_BOOK
+      item-desc: '&3Click here, &6for &bvote &eSites!'
+      item-pos: 1
+    information:
+    - '&8--------- %prefix% &8---------'
+    - '&a---------------------------'
+    - '&a&l>> &7http://minecraft-server-list.com/'
+    - '&a&l>> &7http://www.minecraft-index.com/'
+    - '&a&l>> &7https://minestatus.net/'
+    - '&a&l>> &7http://minecraftservers.org/'
+  website:
+    settings:
+      item-name: BEACON
+      item-desc: '&6Server &a&nWebsite!'
+      item-pos: 3
+    information:
+    - '&8--------- %prefix% &8---------'
+    - '&a>>&7&nYour server''s homepage here&a<<'
+    - '&b&lhttps://www.spigotmc.org/'
+    - '&a&nhttps://github.com/ES359'
+  voteInfo:
+    settings:
+      item-name: BOOK
+      item-desc: '&6Information &7on &b&lvoting'
+      item-pos: 5
+    information:
+    - '&8--------- %prefix% &8---------'
+    - '&6Information on rewards, or whatever else.'
+  closeInv:
+    settings:
+      item-name: LAVA_BUCKET
+      item-desc: '&cClose &7Inventory'
+      item-pos: 7
