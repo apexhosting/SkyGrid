@@ -58,6 +58,8 @@ timings:
   server-name: Unknown Server
 world-settings:
   default:
+    seed-based-feature-search: true
+    portal-create-radius: 16
     disable-teleportation-suffocation-check: false
     per-player-mob-spawns: false
     optimize-explosions: false

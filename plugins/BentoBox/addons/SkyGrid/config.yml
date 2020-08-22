@@ -1,4 +1,4 @@
-# SkyGrid Configuration 1.10.0-SNAPSHOT-b308
+# SkyGrid Configuration 1.14.1
 # 
 skygrid:
   command:
@@ -79,11 +79,11 @@ world:
     PODZOL: 4
     ACACIA_LEAVES: 8
     GRASS: 100
-    LARGE_FERN: 8
     STRIPPED_SPRUCE_WOOD: 1
+    LARGE_FERN: 8
     FIRE_CORAL_BLOCK: 1
-    GRANITE: 50
     SAND: 50
+    GRANITE: 50
     SUGAR_CANE: 4
     JUNGLE_LEAVES: 10
     JUNGLE_WOOD: 20
@@ -92,14 +92,14 @@ world:
     SPAWNER: 5
     MOSSY_COBBLESTONE: 1
     JUNGLE_LOG: 17
-    DANDELION: 16
     PRISMARINE: 3
+    DANDELION: 16
     ALLIUM: 12
     ACACIA_WOOD: 16
-    PEONY: 7
     OAK_SAPLING: 11
-    STRIPPED_DARK_OAK_LOG: 1
+    PEONY: 7
     LAVA: 5
+    STRIPPED_DARK_OAK_LOG: 1
     OBSIDIAN: 1
     AZURE_BLUET: 1
     OXEYE_DAISY: 6
@@ -125,8 +125,8 @@ world:
     SPRUCE_LEAVES: 9
     SPONGE: 1
     SNOW_BLOCK: 1
-    BIRCH_LEAVES: 9
     ORANGE_TULIP: 10
+    BIRCH_LEAVES: 9
     ANDESITE: 90
     STONE: 180
     ROSE_BUSH: 8
@@ -160,8 +160,8 @@ world:
       CHORUS_PLANT: 2
       OBSIDIAN: 1
       END_STONE: 200
-      GRAVEL: 10
       SPAWNER: 5
+      GRAVEL: 10
       PURPUR_BLOCK: 10
   # Overworld has biomes - this will affect some block types and tree types.
   create-biomes: true
@@ -181,7 +181,7 @@ world:
   # /!\ BentoBox currently does not support changing this value mid-game. If you do need to change it, do a full reset of your databases and worlds.
   start-z: 0
   # SkyGrid height
-  # This is the height of the top sky grid layer
+  # This is the height of the top sky grid layer. 255 max.
   skygrid-height: 228
   # Spawn height
   # Height where players will spawn. Can be less than the grid height
@@ -199,10 +199,10 @@ world:
   ban-limit: -1
   # Mob white list - these mobs will NOT be removed when logging in or doing /island
   remove-mobs-whitelist:
-  - ZOMBIE_VILLAGER
+  - 'null'
   - WITHER
   - GUARDIAN
-  - PIG_ZOMBIE
+  - ZOMBIE_VILLAGER
   # World flags. These are boolean settings for various flags for this world
   flags:
     HURT_ANIMALS: true
@@ -215,6 +215,7 @@ world:
     ENDER_PEARL: true
     DOOR: true
     NATURAL_SPAWNING_OUTSIDE_RANGE: true
+    BREAK_HOPPERS: true
     FURNACE: true
     LIQUIDS_FLOWING_OUT: true
     ANVIL: true
@@ -230,6 +231,7 @@ world:
     TURTLE_EGGS: true
     PISTON_PUSH: true
     COLLECT_LAVA: true
+    BREAK_SPAWNERS: true
     LEVER: true
     ELYTRA: true
     COARSE_DIRT_TILLING: true
@@ -248,6 +250,7 @@ world:
     FLINT_AND_STEEL: true
     NETHER_PORTAL: true
     REMOVE_END_EXIT_ISLAND: true
+    LECTERN: true
     OFFLINE_GROWTH: true
     CROP_TRAMPLE: true
     ITEM_PICKUP: true
@@ -304,9 +307,10 @@ world:
     LOCK: 0
     ENDER_PEARL: 500
     DOOR: 500
+    BREAK_HOPPERS: 500
     FURNACE: 500
-    ANVIL: 500
     MINECART: 500
+    ANVIL: 500
     FISH_SCOOPING: 500
     END_PORTAL: 500
     BREEDING: 500
@@ -314,23 +318,25 @@ world:
     TURTLE_EGGS: 500
     FROST_WALKER: 500
     COLLECT_LAVA: 500
+    BREAK_SPAWNERS: 500
     LEVER: 500
     ELYTRA: 0
-    RIDING: 500
     HURT_MONSTERS: 500
     CAKE: 500
-    ARMOR_STAND: 500
+    RIDING: 500
     NAME_TAG: 500
+    ARMOR_STAND: 500
     TRADING: 500
     EGGS: 500
     ITEM_DROP: 500
     NOTE_BLOCK: 500
     FLINT_AND_STEEL: 500
     NETHER_PORTAL: 500
+    LECTERN: 500
     CROP_TRAMPLE: 500
     ITEM_PICKUP: 500
-    DROPPER: 500
     BREWING: 500
+    DROPPER: 500
     TNT_PRIMING: 500
     COLLECT_WATER: 500
     BUTTON: 500
@@ -344,19 +350,19 @@ world:
     PLACE_BLOCKS: 500
     ITEM_FRAME: 500
     CRAFTING: 500
-    SHEARING: 500
     ENCHANTING: 500
+    SHEARING: 500
     BOAT: 500
-    BED: 500
     SPAWN_EGGS: 500
+    BED: 500
     MILKING: 500
     DISPENSER: 500
     GATE: 500
     EXPERIENCE_PICKUP: 500
     HOPPER: 500
     LEASH: 500
-    MOUNT_INVENTORY: 500
     BREAK_BLOCKS: 500
+    MOUNT_INVENTORY: 500
     CHORUS_FRUIT: 500
     CONTAINER: 500
     JUKEBOX: 500
@@ -365,12 +371,14 @@ world:
   default-settings:
     PVP_END: false
     PVP_NETHER: false
-    ANIMAL_SPAWN: true
     LEAF_DECAY: true
     TNT_DAMAGE: true
-    MONSTER_SPAWN: true
+    MONSTER_SPAWNERS_SPAWN: true
+    ANIMAL_NATURAL_SPAWN: true
+    MONSTER_NATURAL_SPAWN: true
     FIRE_IGNITE: true
     FIRE_SPREAD: true
+    ANIMAL_SPAWNERS_SPAWN: true
     FIRE_BURNING: true
     PVP_OVERWORLD: false
   # These settings/flags are hidden from users
@@ -486,6 +494,17 @@ area:
     team-join-reset: true
     # Reset player death count when they start reset
     reset-on-new-island: true
+island:
+  # Default maximum number of coop rank members per area
+  # Players can have the skygrid.coop.maxsize.<number> permission to be bigger but
+  # permission size cannot be less than the default below. 
+  # Added since 1.13.0.
+  max-coop-size: 4
+  # Default maximum number of trusted rank members per area
+  # Players can have the skygrid.trust.maxsize.<number> permission to be bigger but
+  # permission size cannot be less than the default below. 
+  # Added since 1.13.0.
+  max-trusted-size: 4
 protection:
   # Geo restrict mobs.
   # Mobs that exit the protected space where they were spawned will be removed.

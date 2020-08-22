@@ -577,3 +577,7 @@ Messages:
     Text: It seems you might be stuck inside a nether portal. We will rescue you in
       a few seconds if that is the case!
     Notes: Sent to player on join, if they left while inside a nether portal.
+  MaxBonusReached:
+    Text: Can't purchase {0} more claim blocks. The server has a limit of {1} bonus
+      claim blocks.
+    Notes: '0: block count; 1: bonus claims limit'

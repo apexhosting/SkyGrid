@@ -30,8 +30,14 @@ general:
     wrong-world: '&c You are not in the right world to do that!'
     you-must-wait: '&c You must wait [number]s before you can do that command again.'
     must-be-positive-number: '&c [number] is not a valid positive number.'
+    insufficient-rank: '&c Your rank is not high enough to do that! (&7 [rank]&c )'
+    player-is-not-owner: '&b [name] &c is not the owner of an island!'
   tips:
     changing-obsidian-to-lava: Changing obsidian back into lava. Be careful!
+  worlds:
+    overworld: Overworld
+    nether: Nether
+    the-end: The End
 commands:
   help:
     header: '&7 =========== &c [label] help &7 ==========='
@@ -88,6 +94,11 @@ commands:
       unowned:
         description: Purge unowned islands - requires confirmation
         unowned-islands: '&d Found [number] islands'
+      no-purge-in-progress: '&c There is currently no purge in progress.'
+      status:
+        description: displays the status of the purge
+        status: '&b [purged] &a islands purged out of &b [purgeable] &7(&b[percentage]
+          %&7)&a.'
     team:
       add:
         parameters: <owner> <player>
@@ -343,6 +354,12 @@ commands:
         slot-instructions: |
           &a Left click to increment
           &a Right click to decrement
+      rename:
+        parameters: <blueprint name> <new name>
+        description: rename a blueprint
+        success: '&a Blueprint &b [old] &a has been successfully renamed to &b [name]&a.'
+        pick-different-name: '&c Please specify a name that is different from the
+          blueprint''s current name.'
     resetflags:
       parameters: '[flag]'
       description: Reset all islands to default flag settings in config.yml
@@ -382,6 +399,13 @@ commands:
         parameters: <player> <deaths>
         success: '&a Successfully removed &b [number] &a deaths to &b [name], decreasing
           the total to &b [total]&a  deaths.'
+    setspawnpoint:
+      description: set current location as spawn point for this island
+      no-island-here: '&c There is no island here.'
+      confirmation: '&c Are you sure you want to set this location as the spawn point
+        for this island?'
+      success: '&a Successfully set this location as the spawn point for this island.'
+      island-spawnpoint-changed: '&a [user] changed this island spawn point.'
   bentobox:
     description: BentoBox admin command
     about:
@@ -396,6 +420,8 @@ commands:
       warning: '&c Warning: Reloading may cause instability, so if you see errors
         afterwards, restart the server.'
       unknown-addon: '&c Unknown addon!'
+      locales:
+        description: reloads locales
     version:
       plugin-version: '&2 BentoBox version: &3 [version]'
       description: displays BentoBox and addons versions
@@ -506,8 +532,10 @@ commands:
       name-too-long: '&c Too long. Maximum size is [number] characters.'
       name-already-exists: '&c There is already an island with that name in this gamemode.'
       parameters: <name>
+      success: '&a Successfully set your island''s name to &b [name]&a .'
     resetname:
       description: reset your island name
+      success: '&a Successfully reset your island name.'
     team:
       description: manage your team
       info:
@@ -547,6 +575,7 @@ commands:
         all-members-logged-off: '&c All island members logged off so you are no longer
           a coop member of [name]''s island'
         success: '&b [name] &a is no longer a coop member of your island.'
+        is-full: '&c You cannot coop anyone else.'
       trust:
         description: give a player trusted rank on your island
         parameters: <player>
@@ -556,6 +585,7 @@ commands:
         player-already-trusted: '&c Player is already trusted!'
         you-are-trusted: '&2 You are trusted by &b [name]&a !'
         success: '&a You trusted &b [name]&a .'
+        is-full: '&c You cannot trust anyone else.'
       untrust:
         description: remove trusted player rank from player
         parameters: <player>
@@ -660,6 +690,9 @@ commands:
       description: display island settings
     language:
       description: select language
+      parameters: '[language]'
+      not-available: '&c This language is not available.'
+      already-selected: '&c You are already using this language.'
     expel:
       description: expel a player from your island
       parameters: <player>
@@ -854,6 +887,8 @@ protection:
       name: Enter/Exit messages
       now-entering: '&b Now entering [name]'
       now-leaving: '&b Now leaving [name]'
+      now-entering-your-island: '&a Now entering your island.'
+      now-leaving-your-island: '&a Now leaving your island.'
     EXPERIENCE_BOTTLE_THROWING:
       name: Experience bottle throwing
       description: Toggle throwing experience bottles.
@@ -1015,6 +1050,9 @@ protection:
         &a Allow obsidian to be scooped up
         &a with an empty bucket back into lava.
         &a Protects newbies. Reduces resets.
+      scooping: '&a Changing obsidian back into lava. Be careful next time!'
+      obsidian-nearby: '&c There are obsidian blocks nearby, you cannot scoop up this
+        block into lava.'
     OFFLINE_GROWTH:
       description: |-
         &a When disabled, plants
@@ -1063,12 +1101,16 @@ protection:
         &c in the End.
       name: End PVP
       hint: PVP disabled in the End
+      enabled: '&c The PVP in the End has been enabled.'
+      disabled: '&a The PVP in the End has been disabled.'
     PVP_NETHER:
       description: |-
         &c Enable/Disable PVP
         &c in the Nether.
       name: Nether PVP
       hint: PVP disabled in the Nether
+      enabled: '&c The PVP in the Nether has been enabled.'
+      disabled: '&a The PVP in the Nether has been disabled.'
     PVP_OVERWORLD:
       description: |-
         &c Enable/Disable PVP
@@ -1076,6 +1118,8 @@ protection:
       name: Overworld PVP
       hint: '&c PVP disabled in the Overworld'
       active: '&c PVP is active here!'
+      enabled: '&c The PVP in the Overworld has been enabled.'
+      disabled: '&a The PVP in the Overworld has been disabled.'
     REDSTONE:
       description: Toggle use
       name: Redstone items
@@ -1164,6 +1208,47 @@ protection:
       description: |-
         &a If active, withers can
         &a damage blocks and players
+    ANIMAL_NATURAL_SPAWN:
+      description: Toggle natural animal spawning
+      name: Animal natural spawn
+    ANIMAL_SPAWNERS_SPAWN:
+      description: Toggle animal spawning with spawners
+      name: Animal spawners
+    BREAK_SPAWNERS:
+      description: |-
+        Toggle spawners breaking.
+        Overrides the Break Blocks flag.
+      name: Break spawners
+      hint: Spawner breaking disabled
+    BREAK_HOPPERS:
+      description: |-
+        Toggle hoppers breaking.
+        Overrides the Break Blocks flag.
+      name: Break hoppers
+      hint: Hoppers breaking disabled
+    LECTERN:
+      name: Lecterns
+      description: |-
+        &a Allow to place books on a lectern
+        &a or to take books from it.
+
+        &c It does not prevent players from
+        &c reading the books.
+      hint: cannot place a book on a lectern or take a book from it.
+    LIMIT_MOBS:
+      description: |-
+        &a Limit entities from
+        &a spawning in this game
+        &a mode.
+      name: '&e Limit entity type spawning'
+      can: '&a Can spawn'
+      cannot: '&c Cannot spawn'
+    MONSTER_NATURAL_SPAWN:
+      description: Toggle natural monster spawning
+      name: Monster natural spawn
+    MONSTER_SPAWNERS_SPAWN:
+      description: Toggle monster spawning with spawners
+      name: Monster spawners
   locked: '&c This island is locked!'
   protected: '&c Island protected: [description]'
   world-protected: '&c World protected: [description]'
@@ -1366,3 +1451,5 @@ successfully-loaded: |2
   &6  |  _ < / _ \ '_ \| __/ _ \|  _ < / _ \ \/ /
   &6  | |_) |  __/ | | | || (_) | |_) | (_) >  <   &b v&e [version]
   &6  |____/ \___|_| |_|\__\___/|____/ \___/_/\_\  &8 Loaded in &e [time]&8 ms.
+prefixes:
+  bentobox: '&6 BentoBox &7 &l > &r '
