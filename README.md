@@ -9,7 +9,7 @@ https://apexminecrafthosting.com/skygrid-server/
 [Bento Box](https://github.com/BentoBoxWorld/BentoBox/)
 [Challenges Addon](https://github.com/BentoBoxWorld/Challenges/)
 [DimensionalTrees Addon](https://github.com/BentoBoxWorld/DimensionalTrees/)
-[Level Addon](https://github.com/BentoBoxWorld/Level/
+[Level Addon](https://github.com/BentoBoxWorld/Level/)
 [SkyGrid addon](https://github.com/BentoBoxWorld/SkyGrid/)
 [TwerkingForTrees addon](https://github.com/BentoBoxWorld/TwerkingForTrees/)
 [Core Protect](https://www.spigotmc.org/resources/coreprotect.8631/)
