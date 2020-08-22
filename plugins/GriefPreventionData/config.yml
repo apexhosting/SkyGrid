@@ -1,10 +1,12 @@
 # Default values are perfect for most servers.  If you want to customize and have a question, look for the answer here first: http://dev.bukkit.org/bukkit-plugins/grief-prevention/pages/setup-and-configuration/
 GriefPrevention:
   SeaLevelOverrides:
-    world: -1
+    skygrid-world: -1
+    skygrid-world_nether: -1
   Claims:
     Mode:
-      world: Survival
+      skygrid-world_nether: Disabled
+      skygrid-world: Survival
     PreventGlobalMonsterEggs: true
     PreventTheft: true
     ProtectCreatures: true
@@ -65,7 +67,8 @@ GriefPrevention:
     Logout Message Delay In Seconds: 0
   PvP:
     RulesEnabledInWorld:
-      world: true
+      skygrid-world: true
+      skygrid-world_nether: true
     ProtectFreshSpawns: true
     PunishLogout: true
     CombatTimeoutSeconds: 15
@@ -83,6 +86,7 @@ GriefPrevention:
       NonPvPWorlds: false
     ProtectPetsOutsideLandClaims: false
   Economy:
+    ClaimBlocksMaxBonus: 0
     ClaimBlocksPurchaseCost: 0.0
     ClaimBlocksSellValue: 0.0
   ProtectItemsDroppedOnDeath:
@@ -93,6 +97,7 @@ GriefPrevention:
   BlockSurfaceOtherExplosions: true
   LimitSkyTrees: true
   LimitTreeGrowth: false
+  CheckPistonMovement: true
   LimitPistonsToLandClaims: true
   FireSpreads: false
   FireDestroys: false

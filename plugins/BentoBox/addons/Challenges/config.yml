@@ -59,7 +59,7 @@ gui-settings:
   # their locked level icon, then it will be used, instead of this one.
   locked-level-icon:
     ==: org.bukkit.inventory.ItemStack
-    v: 2227
+    v: 2578
     type: BOOK
   # 
   # This indicate if free challenges must be at the start (true) or at the end (false) of list.
