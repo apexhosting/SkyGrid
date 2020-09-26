@@ -581,3 +581,6 @@ Messages:
     Text: Can't purchase {0} more claim blocks. The server has a limit of {1} bonus
       claim blocks.
     Notes: '0: block count; 1: bonus claims limit'
+  ConfirmAbandonAllClaims:
+    Text: Are you sure you want to abandon ALL of your claims?  Please confirm with
+      /AbandonAllClaims confirm

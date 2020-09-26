@@ -32,13 +32,13 @@ world:
     SANDSTONE: 120
     RED_SAND: 20
     ACACIA_LOG: 20
-    FERN: 4
     TNT: 1
+    FERN: 4
     BOOKSHELF: 10
     PINK_TULIP: 8
     STRIPPED_ACACIA_LOG: 1
-    JUNGLE_SAPLING: 19
     OAK_WOOD: 19
+    JUNGLE_SAPLING: 19
     WHITE_TULIP: 2
     CACTUS: 6
     SPRUCE_WOOD: 9
@@ -52,8 +52,8 @@ world:
     GRASS_PATH: 7
     STRIPPED_BIRCH_WOOD: 1
     SPRUCE_LOG: 3
-    STRIPPED_DARK_OAK_WOOD: 1
     RED_MUSHROOM: 8
+    STRIPPED_DARK_OAK_WOOD: 1
     SPRUCE_SAPLING: 2
     REDSTONE_ORE: 2
     TALL_GRASS: 13
@@ -81,32 +81,32 @@ world:
     GRASS: 100
     STRIPPED_SPRUCE_WOOD: 1
     LARGE_FERN: 8
-    FIRE_CORAL_BLOCK: 1
-    SAND: 50
     GRANITE: 50
+    SAND: 50
+    FIRE_CORAL_BLOCK: 1
     SUGAR_CANE: 4
     JUNGLE_LEAVES: 10
     JUNGLE_WOOD: 20
     BONE_BLOCK: 1
     RED_TULIP: 3
     SPAWNER: 5
-    MOSSY_COBBLESTONE: 1
     JUNGLE_LOG: 17
-    PRISMARINE: 3
+    MOSSY_COBBLESTONE: 1
     DANDELION: 16
+    PRISMARINE: 3
     ALLIUM: 12
     ACACIA_WOOD: 16
     OAK_SAPLING: 11
     PEONY: 7
-    LAVA: 5
     STRIPPED_DARK_OAK_LOG: 1
+    LAVA: 5
     OBSIDIAN: 1
     AZURE_BLUET: 1
     OXEYE_DAISY: 6
     DARK_OAK_LEAVES: 9
     GRAVEL: 20
-    MELON: 15
     SEA_LANTERN: 1
+    MELON: 15
     COBWEB: 7
     COARSE_DIRT: 17
     LAPIS_ORE: 6
@@ -142,8 +142,8 @@ world:
       NETHER_QUARTZ_ORE: 15
       MAGMA_BLOCK: 1
       NETHER_WART_BLOCK: 12
-      GRAVEL: 10
       SPAWNER: 2
+      GRAVEL: 10
       CHEST: 15
       NETHERRACK: 200
       NETHER_WART: 19
@@ -157,8 +157,8 @@ world:
     blocks:
       CHEST: 5
       END_ROD: 1
-      CHORUS_PLANT: 2
       OBSIDIAN: 1
+      CHORUS_PLANT: 2
       END_STONE: 200
       SPAWNER: 5
       GRAVEL: 10
@@ -200,9 +200,9 @@ world:
   # Mob white list - these mobs will NOT be removed when logging in or doing /island
   remove-mobs-whitelist:
   - 'null'
-  - WITHER
-  - GUARDIAN
   - ZOMBIE_VILLAGER
+  - GUARDIAN
+  - WITHER
   # World flags. These are boolean settings for various flags for this world
   flags:
     HURT_ANIMALS: true
@@ -315,17 +315,17 @@ world:
     END_PORTAL: 500
     BREEDING: 500
     HURT_VILLAGERS: 500
-    TURTLE_EGGS: 500
     FROST_WALKER: 500
+    TURTLE_EGGS: 500
     COLLECT_LAVA: 500
     BREAK_SPAWNERS: 500
     LEVER: 500
     ELYTRA: 0
+    RIDING: 500
     HURT_MONSTERS: 500
     CAKE: 500
-    RIDING: 500
-    NAME_TAG: 500
     ARMOR_STAND: 500
+    NAME_TAG: 500
     TRADING: 500
     EGGS: 500
     ITEM_DROP: 500
@@ -353,8 +353,8 @@ world:
     ENCHANTING: 500
     SHEARING: 500
     BOAT: 500
-    SPAWN_EGGS: 500
     BED: 500
+    SPAWN_EGGS: 500
     MILKING: 500
     DISPENSER: 500
     GATE: 500
@@ -372,8 +372,8 @@ world:
     PVP_END: false
     PVP_NETHER: false
     LEAF_DECAY: true
-    TNT_DAMAGE: true
     MONSTER_SPAWNERS_SPAWN: true
+    TNT_DAMAGE: true
     ANIMAL_NATURAL_SPAWN: true
     MONSTER_NATURAL_SPAWN: true
     FIRE_IGNITE: true

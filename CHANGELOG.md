@@ -1,6 +1,22 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.1]
+
+### Changed
+- Update Advanced Achievements from version 6.2.0 to 6.2.1
+- Update BentoBox from version 1.14.2 to 1.15.0
+- Update Core Protect from version 19.1 to 19.2
+- Update EssentialsX from version 2.18.0 to 2.18.1
+- Update Grief Prevention from version 16.14.0 to 16.15.0
+- Update Illegal Stack from version 2.1.8 to 2.2.0e
+- Update Jobs from version 4.16.0 to 4.16.1
+- Update Marriage Master from version 2.2.6 to 2.2.8
+- Update Nametag Edit from version 4.4.10 to Custom
+- Update ProtocolLib from version 4.5.1 Build 476 to 4.6.0 Build 480
+- Update UltimateStacker from version 1.11.20 to 2.0.8
+- Update WorldEdit from version 7.2.0 Beta 3 to 7.2.0 Beta 5
+
 ## [2.0]
 
 ### Added
@@ -43,8 +59,6 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Initial commit of pack to Github for version control
 
-### Changed
-- Nothing
-
+[2.1]: https://github.com/apexhosting/SkyGrid/releases/tag/2.1
 [2.0]: https://github.com/apexhosting/SkyGrid/releases/tag/2.0
 [1.0]: https://github.com/apexhosting/SkyGrid/releases/tag/1.0

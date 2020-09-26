@@ -15,6 +15,7 @@ GriefPrevention:
     LockTrapDoors: false
     LockFenceGates: true
     EnderPearlsRequireAccessTrust: true
+    RaidTriggersRequireBuildTrust: true
     ProtectHorses: true
     ProtectDonkeys: true
     ProtectLlamas: true

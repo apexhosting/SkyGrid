@@ -54,6 +54,7 @@ Exploits:
     PunishForChestsOnMobs: false
     PreventInvalidPotions: true
     PreventHoppersToUnloadedChunks: true
+    PreventBedExplosions: true
   Teleport:
     PearlPhasing: true
   LavaDupe:
@@ -87,6 +88,12 @@ Exploits:
       PreventTripwireDupe: true
   NetherPortal:
     PreventPortalTrap: true
+  Minecart:
+    AlsoPreventHeadInside:
+    - COMPOSTER
+  1_16_Exploits:
+    Dupes:
+      PreventPiglinDupe: true
 UserRequested:
   Obscure:
     HopperCheck:
@@ -95,6 +102,7 @@ UserRequested:
       DestroyInvalidShulkers: false
       CheckGroundForBadShulkerAtLogin: false
     BlockBadItemsFromCreativeTab: false
+    IgnoreAllShulkerPlaceChecks: false
   ItemRemoval:
     NameLoreStrictMatchMode: false
     ItemNamesToRemove: []
@@ -118,6 +126,8 @@ Misc:
   DisableInWorlds: []
   BreakMachinesInsteadOfDroppingItems: true
   LogOffensesInSeparateFile: true
+  Spawners:
+    PreventSpawnEggsOnSpawners: true
 Exploit:
   LagMachines:
     ArmorStand: true

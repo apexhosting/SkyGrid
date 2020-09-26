@@ -1,0 +1,15 @@
+# Configuration file for Tuinity.
+lag-compensate-block-breaking: true
+delay-chunkunloads-by: 1
+config-version-please-do-not-modify-me: 2
+world-settings:
+  default:
+    spawn-limits:
+      monsters: -1
+      animals: -1
+      water-ambient: -1
+      water-animals: -1
+      ambient: -1
+  skygrid-world: {}
+  skygrid-world_nether: {}
+  skygrid-world_the_end: {}

@@ -1077,6 +1077,7 @@ ItemList:
   WEEPING_VINES_PLANT: Lianes pleureuses
   ZOGLIN_SPAWN_EGG: Oeuf de Zoglin
   ZOMBIFIED_PIGLIN_SPAWN_EGG: Oeuf de Piglin zombifié
+  PIGLIN_BRUTE_SPAWN_EGG: Piglin Brute Spawn Egg
   LEGACY_STATIONARY_WATER: Source d'eau
   LEGACY_STATIONARY_LAVA: Source de lave
   LEGACY_BURNING_FURNACE: Fourneau brûlant
@@ -1164,11 +1165,12 @@ EntityList:
   922-FOX: Renard
   923-CAT: Chat
   924-BEE: Abeille
-  929-ZOMBIFIED_PIGLIN: Piglin zombifié
-  925-HOGLIN: Hoglin
-  926-PIGLIN: Piglin
-  927-STRIDER: Strider
-  928-ZOGLIN: Zoglin
+  925-ZOMBIFIED_PIGLIN: Zombified Piglin
+  926-HOGLIN: Hoglin
+  927-PIGLIN: Piglin
+  928-STRIDER: Strider
+  929-ZOGLIN: Zoglin
+  930-PIGLIN_BRUTE: Piglin Brute
 EnchantList:
   Fire protection: Protection contre le feu
   Sharpness: Tranchant
