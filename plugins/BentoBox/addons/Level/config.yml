@@ -1,9 +1,12 @@
-# Level Configuration 2.4.1
+# Level Configuration 2.8.0
 # 
 # 
 # Disabled Game Mode Addons
 # Level will NOT hook into these game mode addons.
 disabled-game-modes: []
+# 
+# When executing level command from console, should a report be shown?
+log-report-to-console: true
 # 
 # Number of concurrent island calculations
 # If your CPU can handle it, you can run parallel island calcs if there are more than one in the queue
@@ -16,8 +19,8 @@ calculation-timeout: 5
 # 
 # Zero island levels on new island or island reset
 # If true, Level will calculate the starter island's level and remove it from any future level calculations.
-# If false, the player's starter island and will count towards their level.
-# This will reduce CPU if it isn't used.
+# If false, the player's starter island blocks will count towards their level.
+# This will reduce CPU if false.
 zero-new-island-levels: true
 # 
 # Calculate island level on login

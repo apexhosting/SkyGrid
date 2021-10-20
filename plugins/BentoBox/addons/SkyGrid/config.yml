@@ -1,4 +1,4 @@
-# SkyGrid Configuration 1.14.1
+# SkyGrid Configuration 1.17.0
 # 
 skygrid:
   command:
@@ -8,6 +8,16 @@ skygrid:
     # The island admin command.
     # To define alias, just separate commands with white space.
     admin: sgadmin sga
+    # The default action for new player command call.
+    # Sub-command of main player command that will be run on first player command call.
+    # By default it is sub-command 'create'.
+    # Added since 1.16.0.
+    new-player-action: create
+    # The default action for player command.
+    # Sub-command of main player command that will be run on each player command call.
+    # By default it is sub-command 'go'.
+    # Added since 1.16.0.
+    default-action: go
 world:
   chest-fill:
     # Number of unique items per chest
@@ -49,11 +59,10 @@ world:
     WHEAT: 4
     STRIPPED_OAK_LOG: 1
     CHEST: 5
-    GRASS_PATH: 7
     STRIPPED_BIRCH_WOOD: 1
     SPRUCE_LOG: 3
-    RED_MUSHROOM: 8
     STRIPPED_DARK_OAK_WOOD: 1
+    RED_MUSHROOM: 8
     SPRUCE_SAPLING: 2
     REDSTONE_ORE: 2
     TALL_GRASS: 13
@@ -81,32 +90,32 @@ world:
     GRASS: 100
     STRIPPED_SPRUCE_WOOD: 1
     LARGE_FERN: 8
-    GRANITE: 50
-    SAND: 50
     FIRE_CORAL_BLOCK: 1
+    SAND: 50
+    GRANITE: 50
     SUGAR_CANE: 4
     JUNGLE_LEAVES: 10
     JUNGLE_WOOD: 20
     BONE_BLOCK: 1
     RED_TULIP: 3
     SPAWNER: 5
-    JUNGLE_LOG: 17
     MOSSY_COBBLESTONE: 1
-    DANDELION: 16
+    JUNGLE_LOG: 17
     PRISMARINE: 3
+    DANDELION: 16
     ALLIUM: 12
     ACACIA_WOOD: 16
     OAK_SAPLING: 11
     PEONY: 7
-    STRIPPED_DARK_OAK_LOG: 1
     LAVA: 5
+    STRIPPED_DARK_OAK_LOG: 1
     OBSIDIAN: 1
     AZURE_BLUET: 1
     OXEYE_DAISY: 6
     DARK_OAK_LEAVES: 9
     GRAVEL: 20
-    SEA_LANTERN: 1
     MELON: 15
+    SEA_LANTERN: 1
     COBWEB: 7
     COARSE_DIRT: 17
     LAPIS_ORE: 6
@@ -142,28 +151,37 @@ world:
       NETHER_QUARTZ_ORE: 15
       MAGMA_BLOCK: 1
       NETHER_WART_BLOCK: 12
-      SPAWNER: 2
       GRAVEL: 10
+      SPAWNER: 2
       CHEST: 15
-      NETHERRACK: 200
       NETHER_WART: 19
+      NETHERRACK: 200
       COBWEB: 7
       GLOWSTONE: 1
       RED_NETHER_BRICKS: 12
+    # This option indicates if nether portals should be linked via dimensions.
+    # Option will simulate vanilla portal mechanics that links portals together
+    # or creates a new portal, if there is not a portal in that dimension.
+    # Added since 1.16.
+    create-and-link-portals: false
   end:
     # Generate SkyGrid End - if this is false, the end world will not be made
     generate: true
-    # The End blocks. END_CRYSTAL is blocked because it causes serious performance issues.
+    # The End blocks.
     blocks:
       CHEST: 5
       END_ROD: 1
       OBSIDIAN: 1
       CHORUS_PLANT: 2
       END_STONE: 200
-      SPAWNER: 5
       GRAVEL: 10
+      SPAWNER: 5
       PURPUR_BLOCK: 10
-  # Overworld has biomes - this will affect some block types and tree types.
+    # This option indicates if obsidian platform in the end should be generated
+    # when player enters the end world.
+    # Added since 1.16.
+    create-obsidian-platform: false
+  # Biomes - this will affect some block types and tree types.
   create-biomes: true
   # The probability of a frame being created in a chunk. Frames are always at y=0.
   end-frame-probability: 0.05
@@ -200,88 +218,52 @@ world:
   # Mob white list - these mobs will NOT be removed when logging in or doing /island
   remove-mobs-whitelist:
   - 'null'
+  - WITHER
   - ZOMBIE_VILLAGER
   - GUARDIAN
-  - WITHER
   # World flags. These are boolean settings for various flags for this world
   flags:
-    HURT_ANIMALS: true
     DRAGON_EGG: true
     ISLAND_RESPAWN: true
-    REDSTONE: true
     CREEPER_GRIEFING: false
-    BUCKET: true
     LOCK: true
-    ENDER_PEARL: true
-    DOOR: true
     NATURAL_SPAWNING_OUTSIDE_RANGE: true
-    BREAK_HOPPERS: true
-    FURNACE: true
-    LIQUIDS_FLOWING_OUT: true
     ANVIL: true
-    MINECART: true
-    FISH_SCOOPING: true
-    END_PORTAL: true
-    BREEDING: true
+    TRAPPED_CHEST: true
     ENDER_CHEST: true
-    HURT_VILLAGERS: true
     TREES_GROWING_OUTSIDE_RANGE: true
-    WITHER_DAMAGE: false
     FROST_WALKER: true
-    TURTLE_EGGS: true
     PISTON_PUSH: true
     COLLECT_LAVA: true
-    BREAK_SPAWNERS: true
     LEVER: true
-    ELYTRA: true
-    COARSE_DIRT_TILLING: true
     CAKE: true
-    RIDING: true
     HURT_MONSTERS: true
-    ARMOR_STAND: true
-    NAME_TAG: true
-    ENDERMAN_GRIEFING: true
     CLEAN_SUPER_FLAT: true
     TRADING: true
     EGGS: true
-    ITEM_DROP: true
-    NOTE_BLOCK: true
+    CHEST: true
     ENTER_EXIT_MESSAGES: true
     FLINT_AND_STEEL: true
-    NETHER_PORTAL: true
-    REMOVE_END_EXIT_ISLAND: true
-    LECTERN: true
-    OFFLINE_GROWTH: true
     CROP_TRAMPLE: true
-    ITEM_PICKUP: true
-    BREWING: true
     DROPPER: true
     OBSIDIAN_SCOOPING: true
-    CREEPER_DAMAGE: true
     TNT_PRIMING: true
     COLLECT_WATER: true
     BUTTON: true
-    FIRE_EXTINGUISH: true
+    COMPOSTER: true
     COMMAND_RANKS: true
-    BEACON: true
     TRAPDOOR: true
-    PRESSURE_PLATE: true
     EXPERIENCE_BOTTLE_THROWING: true
     DYE: true
-    PLACE_BLOCKS: true
+    HIVE: true
     ITEM_FRAME: true
     CRAFTING: true
-    REMOVE_MOBS: true
     ENCHANTING: true
     SHEARING: true
     BOAT: true
     BED: true
     SPAWN_EGGS: true
     BIOMES_WORLD_PROTECTION: false
-    MILKING: true
-    DISPENSER: true
-    GATE: true
-    CHALLENGES_WORLD_PROTECTION: false
     CHEST_DAMAGE: false
     EXPERIENCE_PICKUP: true
     PREVENT_TELEPORT_WHEN_FALLING: false
@@ -290,12 +272,56 @@ world:
     BREAK_BLOCKS: true
     MOUNT_INVENTORY: true
     OFFLINE_REDSTONE: false
-    CHORUS_FRUIT: true
-    CONTAINER: true
-    ITEM_FRAME_DAMAGE: false
     JUKEBOX: true
     POTION_THROWING: true
     SPAWNER_SPAWN_EGGS: true
+    HURT_ANIMALS: true
+    REDSTONE: true
+    VISITOR_KEEP_INVENTORY: false
+    BUCKET: true
+    ENDER_PEARL: true
+    DOOR: true
+    BREAK_HOPPERS: true
+    FURNACE: true
+    LIQUIDS_FLOWING_OUT: true
+    MINECART: true
+    FISH_SCOOPING: true
+    END_PORTAL: true
+    BREEDING: true
+    HURT_VILLAGERS: true
+    WITHER_DAMAGE: false
+    TURTLE_EGGS: true
+    BREAK_SPAWNERS: true
+    ELYTRA: true
+    COARSE_DIRT_TILLING: true
+    RIDING: true
+    ARMOR_STAND: true
+    NAME_TAG: true
+    ENDERMAN_GRIEFING: true
+    ITEM_DROP: true
+    NOTE_BLOCK: true
+    NETHER_PORTAL: true
+    REMOVE_END_EXIT_ISLAND: true
+    LECTERN: true
+    OFFLINE_GROWTH: true
+    SHULKER_BOX: true
+    ITEM_PICKUP: true
+    BREWING: true
+    CREEPER_DAMAGE: true
+    FIRE_EXTINGUISH: true
+    BEACON: true
+    PRESSURE_PLATE: true
+    PLACE_BLOCKS: true
+    REMOVE_MOBS: true
+    FLOWER_POT: true
+    MILKING: true
+    DISPENSER: true
+    GATE: true
+    CHALLENGES_WORLD_PROTECTION: false
+    CHORUS_FRUIT: true
+    CONTAINER: true
+    ITEM_FRAME_DAMAGE: false
+    BARREL: true
   # These are the default protection settings protected areas.
   # The value is the minimum island rank required to do the action
   # Ranks are: Visitor = 0, Member = 900, Owner = 1000
@@ -312,68 +338,75 @@ world:
     MINECART: 500
     ANVIL: 500
     FISH_SCOOPING: 500
+    TRAPPED_CHEST: 500
     END_PORTAL: 500
     BREEDING: 500
     HURT_VILLAGERS: 500
-    FROST_WALKER: 500
     TURTLE_EGGS: 500
+    FROST_WALKER: 500
     COLLECT_LAVA: 500
     BREAK_SPAWNERS: 500
     LEVER: 500
     ELYTRA: 0
+    CAKE: 500
     RIDING: 500
     HURT_MONSTERS: 500
-    CAKE: 500
     ARMOR_STAND: 500
     NAME_TAG: 500
     TRADING: 500
     EGGS: 500
     ITEM_DROP: 500
+    CHEST: 500
     NOTE_BLOCK: 500
     FLINT_AND_STEEL: 500
     NETHER_PORTAL: 500
     LECTERN: 500
+    SHULKER_BOX: 500
     CROP_TRAMPLE: 500
     ITEM_PICKUP: 500
     BREWING: 500
     DROPPER: 500
     TNT_PRIMING: 500
     COLLECT_WATER: 500
+    COMPOSTER: 500
     BUTTON: 500
     FIRE_EXTINGUISH: 500
     COMMAND_RANKS: 500
     BEACON: 500
     TRAPDOOR: 500
-    EXPERIENCE_BOTTLE_THROWING: 500
     PRESSURE_PLATE: 500
+    EXPERIENCE_BOTTLE_THROWING: 500
+    HIVE: 500
     DYE: 500
-    PLACE_BLOCKS: 500
     ITEM_FRAME: 500
+    PLACE_BLOCKS: 500
     CRAFTING: 500
-    ENCHANTING: 500
     SHEARING: 500
+    ENCHANTING: 500
+    FLOWER_POT: 500
     BOAT: 500
-    BED: 500
     SPAWN_EGGS: 500
+    BED: 500
     MILKING: 500
     DISPENSER: 500
     GATE: 500
     EXPERIENCE_PICKUP: 500
     HOPPER: 500
     LEASH: 500
-    BREAK_BLOCKS: 500
     MOUNT_INVENTORY: 500
+    BREAK_BLOCKS: 500
     CHORUS_FRUIT: 500
     CONTAINER: 500
     JUKEBOX: 500
+    BARREL: 500
     POTION_THROWING: 500
   # These are the default settings for new protected areas
   default-settings:
     PVP_END: false
     PVP_NETHER: false
     LEAF_DECAY: true
-    MONSTER_SPAWNERS_SPAWN: true
     TNT_DAMAGE: true
+    MONSTER_SPAWNERS_SPAWN: true
     ANIMAL_NATURAL_SPAWN: true
     MONSTER_NATURAL_SPAWN: true
     FIRE_IGNITE: true
@@ -475,14 +508,52 @@ area:
     abort-on-logout: true
   commands:
     # List of commands to run when a player joins.
+    # These commands are run by the console, unless otherwise stated using the [SUDO] prefix,
+    # in which case they are executed by the player.
+    # 
+    # Available placeholders for the commands are the following:
+    #    * [name]: name of the player
+    # 
+    # Here are some examples of valid commands to execute:
+    #    * '[SUDO] bbox version'
+    #    * 'bsbadmin deaths set [player] 0'
+    # 
+    # Note that player-executed commands might not work, as these commands can be run with said player being offline.
     on-join: []
     # list of commands to run when a player leaves.
+    # These commands are run by the console, unless otherwise stated using the [SUDO] prefix,
+    # in which case they are executed by the player.
+    # 
+    # Available placeholders for the commands are the following:
+    #    * [name]: name of the player
+    # 
+    # Here are some examples of valid commands to execute:
+    #    * '[SUDO] bbox version'
+    #    * 'bsbadmin deaths set [player] 0'
+    # 
+    # Note that player-executed commands might not work, as these commands can be run with said player being offline.
     on-leave: []
+    # List of commands that should be executed when the player respawns after death if Flags.ISLAND_RESPAWN is true.
+    # These commands are run by the console, unless otherwise stated using the [SUDO] prefix,
+    # in which case they are executed by the player.
+    # 
+    # Available placeholders for the commands are the following:
+    #    * [name]: name of the player
+    # 
+    # Here are some examples of valid commands to execute:
+    #    * '[SUDO] bbox version'
+    #    * 'bsbadmin deaths set [player] 0'
+    # 
+    # Note that player-executed commands might not work, as these commands can be run with said player being offline.
+    # Added since 1.14.0.
+    on-respawn: []
   sethome:
     nether:
+      # Allow setting home in the nether. Only available on nether islands, not vanilla nether.
       allow: true
       require-confirmation: true
     the-end:
+      # Allow setting home in the end. Only available on end islands, not vanilla end.
       allow: true
       require-confirmation: true
   deaths:
@@ -509,6 +580,9 @@ protection:
   # Geo restrict mobs.
   # Mobs that exit the protected space where they were spawned will be removed.
   geo-limit-settings: []
+  # SkyGrid blocked mobs.
+  # List of mobs that should not spawn in SkyGrid.
+  block-mobs: []
   # Invincible visitors. List of damages that will not affect visitors.
   # Make list blank if visitors should receive all damages
   invincible-visitors: []

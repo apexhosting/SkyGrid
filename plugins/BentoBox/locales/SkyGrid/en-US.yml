@@ -160,6 +160,8 @@ skygrid:
         name: Enter/Exit messages
         now-entering: '&b Now entering [name]'
         now-leaving: '&b Now leaving [name]'
+        now-entering-your-island: '&a Now entering your area.'
+        now-leaving-your-island: '&a Now leaving your area.'
       GEO_LIMIT_MOBS:
         description: |-
           &a Remove mobs that go

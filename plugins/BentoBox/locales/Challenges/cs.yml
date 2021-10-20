@@ -5,7 +5,7 @@
 # Translation by: CZghost                                                                 #
 meta:
   authors:
-  - BONNe
+    '0': BONNe
 challenges:
   commands:
     admin:
@@ -414,6 +414,7 @@ challenges:
       required-items: 'Potřebné předměty:'
       required-entities: 'Potřebné entity:'
       required-blocks: 'Potřebné bloky:'
+      rewards-title: '&a Odměny:'
     level-description:
       completed: '&BDokončeno'
       completed-challenges-of: '&3Dokončil jsi [number] z [max] výzev v této úrovni.'
@@ -527,6 +528,9 @@ challenges:
       nějaké chyby!'
     missing-arguments: '&cPříkaz postrádá argumenty.'
     no-multiple-permission: '&cNemáš oprávnění k dokončení výzev vícekrát najednou.'
+    invalid-level: '&c Level [level] obsahuje neplatná data. Nebude načten z databáze!'
+    invalid-challenge: '&c Challenge [challenge] obsahuje neplatná data. Nebude načtena
+      z databáze!'
 protection:
   flags:
     CHALLENGES_ISLAND_PROTECTION:

@@ -47,7 +47,10 @@ Language:
       # Placeholders: {SenderDisplayName}, {SenderName}, {ReceiverDisplayName}, {ReceiverName}, {Message}, {MagicHeart}
       Format: "[\"\",{\"text\":\"{MagicHeart}\"},{\"text\":\" {SenderDisplayName}\"},{\"text\":\" => \",\"color\":\"gold\"},{\"text\":\"{ReceiverDisplayName}\"},{\"text\":\": \",\"color\":\"white\"},{\"text\":\"{Message}\"}]"
     Gift:
-      OnlyInSurvival: "[\"\",{\"text\":\"You can only gift items to your partner when you are in survival mode.\",\"color\":\"red\"}]"
+      # Placeholders: {AllowedGameModes}, {CurrentGameMode}
+      GameModeNotAllowedSender: "&cYou are not allowed to send gifts in your current game mode."
+      # Placeholders: {AllowedGameModes}, {CurrentGameMode}
+      GameModeNotAllowedReceiver: "&cYour partner can not receive gifts in it's current current game mode."
       NoItemInHand: "[\"\",{\"text\":\"You are not holding an item.\",\"color\":\"red\"}]"
       PartnerInvFull: "[\"\",{\"text\":\"Your partner has no empty space in his inventory.\",\"color\":\"red\"}]"
       # Placeholders: {Name}, {DisplayName}, {ItemAmount}, {ItemName}, {ItemMetaJSON} = Item as JSON for hover event
@@ -55,6 +58,7 @@ Language:
       # Placeholders: {Name}, {DisplayName}, {ItemAmount}, {ItemName}, {ItemMetaJSON} = Item as JSON for hover event
       ItemReceived: "[{\"text\":\"Your \",\"color\":\"green\"},{\"text\":\"partner\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"{DisplayName}\"}},{\"text\":\" has sent you \"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\".\"}]"
       WorldNotAllowed: "[\"\",{\"text\":\"Your partner is in a world where it is not allowed to receive gifts.\",\"color\":\"red\"}]"
+      ItemNotAllowed: "&cYou are not allowed to gift {ItemName} &cto your partner!"
       # Placeholders: {ItemAmount}, {ItemName}, {ItemMetaJSON} = Item as JSON for hover event
       Request:
         Notification: "[\"\",{\"text\":\"{DisplayName}&r wants to gift you \"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\". Accept the gift with \"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" or deny it with \"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\"}]"
@@ -65,6 +69,8 @@ Language:
         CanceledPartner: "Your partner canceled the gift request. Your item has been refunded."
         CanceledDisconnectRequester: "Your partner went offline. Gift request canceled. Your item has been refunded."
         CanceledDisconnectTarget: "Your partner went offline. Gift request canceled."
+        RefundInvFull: "&cYour inventory is full, dropped leftover gift items on the ground!"
+        PartnerAlreadyHasAnOpenRequest: "&cYour partner already has an open request. Please wait from them to accept or deny it first."
     Home:
       Deleted: "[\"\",{\"text\":\"Homepoint successfully deleted.\",\"color\":\"green\"}]"
       PlayerNoHome: "[\"\",{\"text\":\"The player doesn't have a home yet.\",\"color\":\"red\"}]"
@@ -87,6 +93,8 @@ Language:
       GotHugged: "[\"\",{\"text\":\"&eYour partner has hugged you!\"}]"
       GotHugged_SendMethod: "action_bar"
       TooFarAway: "[\"\",{\"text\":\"You are too far away to hug your partner. (Max {Distance} blocks)\",\"color\":\"red\"}]"
+      # Placeholders: {Time}, {TimeLeft} in seconds
+      Wait: "&cYou have to wait {Time} seconds to kiss your partner again."
     Seen:
       # Placeholders: {Name}, {DisplayName}
       CurrentlyOnline: "[\"\",{\"text\":\"{DisplayName} is currently \",\"extra\":[{\"text\":\"online\",\"color\":\"green\"},{\"text\":\".\"}]}]"
@@ -107,6 +115,7 @@ Language:
       Footer: "[{\"text\":\"<<< Previous <<<\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"}},{\"text\":\" Showing page {CurrentPage}/{MaxPage} \",\"color\":\"gold\"},{\"text\":\">>> Next >>>\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"}}]"
     PvP:
       IsDisabled: "[\"\",{\"text\":\"You can't hurt your partner if you have PvP disabled.\",\"color\":\"red\"}]"
+      IsDisabled_SendMethod: "action_bar"
       On: "[\"\",{\"text\":\"You have now enabled PvP with your partner.\",\"color\":\"green\"}]"
       Off: "[\"\",{\"text\":\"You have now disabled PvP with your partner.\",\"color\":\"green\"}]"
     TP:
@@ -235,7 +244,7 @@ Language:
         # Will be used if the player is married
         Married:
           - " &3__&b&lMarry Commands&r&3__"
-          - ""
+          - 
           - '[{"text":" ➤ ","color":"white"},{"text":"/marry kiss","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/marry kiss"}},{"text":" kiss your partner","color":"aqua"}]'
           - '[{"text":" ➤ ","color":"yellow"},{"text":"/marry tp","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/marry tp"}},{"text":" tp to your partner","color":"aqua"}]'
           - '[{"text":" ➤ ","color":"gold"},{"text":"/marry chat toggle","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/marry chat toggle"}},{"text":" talk private whit your partner","color":"aqua"}]'
@@ -320,6 +329,8 @@ Command:
       - del
       - clear
       - clean
+  Main:
+    - marry
   Backpack:
     - backpack
     - bp
@@ -374,6 +385,8 @@ Command:
     - marry
   Divorce:
     - divorce
+  SetPriest:
+    - setpriest
   Update:
     - update
   Version:
@@ -385,8 +398,11 @@ Command:
   Deny:
     - deny
 Dialog:
+  # Placeholders: {Planer1Name}, {Player1DisplayName}, {Planer2Name}, {Player2DisplayName}
   DoYouWant: "Do you {Player1Name}, want to marry {Player2Name} on this server?"
+  # Placeholders: {Planer1Name}, {Player1DisplayName}, {Planer2Name}, {Player2DisplayName}
   AndDoYouWant: "And do you {Player2Name}, want to marry {Player1Name} on this server?"
+  # Placeholders: {Planer1Name}, {Player1DisplayName}, {Planer2Name}, {Player2DisplayName}
   Married: "I now pronounce you husband and wife. You may now kiss."
   YesIWant: "Yes, I will!"
   NoIDontWant: "No, I will not!"
@@ -400,6 +416,7 @@ Placeholders:
     NotMarried: "not married"
     NoHome: "no home"
     Separator: "&r, "
+    NoPartnerForSlot: ""
   Heart:
     Married: "&c<heart>&f"
     NotMarried: ""
@@ -426,11 +443,12 @@ Placeholders:
     # Order: x, y, z
     Married: "%1$.1f %2$.1f %3$.1f"
 
+
 # The name of the language represented by the language file
 LanguageName: "English"
 # The author of the language file
 Author: "GeorgH93"
 
 # Language file version. Don't touch it!
-Version: 101
+Version: 108
 Revision: 1

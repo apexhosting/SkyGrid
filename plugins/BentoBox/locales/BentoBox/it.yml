@@ -406,6 +406,7 @@ commands:
       number-error: '&c L''Argomento deve essere un numero di giorni'
       confirm: '&d Digita [label] purge confirm per iniziare la purga'
       completed: '&a Purga completata'
+      days-one-or-more: Deve essere almeno 1 giorno o più
     settings:
       parameters: '[player]'
       description: apre le impostazioni di sistema o della isola di un giocatore

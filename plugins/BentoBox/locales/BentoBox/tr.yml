@@ -29,6 +29,8 @@ general:
     must-be-positive-number: '&e[number] &4bu pozitif bir sayı değil!'
     no-safe-location-found: '&4Adanda korumalı bölge bulunamadı!'
     player-is-not-owner: '&d[name] &cbir adaya sahip değil!'
+    insufficient-rank: '&c Rankınız bunu yapacak kadar yüksek değil! (& 7 [rank] &
+      c)'
   tips:
     changing-obsidian-to-lava: '&9Obsidyen lava dönüştü dostum bu bir harika!'
   worlds:
@@ -93,6 +95,16 @@ commands:
         description: Oyuncuya ada liderligini ver!
         already-owner: '&d[name] &4zaten ada sahibi!'
         success: '&d[name] &bartık adanın sahibi!'
+      fix:
+        description: Veritabanındaki adalar arası üyeliği tarar ve düzeltir
+        scanning: Veritabanı taranıyor ...
+        duplicate-owner: '&c Oyuncunun veritabanında birden fazla adası var: [name]'
+        player-has: '&c Oyuncu [name], [number] adaya sahip'
+        fixed: '&a Sabit'
+        done: '&a Tarama'
+        duplicate-member: '&c [name],  veri tabanında bulunan birden fazla adanın
+          üyesi'
+        rank-on-island: '&c [rank] adada [xyz]'
     range:
       description: Admin ada menzili ayarlama
       display:
@@ -171,6 +183,8 @@ commands:
       banned-format: '&4[name]'
       unowned: '&eBilinmiyor'
       purge-protected: Bu ada silinmelere karşı korunuyor.
+      island-protection-center: 'Korumalı alan merkezi: [xyz]'
+      island-center: 'Ada merkezi: [xyz]'
     switch:
       description: Koruma izinlerine açma/kapama
       op: '&cSen zaten tüm korumalardan izinlisin. Yetkini aldıktan sonra tekrar dene.'
@@ -315,6 +329,10 @@ commands:
         slot-instructions: |
           &aArtırmak için sol
           &aAzaltmak için sağ tıklayın.
+        no-trash: Çöp Kutusu olamaz
+        no-trash-instructions: Varsayılan grup çöp kutusuna atılamaz
+        no-permission: İzin yok
+        no-perm-required: Varsayılan paket için izin ayarlanamaz
       delete:
         parameters: <isim>
         description: Şematik siler.
@@ -391,9 +409,35 @@ commands:
       number-error: '&cGün sayısını yazmalısınız.'
       confirm: '&6Ada temizlemesini başlatmak için onaylayın: &5[label]'
       completed: '&cTemizleme durduruldu.'
+      no-purge-in-progress: '&c Şu anda devam eden bir temizleme işlemi yok.'
+      status:
+        description: temizlemenin durumunu gösterir
+        status: '&b [purgeable] &a adadan &b [purged]''si temizlendi &7(&b[percentage]
+          %&7)&a.'
+      days-one-or-more: Gün sayısı 1 veya daha uzun olmalıdır.
     settings:
       parameters: '[oyuncu]'
       description: Sunucu dünya ayarları veya oyuncu ada ayarlarını aç.
+      unknown-setting: '&c Bilinmeyen ayar'
+    setspawnpoint:
+      description: mevcut konumu bu ada için doğma noktası olarak ayarla
+      no-island-here: '&c Burada ada yok.'
+      confirmation: '&c Bu konumu bu adanın yumurtlama noktası olarak ayarlamak istediğinizden
+        emin misiniz?'
+      success: '&a Bu konumu, bu adanın doğma noktası olarak başarıyla ayarlayın.'
+      island-spawnpoint-changed: '&a [user] bu adanın doğma noktasını değiştirdi.'
+    setprotectionlocation:
+      parameters: '[x y z coords]'
+      description: Şu anki konumu veya [x y z] konumunu adanın koruma bölgesinin merkezi
+        olarak ayarla
+      island: '&c Bu [xyz] konumundaki ''[name]'' adlı kullanıcının adasını etkileyecek.'
+      confirmation: '&c Koruma bölgesinin merkezi olarak [xyz] konumunu ayarlamak
+        istediğine emin misin?'
+      success: '&a [xyz] konumu başarıyla koruma bölgesinin merkezi olarak ayarlandı.'
+      fail: '&a [xyz] noktası koruma bölgesinin merkezi olarak ayarlanamadı.'
+      island-location-changed: '&a [user] adlı kullanıcı adanın koruma alanı merkezini
+        [xyz] konumuna değiştirdi.'
+      xyz-error: '&c Üç adet tam sayı koordinat girin: örn, 100 120 100'
   bentobox:
     description: BentoBox admin komudu
     about:
@@ -409,6 +453,8 @@ commands:
       unknown-addon: '&4Bilinmeyen eklenti!'
       warning: '&cDikkat bu tüm eklentileri güncellemektedir. Eğer konsolda bir hata
         alırsanız restart atmalısınız.'
+      locales:
+        description: yerel ayarları yeniden yükler
     version:
       plugin-version: '&bBentoBox sürümü: &3[version]'
       description: Bilgi verir.
@@ -448,6 +494,7 @@ commands:
       teleport: '&9Adana ışınlanıyorsun!'
       teleported: '&e#[number] &bnumaralı evine gidiyorsun.'
       tip: '&9Yardım için &e/is help'
+      unknown-home: '&c Bilinmeyen ev adı!'
     help:
       description: Ana ada komudu
       pick-world: '&4Specify world from [worlds]'
@@ -509,6 +556,9 @@ commands:
         not-allowed: '&4Ende ev kaydetmek icin yetin yok!'
         confirmation: '&4Ende ev kaydetmek istedigine emin misin?'
       parameters: '[home number]'
+      too-many-homes: '&c Ayarlanamadı - adanızda maksimum sayıda [number] ev var.'
+      homes-are: '&6 Adadaki evler:'
+      home-list-syntax: '&6 [name]'
     setname:
       description: Ada ismini degistir.
       name-too-short: '&4Cok kısa. En az &e[number] &4karakter olabilir!.'
@@ -531,6 +581,7 @@ commands:
         member-layout:
           online: '&a &l  o &r &f [name]'
           offline: '&c &l  o &r &f [name] &7 ([last_seen])'
+          offline-not-last-seen: '&c &l  o &r &f [name]'
         header: |-
           &5Ada takımı
           &9Üye sayısı &8- &a[total]&8/&5[max]
@@ -556,6 +607,7 @@ commands:
         all-members-logged-off: '&4Tum ada oyuncuları cevrımdısı. Isci yetkin &e[name]&4adasından
           alındı!'
         success: '&d[name] &a9artık adanda işçi değil!'
+        is-full: '&c Başkasını kooperatif üyesi yapamazsınız.'
       trust:
         description: Adana arkadas ekle
         parameters: <player>
@@ -566,6 +618,7 @@ commands:
         success: '&d[name] &9arkadaş olarak eklendin!'
         name-has-invited-you: '&d[name] &6adanda arkadaş olarak katılman için istek
           yolladı!'
+        is-full: '&c Başkasına güvenemezsiniz.'
       untrust:
         description: Arkadaslık yetkisini kaldır!
         parameters: <player>
@@ -666,6 +719,9 @@ commands:
       description: Ada ayarları
     language:
       description: Dili seç.
+      parameters: '[dil]'
+      not-available: '&c Bu dil mevcut değil.'
+      already-selected: '&c Zaten bu dili kullanıyorsunuz.'
     expel:
       description: Adandan bir misafiri at.
       parameters: <player>
@@ -676,6 +732,16 @@ commands:
       player-expelled-you: '&d[name] &4seni adadan attı!'
       success: '&d[name] &9oyuncusunu adadan attın!'
       cannot-expel-member: '&cBir ekip üyesini sınır dışı edemezsiniz!'
+    deletehome:
+      description: bir ev noktasını sil
+      parameters: '[home name]'
+    renamehome:
+      description: bir evi yeniden adlandır
+      parameters: '[home name]'
+      enter-new-name: '&6 Yeni bir isim gir'
+      already-exists: '&c Bu isim mevcut, lütfen farklı bir isim dene.'
+    homes:
+      description: evlerini listele
   delay:
     previous-command-cancelled: '&cÖnceki komut iptal edildi.'
     stand-still: '&6Sakın hareket etme. &e[seconds] &6saniye içerisinde ışınlanacaksın.'
@@ -1154,6 +1220,47 @@ protection:
       name: '&eVarlıkları sınırla'
       can: '&aDoğabilir.'
       cannot: '&cDoğamaz.'
+    ANIMAL_NATURAL_SPAWN:
+      description: Doğal hayvan yumurtlamasını aç / kapat
+      name: Hayvan doğal yumurtlama
+    ANIMAL_SPAWNERS_SPAWN:
+      description: Hayvan yumurtlamasını yumurtlayanlarla aç / kapat
+      name: Hayvan yumurtlayanlar
+    BREAK_SPAWNERS:
+      description: |-
+        Yumurtlayanların kırılmasını aç / kapat.
+        Blokları Kırma bayrağını geçersiz kılar.
+      name: Yumurtlayanları kır
+      hint: Çıkma yeri kırma devre dışı
+    BREAK_HOPPERS:
+      description: |-
+        Hazneleri kırmayı aç / kapat.
+        Blokları Kırma bayrağını geçersiz kılar.
+      name: Hazneleri kır
+      hint: Hoppers kırma devre dışı
+    MONSTER_NATURAL_SPAWN:
+      description: Doğal canavar yumurtlamasını aç / kapat
+      name: Canavar doğal yumurtlama
+    MONSTER_SPAWNERS_SPAWN:
+      description: Yumurtlayıcılarla canavar yumurtlamasını aç / kapat
+      name: Canavar yumurtlayanlar
+    WORLD_TNT_DAMAGE:
+      description: |-
+        &a TNT ve TNT minecarts'ın blokları
+        &a kırmasına ve ada sınırları dışındaki
+        &a varlıklara zarar vermesine izin verin.
+      name: Dünya TNT hasarı
+    PETS_STAY_AT_HOME:
+      description: |-
+        &a Aktif iken, eğitilmiş
+        &a hayvanlar sadece sahibin
+        &a adasına gidebilir ve
+        &a ana adadan ayrılamaz.
+      name: Evcil hayvanlar evde kalır.
+    HIVE:
+      description: '&a Kovan hasatını değiştir.'
+      name: Kovan hasatı
+      hint: Hasat kapalı
   locked: '&4Bu ada kilitli!'
   protected: '&4Ada korunuyor: [description]'
   spawn-protected: '&4Spawn koruması: [description]'
@@ -1318,3 +1425,35 @@ panel:
         &e● &cBentoBox bu Eklenti için Katkıda\n&cBulunanları &ctoplayamadı\
                 .\n&f\n&e● &aBentoBox'ın yapılandırmada GitHub'a\n&abağlanmasına izin verin\
                 \ veya daha \n&asonra tekrar deneyin.\n
+prefixes:
+  bentobox: '&6 BentoBox &7 &l > &r '
+enums:
+  DamageCause:
+    CONTACT: Temas
+    ENTITY_ATTACK: Canavar Saldırısı
+    ENTITY_SWEEP_ATTACK: Savurma Saldırısı
+    PROJECTILE: Mermi
+    SUFFOCATION: Sıkışma
+    FALL: Düşme
+    FIRE: Ateş
+    FIRE_TICK: Yanma
+    MELTING: Erime
+    LAVA: Lav
+    DROWNING: Boğulma
+    BLOCK_EXPLOSION: Blok Patlaması
+    ENTITY_EXPLOSION: Varlık Patlaması
+    VOID: Hiçlik
+    LIGHTNING: Yıldırım
+    SUICIDE: İntihar
+    STARVATION: Açlık
+    POISON: Zehir
+    MAGIC: Büyü
+    WITHER: Wither
+    FALLING_BLOCK: Düşen Blok
+    THORNS: Dikenler
+    DRAGON_BREATH: Ejderha Nefesi
+    CUSTOM: Özel
+    FLY_INTO_WALL: Duvara Yapışma
+    HOT_FLOOR: Sıcak Zemin
+    CRAMMING: Sıkışma
+    DRYOUT: Kuruma

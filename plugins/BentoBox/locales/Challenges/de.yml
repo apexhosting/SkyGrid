@@ -482,6 +482,7 @@ challenges:
       environment: 'Erforderliche Umgebungen:'
       required-entities: 'Erforderliche Einheiten:'
       required-blocks: 'Erforderliche Blöcke:'
+      rewards-title: '& a Belohnungen:'
     level-description:
       experience-reward: '&6Exp Belohnung: [value]'
       money-reward: '&6Geldbelohnung: $[value]'
@@ -611,6 +612,10 @@ challenges:
     not-valid-integer: |-
       &cDie Angabe der ganzen Zahl "[value]" ist nicht gültig!
       Der Wert sollte zwischen [min] und [max] liegen.
+    invalid-level: '& c Level [Level] enthält ungültige Daten. Es wird nicht aus der
+      Datenbank geladen!'
+    invalid-challenge: '& c Challenge [Challenge] enthält ungültige Daten. Sie wird
+      nicht aus der Datenbank geladen!'
 protection:
   flags:
     CHALLENGES_ISLAND_PROTECTION:
@@ -624,4 +629,4 @@ protection:
 version: 11
 meta:
   authors:
-  - xXjojoXx
+    '0': xXjojoXx

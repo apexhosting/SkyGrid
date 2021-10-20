@@ -221,6 +221,7 @@ commands:
       unowned:
         description: Dzēst bezīpašnieku salas - nepieciešams apstiprinājums
         unowned-islands: '&dAtrastas [number] salas'
+      days-one-or-more: Nevar būt mazāks par 1 dienu
     range:
       description: Admina salas distances komanda
       display:
