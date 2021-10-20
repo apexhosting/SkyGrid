@@ -92,6 +92,7 @@ commands:
       unowned:
         description: Vyčistit nevlastněné ostrovy - vyžaduje potvrzení
         unowned-islands: '&d Nalezeno [number] ostrovů'
+      days-one-or-more: Musí být alespoň 1 den nebo více
     team:
       add:
         parameters: <owner> <player>

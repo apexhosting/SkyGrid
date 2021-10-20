@@ -9,15 +9,7 @@ Exploits:
     PreventOverStackedItemInHoppers: true
     GroupStack: []
     RemoveItemsOfType: []
-  Enchants:
-    FixIllegalEnchants: false
-    AllowBypass: false
-    DestroyIllegallyEnchantedItemsInstead: false
-    OnlyFunctionInWorlds: []
-    EnchantedItemWhitelist: []
-    RemoveUnbreakableFlag: false
-    CustomEnchantOverride: []
-    RemoveCustomAttributes: false
+  Enchants: {}
   SignExploit:
     DestroyBadSignsOnChunkLoad: false
   PortalDupe:
@@ -38,23 +30,25 @@ Exploits:
     KillPlayersBelowNether: false
     NetherYLevel: 128
     BlockPlayersAboveNether: true
+    BlockBuildingAboveNether: true
+    EnsureSafeTeleportLocationIfAboveCeiling: true
   Fishing:
     KickForAutoClickerFishing: true
   Other:
     PreventBedrockDestruction: true
-    PreventItemSwapLagExploit: true
     PreventEndPortalDestruction: true
     DisableChestsOnMobs: true
-    PreventRailDupe: true
-    PreventInvalidElytraFlight: true
     PreventCommandsInBed: true
     PreventMinecartsInBoats: true
-    PreventNestedShulkers: true
     DisableRidingExploitableMobs: true
     PunishForChestsOnMobs: false
-    PreventInvalidPotions: true
     PreventHoppersToUnloadedChunks: true
     PreventBedExplosions: true
+    PreventInvalidElytraFlight: true
+    PreventNestedShulkers: true
+    PreventRailDupe: true
+    PreventInvalidPotions: true
+    PreventItemSwapLagExploit: true
   Teleport:
     PearlPhasing: true
   LavaDupe:
@@ -63,9 +57,9 @@ Exploits:
     BlockCMIShulkerStacking: true
   1_14_Exploits:
     Traders:
-      ZombieVillagerTransformChance: 65
+      ZombieVillagerTransformChance: 0
       BlockVillagerTradeCheesing: true
-      VillagerRestockTime: 10
+      VillagerRestockTime: 0
   BookExploit:
     DisableBookWriting: false
   RNGEnchant:
@@ -92,17 +86,18 @@ Exploits:
     AlsoPreventHeadInside:
     - COMPOSTER
   1_16_Exploits:
-    Dupes:
-      PreventPiglinDupe: true
+    Dupes: {}
+  NegativeDurability: true
+  RecordDupe: true
 UserRequested:
   Obscure:
     HopperCheck:
       IgnoreAllHopperChecks: false
     HackedShulker:
-      DestroyInvalidShulkers: false
       CheckGroundForBadShulkerAtLogin: false
-    BlockBadItemsFromCreativeTab: false
+      DestroyInvalidShulkers: false
     IgnoreAllShulkerPlaceChecks: false
+    BlockBadItemsFromCreativeTab: false
   ItemRemoval:
     NameLoreStrictMatchMode: false
     ItemNamesToRemove: []
@@ -119,6 +114,10 @@ UserRequested:
   Obsure:
     Misc:
       RemoveAllRenamedItems: false
+  NetherDamage:
+    DamageAmount: 0
+    DamagePlayersAboveNether: false
+    DamageDelay: 0
 Misc:
   InGameOffenseNotifications: true
   NotifyNearbyPlayers: false
@@ -130,7 +129,10 @@ Misc:
     PreventSpawnEggsOnSpawners: true
 Exploit:
   LagMachines:
-    ArmorStand: true
     End Crystal: true
+    ArmorStand: true
   Teleport:
     CorrectionNotify: false
+Temporary:
+  Enchants:
+    DeleteIllegalEnchantments: false

@@ -5,6 +5,8 @@ admin:
   level:
     parameters: <gracz>
     description: oblicza poziom wyspy
+    sethandicap:
+      parameters: <gracz> <uposledzenie>
   top:
     description: pokazuje Top 10 wysp
     unknown-world: '&cNieznany świat!'
@@ -12,6 +14,9 @@ admin:
     remove:
       description: usuwa gracza z Top 10
       parameters: <gracz>
+  levelstatus:
+    description: pokazuje ile wysp znajduje się w kolejce do skanowania
+    islands-in-queue: '&a Wyspy w kolejce: [number]'
 island:
   level:
     parameters: '[gracz]'
@@ -21,6 +26,11 @@ island:
     required-points-to-next-level: '&a[points] punktów do następnego poziomu'
     deaths: '&c([number] śmierci)'
     cooldown: '&cMusisz zaczekać &b[time] &csekund przed następnym obliczeniem poziomu'
+    estimated-wait: '&a Szacowany czas: [number] sekund'
+    in-queue: '&a Jestes numerem [number] w kolejce'
+    in-progress: '&6 Trwa obliczanie poziomu twojej wyspy...'
+    time-out: '&c Sprawdzanie poziomu twojej wyspy trwalo zbyt dlugo. Sprobuj ponownie
+      pozniej!'
   top:
     description: pokauje Top 10 wysp
     gui-title: '&aTop 10'
@@ -33,3 +43,12 @@ island:
     success-underwater: '&7Wartość tego bloku poniżej poziomu morza: &e[value]'
     empty-hand: '&cNie trzymasz żadnego bloku.'
     no-value: '&cTen przedmiot nie ma wartości :('
+  level-details:
+    above-sea-level-blocks: Bloki nad poziomem morza
+    spawners: Spawnery
+    underwater-blocks: Podwodne bloki
+    all-blocks: Wszystkie bloki
+    no-island: '&c Brak wyspy!'
+    names-island: Wyspa gracza [name]
+    syntax: '[name] x [number]'
+    hint: '&c Uruchom poziom, aby wyświetlić raport o blokach'

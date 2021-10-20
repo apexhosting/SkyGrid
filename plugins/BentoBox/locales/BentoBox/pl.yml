@@ -295,6 +295,7 @@ commands:
       unowned:
         description: Usuń niezamieszkane wyspy (wymaga potwierdzenia)
         unowned-islands: '&a Znaleziono [number] wysp'
+      days-one-or-more: Wartość to musi co najmniej jeden dzień.
     range:
       description: administracyjna komenda obszaru ochrony wysp
       display:

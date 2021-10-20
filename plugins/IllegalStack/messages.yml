@@ -157,3 +157,7 @@ CustomAttribsRemoved3: Removed ~item~ with Custom attributes found in ~name~'s i
 PlayerSpawnEggBlock: §cSorry you can not use spawn eggs to change spawner types!
 StaffMsgChangedSpawnerType: Player ~player~ used ~type~ to change a spawner type @
 StaffMsgBedExplosion: Prevented a bed from being used as an explosive @
+PluginTeleportText: §6Click to teleport here
+IllegalStackDurability: 'Fixed durability on: ~item~ triggered by player: ~name~.'
+StaffMsgDispenerFlint: Detected a downward facing dispenser from dispensing flint
+  and steel which would crash the server @
