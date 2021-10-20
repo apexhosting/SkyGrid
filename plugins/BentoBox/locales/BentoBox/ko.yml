@@ -93,6 +93,7 @@ commands:
         description: 청소 상태를 보여줍니다
         status: '&b [purged] &a 개의 섬이 청소됬으며 &b [purgeable]&a개의 섬이 청소 대기중입니다 &7(&b[percentage]
           %&7)&a.'
+      days-one-or-more: 1일 이상이어야합니다
     team:
       add:
         parameters: <주인> <닉네임>

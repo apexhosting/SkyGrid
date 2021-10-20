@@ -209,6 +209,15 @@ Spawners:
   PIGLIN_BRUTE:
     Max Stack Size: -1
     Display Name: Piglin brute
+  AXOLOTL:
+    Max Stack Size: -1
+    Display Name: Axolotl
+  GLOW_SQUID:
+    Max Stack Size: -1
+    Display Name: Glow squid
+  GOAT:
+    Max Stack Size: -1
+    Display Name: Goat
   PIG_ZOMBIE:
     Max Stack Size: -1
     Display Name: Pig zombie
