@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.1]
+
+### Changed
+- Added the Via suite of plugins for version support.
 
 ## [3.0]
 
@@ -80,6 +84,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Initial commit of pack to Github for version control
 
+[3.1]: https://github.com/apexhosting/SkyGrid/releases/tag/3.1
 [3.0]: https://github.com/apexhosting/SkyGrid/releases/tag/3.0
 [2.1]: https://github.com/apexhosting/SkyGrid/releases/tag/2.1
 [2.0]: https://github.com/apexhosting/SkyGrid/releases/tag/2.0
