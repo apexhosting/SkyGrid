@@ -1,4 +1,4 @@
-# 
+#
 # This is a YML file. Be careful when editing. Check your edits in a YAML checker like    #
 # the one at http://yaml-online-parser.appspot.com                                        #
 meta:
@@ -185,6 +185,7 @@ commands:
       purge-protected: Bu ada silinmelere karşı korunuyor.
       island-protection-center: 'Korumalı alan merkezi: [xyz]'
       island-center: 'Ada merkezi: [xyz]'
+      last-login-date-time-format: EEE MMM dd HH:mm:ss zzz yyyy
     switch:
       description: Koruma izinlerine açma/kapama
       op: '&cSen zaten tüm korumalardan izinlisin. Yetkini aldıktan sonra tekrar dene.'
@@ -438,6 +439,10 @@ commands:
       island-location-changed: '&a [user] adlı kullanıcı adanın koruma alanı merkezini
         [xyz] konumuna değiştirdi.'
       xyz-error: '&c Üç adet tam sayı koordinat girin: örn, 100 120 100'
+    deletehomes:
+      parameters: <oyuncu>
+      description: bir adadan tüm adlandırılmış evleri siler
+      warning: '&c Adlandırılmış tüm evler adadan silinecek!'
   bentobox:
     description: BentoBox admin komudu
     about:
@@ -1261,6 +1266,54 @@ protection:
       description: '&a Kovan hasatını değiştir.'
       name: Kovan hasatı
       hint: Hasat kapalı
+    CHEST:
+      name: Sandıklar ve minecart sandıkları
+      description: |-
+        &a Toggle interaction with chests
+        &a and chest minecarts.
+        &a (does not include trapped chests)
+      hint: Sandık erişimi devre dışı
+    BARREL:
+      name: Variller
+      description: Varil etkileşimini aç/kapat
+      hint: Varil erişimi devre dışı bırakıldı
+    BLOCK_EXPLODE_DAMAGE:
+      description: |-
+        &a Allow Bed & Respawn Anchors
+        &a to break blocks and damage
+        &a entities.
+      name: Patlama hasarını engelle
+    COMPOSTER:
+      name: Kompostolar
+      description: Komposter etkileşimini aç/kapat
+      hint: Komposto etkileşimi devre dışı bırakıldı
+    FLOWER_POT:
+      name: Çiçek saksıları
+      description: Saksı etkileşimini aç/kapat
+      hint: Saksı etkileşimi devre dışı bırakıldı
+    SHULKER_BOX:
+      name: Shulker kutuları
+      description: Shulker kutusu etkileşimini aç/kapat
+      hint: Shulker kutusu erişimi devre dışı bırakıldı
+    TRAPPED_CHEST:
+      name: Kapana kısılmış sandıklar
+      description: Sıkışmış göğüs etkileşimini aç/kapat
+      hint: Kapana kısılmış sandık erişimi devre dışı
+    VISITOR_KEEP_INVENTORY:
+      name: Ziyaretçiler ölümle ilgili envanter tutuyor
+      description: |-
+        &a Prevent players from losing their
+        &a items and experience if they die on
+        &a an island in which they are a visitor.
+        &a
+        &a Island members still lose their items
+        &a if they die on their own island!
+    WORLD_BLOCK_EXPLODE_DAMAGE:
+      description: |-
+        &a Allow Bed & Respawn Anchors
+        &a to break blocks and damage
+        &a entities outside of island limits.
+      name: Dünya bloğu patlama hasarı
   locked: '&4Bu ada kilitli!'
   protected: '&4Ada korunuyor: [description]'
   spawn-protected: '&4Spawn koruması: [description]'
@@ -1404,6 +1457,9 @@ catalog:
 
         &aBentoBox'un konfigürasyondaki GitHub'a
         &abağlanmasına izin verin veya daha sonra tekrar deneyin.
+
+
+
 
 successfully-loaded: |2
 

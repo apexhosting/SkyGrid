@@ -9,6 +9,9 @@ catalog:
         &aAtļauj BentoBox savienoties ar GitHub
         &auzstādījumos vai arī mēģini vēlāk.
 
+
+
+      
       name: '&bŠis izskatās tukšs...'
     GAMEMODES:
       title: Spēles Režīmu Katalogs
@@ -774,6 +777,9 @@ management:
             &cDīvaina uzvedība un kļūdas ir sagaidāmas un
             &clielākā daļa funkcionalitātes ir nestabilas.
 
+
+
+          
           NOT_SUPPORTED: |
             &aPalaista &e[name] [version]&a.
 

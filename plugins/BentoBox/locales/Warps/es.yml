@@ -1,4 +1,4 @@
-# 
+#
 # Este es un archivo YML. Tenga cuidado al editar. Revisa tus ediciones en un verificador de YAML como    #
 # el de http://yaml-online-parser.appspot.com                                                             #
 warp:
@@ -26,3 +26,4 @@ warps:
   title: Carteles de Warps
   warpTip: '&6Coloca un cartel con este texto [text] arriba'
   warpToPlayersSign: '&6Teletransportandote al warp de [player]'
+  random: '&4Teletransporte aleatorio'

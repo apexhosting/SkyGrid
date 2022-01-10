@@ -1,4 +1,5 @@
 # Default values are perfect for most servers.  If you want to customize and have a question, look for the answer here first: http://dev.bukkit.org/bukkit-plugins/grief-prevention/pages/setup-and-configuration/
+
 GriefPrevention:
   SeaLevelOverrides:
     skygrid-world: -1
@@ -28,6 +29,7 @@ GriefPrevention:
     AccruedIdlePercent: 0
     AbandonReturnRatio: 1.0
     AutomaticNewPlayerClaimsRadius: 4
+    AutomaticNewPlayerClaimsRadiusMinimum: 0
     ExtendIntoGroundDistance: 5
     MinimumWidth: 5
     MinimumArea: 100
@@ -98,8 +100,8 @@ GriefPrevention:
   BlockSurfaceOtherExplosions: true
   LimitSkyTrees: true
   LimitTreeGrowth: false
-  CheckPistonMovement: true
-  LimitPistonsToLandClaims: true
+  PistonMovement: CLAIMS_ONLY
+  PistonExplosionSound: true
   FireSpreads: false
   FireDestroys: false
   AdminsGetWhispers: true

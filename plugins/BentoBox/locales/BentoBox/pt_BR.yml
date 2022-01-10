@@ -1,4 +1,4 @@
-# 
+#
 # This is a YML file. Be careful when editing. Check your edits in a YAML checker like    #
 # the one at http://yaml-online-parser.appspot.com                                        #
 meta:
@@ -1407,6 +1407,9 @@ management:
             &c Compartamento estranho e erros podem ocorrer
             &c e a maior parte das funcionalidades podem ficar instáveis.
 
+
+
+
 catalog:
   panel:
     GAMEMODES:
@@ -1443,6 +1446,9 @@ catalog:
         &a Permita que BentoBox se conecte ao GitHub na
         &a configuração ou tente novamente mais tarde.
 
+
+
+
 panel:
   credits:
     title: '&2 Créditos de &8 [name]'
@@ -1458,6 +1464,9 @@ panel:
 
         &a Permita que BentoBox se conecte ao GitHub na
         &a configuração ou tente novamente mais tarde.
+
+
+
 
 successfully-loaded: |2
 

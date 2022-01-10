@@ -444,6 +444,7 @@ commands:
       island-location-changed: '&a [user] heeft het beschermingscentrum van het eiland
         gewijzigd in [xyz].'
       xyz-error: '&c Specificeer drie integer-coördinaten: bijvoorbeeld 100120100'
+    deletehomes: {}
   bentobox:
     description: BentoBox admin-opdracht
     about:
@@ -1334,6 +1335,15 @@ protection:
       description: '&a Toggle bijenkorf oogsten.'
       name: Bijenkorf oogsten
       hint: Oogsten uitgeschakeld
+    CHEST: {}
+    BARREL: {}
+    BLOCK_EXPLODE_DAMAGE: {}
+    COMPOSTER: {}
+    FLOWER_POT: {}
+    SHULKER_BOX: {}
+    TRAPPED_CHEST: {}
+    VISITOR_KEEP_INVENTORY: {}
+    WORLD_BLOCK_EXPLODE_DAMAGE: {}
   locked: '&c Dit eiland is op slot!'
   protected: '&c Eiland beschermd: [omschrijving].'
   world-protected: '&c Wereld beschermd: [omschrijving].'
@@ -1485,6 +1495,9 @@ management:
             &c Er kunnen raar gedrag en bugs optreden
             &c en de meeste functies zijn mogelijk instabiel.
 
+
+
+
 catalog:
   panel:
     GAMEMODES:
@@ -1521,6 +1534,9 @@ catalog:
         &a Sta BentoBox toe om verbinding te maken met GitHub in
         &a de configuratie of probeer het later opnieuw.
 
+
+
+
 panel:
   credits:
     title: '&8 [name] &2 credits'
@@ -1536,6 +1552,9 @@ panel:
 
         &a Sta BentoBox toe om verbinding te maken met GitHub in
         &a de configuratie of probeer het later opnieuw.
+
+
+
 
 successfully-loaded: |2
 

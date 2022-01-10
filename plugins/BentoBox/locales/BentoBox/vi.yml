@@ -1,4 +1,4 @@
-# 
+#
 # Đây là 1 file YML, hãy cẩn thận khi chỉnh sửa, nên dùng trang web dể kiểm tra n         #
 # cái này http://yaml-online-parser.appspot.com                                           #
 meta:
@@ -230,6 +230,9 @@ commands:
       banned-players: 'Người chơi bị cấm:'
       banned-format: '&c [name]'
       unowned: '&c Không có chủ'
+      last-login-date-time-format: EEE MMM dd HH:mm:ss zzz yyyy
+      island-protection-center: 'Điểm giữa khu vực bảo vệ: [xyz]'
+      island-center: 'Điểm trung tâm đảo: [xyz]'
     switch:
       description: switch on/off protection bypass
       op: '&c Ops can always bypass protection. Deop to use command.'
@@ -284,6 +287,7 @@ commands:
     settings:
       parameters: '[player]'
       description: open system settings or island settings for player
+      unknown-setting: '&c Tuỳ chỉnh không tồn tại'
     blueprint:
       parameters: <load/copy/paste/pos1/pos2/save>
       description: manipulate blueprints
@@ -420,6 +424,19 @@ commands:
         parameters: <player> <deaths>
         success: '&a Successfully removed &b [number] &a deaths to &b [name], decreasing
           the total to &b [total]&a  deaths.'
+    setprotectionlocation:
+      parameters: '[toạ độ x y z]'
+      description: đặt vị trí hiện tại hoặc [x y z] là điểm giữa khu vực bảo vệ
+      island: '&c Nó sẽ ảnh hưởng đến đảo [xyz] đứng tên của ''[name]''.'
+      confirmation: '&c Bạn có chắc là đặt [xyz] thành điểm giữa khu vực bảo vệ?'
+      success: '&a Đặt thành công [xyz] thành điểm giữa bảo vệ.'
+      fail: '&a Đặt thất bại [xyz] thành điểm giữa bảo vệ.'
+      island-location-changed: '&a [user] đổi điểm giữa bảo vệ thành [xyz].'
+      xyz-error: '&c Xác định 3 toạ độ: ví dụ 100 120 100'
+    deletehomes:
+      parameters: <người chơi>
+      description: xoá toàn bộ nhà trong đảo
+      warning: '&c Tất cả nhà sẽ bị xoá khỏi đảo!'
   island:
     about:
       description: hiện thông tin về BentoBox
@@ -428,6 +445,7 @@ commands:
       description: dịch chuyển tới đảo
       teleport: '&aĐang dịch chuyển. &b/[label] help &ađể được giúp đỡ.'
       teleported: '&aĐã dịch chuyển bạn tới khu vực nhà số &e#[number].'
+      unknown-home: '&c Tên nhà không tồn tại!'
     help:
       description: Các lệnh chính
     spawn:
@@ -479,6 +497,9 @@ commands:
       the-end:
         not-allowed: '&c Bạn không được phép chọn điểm nhà ở Thế Giới Địa Ngục.'
         confirmation: '&c Bạn có chắc muốn chọn điểm nhà ở Thế Giới Địa Ngục?'
+      too-many-homes: '&c Không thể đặt - Đảo của bạn đã đạt tối đa [number] nhà.'
+      homes-are: '&6 Nhà trong đảo:'
+      home-list-syntax: '&6 [tên]'
     setname:
       description: đặt tên đảo
       name-too-short: '&cQuá ngắn. Giới hạn thấp nhất là [length] kí tự.'
@@ -667,6 +688,16 @@ commands:
       not-on-island: '&c Người chơi đó không có ở đảo bạn!'
       player-expelled-you: '&b [name]&c  đã trục xuất bạn khỏi đảo của họ!'
       success: '&a Bạn đã trục xuất &b [name] &a khỏi đảo bạn.'
+    deletehome:
+      description: xoá điểm nhà
+      parameters: '[tên nhà]'
+    homes:
+      description: liệt kê nhà của bạn
+    renamehome:
+      description: đổi tên điểm nhà
+      parameters: '[tên nhà]'
+      enter-new-name: '&6 Nhập tên mới'
+      already-exists: '&c Tên đã tồn tại, thử tên khác.'
   bentobox:
     description: Lệnh cho BentoBox
     about:
@@ -859,7 +890,13 @@ protection:
       name: Cưỡi thú
       hint: Đã tắt cưỡi thú
     MUSIC: MUSIC
-    CHEST: CHEST
+    CHEST:
+      name: Rương và xe rương
+      description: |-
+        &a Bật/Tắt tương tác với rương
+        &a và xe rương.
+        &a (không tính rương bẫy)
+      hint: Tương tác rương đã tắt
     PLACE_BLOCKS:
       description: Bật/Tắt đặt khối
       name: Đặt khối
@@ -1276,6 +1313,53 @@ protection:
         &a phá khối gây sát thương lên khối và thực thể
         &a ở ngoài đảo.
       name: Sát thường từ TNT ngoài đảo
+    BARREL:
+      name: Thùng
+      description: Bật/Tắt tương tác với thùng
+      hint: Tương tác với thùng đã tắt
+    BLOCK_EXPLODE_DAMAGE:
+      description: |-
+        &a Cho phép Giường & Điểm Hồi Sinh
+        &a nổ khối và gây sát thương
+        &a cho các thực thể.
+      name: Nổ từ Khối
+    COMPOSTER:
+      name: Thùng ủ phân
+      description: Bật/Tắt tương tác với thùng ủ phân
+      hint: Tương tác với thùng ủ phân đã tắt
+    FLOWER_POT:
+      name: Chậu hoa
+      description: Bật/Tắt tương tác với chậu hoa
+      hint: Tương tác với chậu hoa đã tắt
+    SHULKER_BOX:
+      name: Hộp Shulker
+      description: Bật/Tắt tương tác với hộp shulker
+      hint: Tương tác với hộp shulker đã tắt
+    TRAPPED_CHEST:
+      name: Rương bẫy
+      description: Bật/Tắt tương tác với rương bẫy
+      hint: Tương tác với rương bẫy đã tắt
+    PETS_STAY_AT_HOME:
+      description: |-
+        &a Khi bật, thú đã thuần hoá
+        &a chỉ có thể vào và
+        &a không thể rời đảo của chủ.
+      name: Thú Ở Nhà
+    VISITOR_KEEP_INVENTORY:
+      name: Khách giữ đồ khi chết
+      description: |-
+        &a Bảo vệ người chơi khỏi bị
+        &a mất đồ và kinh nghiệm khi
+        &a chết ở đảo khách
+        &a
+        &a Thành viên đảo vẫn mất đồ
+        &a nếu họ chết ở đảo của họ!
+    WORLD_BLOCK_EXPLODE_DAMAGE:
+      description: |-
+        &a Cho phép Giường & Điểm Hồi Sinh
+        &a nổ khối và gây sát thương cho
+        &a thực thể ngoài giới hạn đảo.
+      name: Nổ bởi Khối ở Thế giới
   panel:
     title: Island flags
     flag-item:
@@ -1426,6 +1510,9 @@ management:
             &c Hành vi kỳ lạ và lỗi có thể xảy ra
             &c và phần lớn tính năng sẽ không ổn định.
 
+
+
+
 catalog:
   panel:
     GAMEMODES:
@@ -1462,6 +1549,9 @@ catalog:
         &a Cho phép BentoBox kết nối GitHub trong
         &a tệp tùy chỉnh và thử lại sau.
 
+
+
+
 panel:
   credits:
     title: '&8 [name] &2 Đống góp'
@@ -1478,6 +1568,9 @@ panel:
         &a Cho phép BentoBox kết nối GitHub trong
         &a tệp tùy chỉnh và thử lại sau.
 
+
+
+
 successfully-loaded: |2
 
   &6   ____             _        ____
@@ -1486,3 +1579,33 @@ successfully-loaded: |2
   &6  |  _ < / _ \ '_ \| __/ _ \|  _ < / _ \ \/ /
   &6  | |_) |  __/ | | | || (_) | |_) | (_) >  <   &b v&e [version]
   &6  |____/ \___|_| |_|\__\___/|____/ \___/_/\_\  &8 Loaded in &e [time]&8 ms.
+enums:
+  DamageCause:
+    CONTACT: Tiếp Xúc
+    ENTITY_ATTACK: Tấn Công Bởi Quái
+    ENTITY_SWEEP_ATTACK: Đánh Quét
+    PROJECTILE: Vật Thể Bay
+    SUFFOCATION: Ngợp Thở
+    FALL: Rơi
+    FIRE: Lửa
+    FIRE_TICK: Cháy
+    MELTING: Tan Chảy
+    LAVA: Dung Nham
+    DROWNING: Chìm
+    BLOCK_EXPLOSION: Nổ Bởi Khối
+    ENTITY_EXPLOSION: Nổ Bởi Thực Thể
+    VOID: Hư Vô
+    LIGHTNING: Sét Đánh
+    SUICIDE: Tự Tử
+    STARVATION: Đói
+    POISON: Độc
+    MAGIC: Phép Thuật
+    WITHER: Khô Héo
+    FALLING_BLOCK: Khối Đang Rơi
+    THORNS: Bật Lại
+    DRAGON_BREATH: Hơi Thở Của Rồng
+    CUSTOM: Khác
+    FLY_INTO_WALL: Bay Vào Tường
+    HOT_FLOOR: Sàn Nóng
+    CRAMMING: Nhồi Nhét
+    DRYOUT: Khô

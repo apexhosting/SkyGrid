@@ -1,4 +1,4 @@
-# SkyGrid Configuration 1.17.0
+# SkyGrid Configuration 1.18.0-SNAPSHOT-b395
 # 
 skygrid:
   command:
@@ -47,8 +47,8 @@ world:
     BOOKSHELF: 10
     PINK_TULIP: 8
     STRIPPED_ACACIA_LOG: 1
-    OAK_WOOD: 19
     JUNGLE_SAPLING: 19
+    OAK_WOOD: 19
     WHITE_TULIP: 2
     CACTUS: 6
     SPRUCE_WOOD: 9
@@ -61,8 +61,8 @@ world:
     CHEST: 5
     STRIPPED_BIRCH_WOOD: 1
     SPRUCE_LOG: 3
-    STRIPPED_DARK_OAK_WOOD: 1
     RED_MUSHROOM: 8
+    STRIPPED_DARK_OAK_WOOD: 1
     SPRUCE_SAPLING: 2
     REDSTONE_ORE: 2
     TALL_GRASS: 13
@@ -88,34 +88,34 @@ world:
     PODZOL: 4
     ACACIA_LEAVES: 8
     GRASS: 100
-    STRIPPED_SPRUCE_WOOD: 1
     LARGE_FERN: 8
+    STRIPPED_SPRUCE_WOOD: 1
     FIRE_CORAL_BLOCK: 1
-    SAND: 50
     GRANITE: 50
+    SAND: 50
     SUGAR_CANE: 4
     JUNGLE_LEAVES: 10
     JUNGLE_WOOD: 20
     BONE_BLOCK: 1
     RED_TULIP: 3
     SPAWNER: 5
-    MOSSY_COBBLESTONE: 1
     JUNGLE_LOG: 17
+    MOSSY_COBBLESTONE: 1
     PRISMARINE: 3
     DANDELION: 16
     ALLIUM: 12
     ACACIA_WOOD: 16
-    OAK_SAPLING: 11
     PEONY: 7
-    LAVA: 5
+    OAK_SAPLING: 11
     STRIPPED_DARK_OAK_LOG: 1
+    LAVA: 5
     OBSIDIAN: 1
     AZURE_BLUET: 1
     OXEYE_DAISY: 6
     DARK_OAK_LEAVES: 9
     GRAVEL: 20
-    MELON: 15
     SEA_LANTERN: 1
+    MELON: 15
     COBWEB: 7
     COARSE_DIRT: 17
     LAPIS_ORE: 6
@@ -134,8 +134,8 @@ world:
     SPRUCE_LEAVES: 9
     SPONGE: 1
     SNOW_BLOCK: 1
-    ORANGE_TULIP: 10
     BIRCH_LEAVES: 9
+    ORANGE_TULIP: 10
     ANDESITE: 90
     STONE: 180
     ROSE_BUSH: 8
@@ -151,8 +151,8 @@ world:
       NETHER_QUARTZ_ORE: 15
       MAGMA_BLOCK: 1
       NETHER_WART_BLOCK: 12
-      GRAVEL: 10
       SPAWNER: 2
+      GRAVEL: 10
       CHEST: 15
       NETHER_WART: 19
       NETHERRACK: 200
@@ -171,8 +171,8 @@ world:
     blocks:
       CHEST: 5
       END_ROD: 1
-      OBSIDIAN: 1
       CHORUS_PLANT: 2
+      OBSIDIAN: 1
       END_STONE: 200
       GRAVEL: 10
       SPAWNER: 5
@@ -181,8 +181,6 @@ world:
     # when player enters the end world.
     # Added since 1.16.
     create-obsidian-platform: false
-  # Biomes - this will affect some block types and tree types.
-  create-biomes: true
   # The probability of a frame being created in a chunk. Frames are always at y=0.
   end-frame-probability: 0.05
   # Friendly name for this world. Used in admin commands. Must be a single word
@@ -218,8 +216,8 @@ world:
   # Mob white list - these mobs will NOT be removed when logging in or doing /island
   remove-mobs-whitelist:
   - 'null'
-  - WITHER
   - ZOMBIE_VILLAGER
+  - WITHER
   - GUARDIAN
   # World flags. These are boolean settings for various flags for this world
   flags:
@@ -227,6 +225,7 @@ world:
     ISLAND_RESPAWN: true
     CREEPER_GRIEFING: false
     LOCK: true
+    PETS_STAY_AT_HOME: true
     NATURAL_SPAWNING_OUTSIDE_RANGE: true
     ANVIL: true
     TRAPPED_CHEST: true
@@ -238,6 +237,7 @@ world:
     LEVER: true
     CAKE: true
     HURT_MONSTERS: true
+    MAGIC_SUMMON_ENABLE_FLAG: true
     CLEAN_SUPER_FLAT: true
     TRADING: true
     EGGS: true
@@ -249,6 +249,7 @@ world:
     OBSIDIAN_SCOOPING: true
     TNT_PRIMING: true
     COLLECT_WATER: true
+    WORLD_BLOCK_EXPLODE_DAMAGE: false
     BUTTON: true
     COMPOSTER: true
     COMMAND_RANKS: true
@@ -268,6 +269,7 @@ world:
     EXPERIENCE_PICKUP: true
     PREVENT_TELEPORT_WHEN_FALLING: false
     HOPPER: true
+    WORLD_TNT_DAMAGE: false
     LEASH: true
     BREAK_BLOCKS: true
     MOUNT_INVENTORY: true
@@ -335,22 +337,22 @@ world:
     DOOR: 500
     BREAK_HOPPERS: 500
     FURNACE: 500
-    MINECART: 500
     ANVIL: 500
+    MINECART: 500
     FISH_SCOOPING: 500
     TRAPPED_CHEST: 500
     END_PORTAL: 500
     BREEDING: 500
     HURT_VILLAGERS: 500
-    TURTLE_EGGS: 500
     FROST_WALKER: 500
+    TURTLE_EGGS: 500
     COLLECT_LAVA: 500
     BREAK_SPAWNERS: 500
     LEVER: 500
     ELYTRA: 0
-    CAKE: 500
     RIDING: 500
     HURT_MONSTERS: 500
+    CAKE: 500
     ARMOR_STAND: 500
     NAME_TAG: 500
     TRADING: 500
@@ -374,15 +376,15 @@ world:
     COMMAND_RANKS: 500
     BEACON: 500
     TRAPDOOR: 500
-    PRESSURE_PLATE: 500
     EXPERIENCE_BOTTLE_THROWING: 500
+    PRESSURE_PLATE: 500
     HIVE: 500
     DYE: 500
     ITEM_FRAME: 500
     PLACE_BLOCKS: 500
     CRAFTING: 500
-    SHEARING: 500
     ENCHANTING: 500
+    SHEARING: 500
     FLOWER_POT: 500
     BOAT: 500
     SPAWN_EGGS: 500
@@ -405,15 +407,16 @@ world:
     PVP_END: false
     PVP_NETHER: false
     LEAF_DECAY: true
-    TNT_DAMAGE: true
-    MONSTER_SPAWNERS_SPAWN: true
     ANIMAL_NATURAL_SPAWN: true
     MONSTER_NATURAL_SPAWN: true
-    FIRE_IGNITE: true
     FIRE_SPREAD: true
-    ANIMAL_SPAWNERS_SPAWN: true
     FIRE_BURNING: true
     PVP_OVERWORLD: false
+    MONSTER_SPAWNERS_SPAWN: true
+    TNT_DAMAGE: true
+    FIRE_IGNITE: true
+    BLOCK_EXPLODE_DAMAGE: true
+    ANIMAL_SPAWNERS_SPAWN: true
   # These settings/flags are hidden from users
   # Ops can toggle hiding in-game using SHIFT-LEFT-CLICK on flags in settings
   hidden-flags: []

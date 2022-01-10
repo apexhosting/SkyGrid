@@ -1344,6 +1344,9 @@ catalog:
 
         &a BentoBox가 구성에서 GitHub에 연결하도록 허용하거나 나중에 다시 시도하십시오.
 
+
+
+
 panel:
   credits:
     title: '&8 [name] &2 제작자들'

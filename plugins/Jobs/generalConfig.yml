@@ -11,7 +11,7 @@ locale-language: en
 storage:
   # storage method, can be MySQL or sqlite
   method: sqlite
-# Requires Mysql.
+# Requires Mysql
 mysql:
   username: root
   password: ''
@@ -21,6 +21,8 @@ mysql:
   verify-server-certificate: false
   use-ssl: false
   auto-reconnect: true
+  characterEncoding: utf8
+  encoding: UTF-8
 # How often in minutes you want it to save. This must be a non-zero number
 save-period: 10
 # Should player data be saved on disconnect?
@@ -38,6 +40,8 @@ Optimizations:
   # When set to true staff will be informed about new Jobs plugin version
   # You need to have jobs.versioncheck permission node
   NewVersion: true
+  # Can be used to check if your database contains any duplicated user entries.
+  InformDuplicates: false
   DecimalPlaces:
     # Decimal places to be shown
     Money: 2
@@ -69,6 +73,9 @@ Optimizations:
   # When set to true players who gets negative experience can delevel job up to level 1
   # ATTENTION! Set it to true only if you certain that commands performed on level up will not cause issues if player start level and delevel in a row.
   AllowDelevel: false
+  # Enabling this option some places will indicate players level as XIV instead of 14
+  # Only or player levels
+  RomanNumbers: false
   DisabledWorlds:
     # By setting this to true, Jobs plugin will be disabled in given worlds
     # Only commands can be performed from disabled worlds with jobs.disabledworld.commands permission node
@@ -140,9 +147,14 @@ disablePaymentIfRiding: false
 add-xp-player: false
 # Do the jobs boost ignore the boosted items usage in off hand?
 enable-boosted-items-in-offhand: true
-# Do you want to prevent crop resizing payment when placing more cactus?
-# This option is only related to: sugar_cane, cactus, kelp, bamboo
-prevent-crop-resize-payment: false
+# Do the jobs boost ignore the boosted items usage in main hand?
+enable-boosted-items-in-mainhand: true
+# Do the jobs boost ignore the boosted items usage in armor slots?
+enable-boosted-armor-items: true
+# When enabled we will try to pay player for blocks above broken ones. This only applies to sugarcane, bamboo and kelp
+pay-for-above: false
+# Allows to pay for stacked entities for each one. Requires StackMob or WildStacker.
+pay-for-stacked-entities: false
 # Allows, when losing maximum durability of item then it does not pay the player until it is repaired.
 # E.g. the player wants to enchant a item with enchanting table and the item has durability loss then not paying.
 allow-pay-for-durability-loss:
@@ -193,13 +205,25 @@ Economy:
   # When this left at false penalty for action will remain unchanged
   ApplyToNegativeIncome: false
   MinimumOveralPayment:
-    # Determines minimum payment. In example if player uses McMMO treefeller and earns only 20%, but at same time he gets 25% penalty from dynamic payment. He can 'get' negative amount of money
+    # Determines minimum payment.
+    # In example if player uses McMMO treefeller and earns only 20%, but at same time player gets 25% penalty from dynamic payment.
+    # The player can 'get' negative amount of money
     # This will limit it to particular percentage
     # Works only when original payment is above 0
     use: true
     limit: 0.1
   MinimumOveralPoints:
-    # Determines minimum payment. In example if player uses McMMO treefeller and earns only 20%, but at same time he gets 25% penalty from dynamic payment. He can 'get' negative amount of money
+    # Determines minimum payment for points.
+    # In example if player uses McMMO treefeller and earns only 20%, but at same time player gets 25% penalty from dynamic payment.
+    # The player can 'get' negative amount of points
+    # This will limit it to particular percentage
+    # Works only when original payment is above 0
+    use: true
+    limit: 0.1
+  MinimumOveralExp:
+    # Determines minimum payment for experience.
+    # In example if player uses McMMO treefeller and earns only 20%, but at same time player gets 25% penalty from dynamic payment.
+    # The player can 'get' negative amount of experience
     # This will limit it to particular percentage
     # Works only when original payment is above 0
     use: true
@@ -233,7 +257,7 @@ Economy:
     use: false
     # Username should be with Correct capitalization, it can be same as setup in server account before
     AccountName: Server
-    # Amount in percentage
+    # Amount in percentage. You can grant money and points permissions (jobs.tax.money.amount, jobs.tax.points.amount) for taxes.
     Amount: 15.0
     # Do you want to transfer taxes to server account?
     TransferToServerAccount: true
@@ -305,12 +329,17 @@ Economy:
   Enchant:
     # Do you want to give money for enchanting items in anvil?
     PayForEnchantingOnAnvil: false
+    # Do you want to allow players to enchant their boosted items?
+    AllowEnchantingBoostedItems: true
   Crafting:
     # With this true, player will get money for all crafted items instead of each crafting action (like with old payment mechanic)
     # By default its false, as you can make ALOT of money if prices kept from old payment mechanics
     PayForEachCraft: false
     # true - if players tries to combine (repair) 2 same items, like armor or weapon do they get income for it?
     PayForCombiningItems: true
+  VTrade:
+    # With this true, player will get money for all trade items instead of each trade action
+    payForEachTradeItem: false
   MilkingCow:
     # With this true, when timer is still going, cow milking event will be canceled
     # With this false, player will get bucket of milk, but still no payment
@@ -341,21 +370,24 @@ ExploitProtections:
     # This can be overridden with jobs.maxbrewingstands.[amount] permission node
     MaxDefaultAvailable: 20
   General:
-    # Enable blocks protection, like ore, from exploiting by placing and destroying same block again and again.
-    # Modify restrictedBlocks.yml for blocks you want to protect
-    PlaceAndBreakProtection: true
-    # For how long in days to keep block protection data in data base
-    # This will clean block data which ones have -1 as cooldown value
-    # Data base cleanup will be performed on each server startup
-    # This cant be more then 14 days
-    KeepDataFor: 14
-    # All blocks will be protected X sec after player places it on ground.
-    GlobalBlockTimer:
-      use: true
-      timer: 3
-    # Enable silk touch protection.
-    # With this enabled players wont get paid for broken blocks from restrictedblocks list with silk touch tool.
-    SilkTouchProtection: false
+    PlaceAndBreak:
+      # Enable blocks protection, like ore, from exploiting by placing and destroying same block again and again.
+      # Modify restrictedBlocks.yml for blocks you want to protect
+      Enabled: true
+      # Enabling this we will ignore blocks generated in ore generators, liko stone, coublestone and obsidian. You can still use timer on player placed obsidian block
+      IgnoreOreGenerators: true
+      # For how long in days to keep block protection data in data base
+      # This will clean block data which ones have -1 as cooldown value
+      # Data base cleanup will be performed on each server startup
+      # This cant be more then 14 days
+      KeepDataFor: 14
+      # All blocks will be protected X sec after player places it on ground.
+      GlobalBlockTimer:
+        Use: true
+        Timer: 3
+      # Enable silk touch protection.
+      # With this enabled players wont get paid for broken blocks from restrictedblocks list with silk touch tool.
+      SilkTouchProtection: false
     MonsterDamage:
       # This section controls how much damage player should do to monster for player to get paid
       # This prevents from killing monsters in one hit when they suffer in example fall damage
@@ -376,12 +408,6 @@ ExploitProtections:
   # Disable if you having issues with it or using old version
   MythicMobs:
     enabled: true
-  Spawner:
-    # Prevent slime splitting when they are from spawner
-    # Protects agains exploiting as new splited slimes is treated as naturally spawned and not from spawner
-    PreventSlimeSplit: true
-    # Prevent magmacube splitting when they are from spawner
-    PreventMagmaCubeSplit: true
   Smelt:
     # Prevent payments when hoppers moving items into furnace
     # Player will not get paid, but items will be smelted
@@ -403,7 +429,10 @@ old-job:
 ActionBars:
   Messages:
     # When this set to true player will see action bar messages by default
+    # When false, players will see chat messages instead.
     EnabledByDefault: true
+    # If true, should we mute the payment messages from appearing in chat if actionbar is disabled?
+    SilentMode: false
 BossBar:
   # Enables BossBar feature
   # Works only from 1.9 mc version
@@ -431,7 +460,6 @@ ShowChatMessage:
   OnTitleChange: true
   OnLevelChange: true
   OnEmptyServerAccount: true
-# Sounds
 # Extra sounds on some events
 # All sounds can be found in https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
 Sounds:
@@ -454,7 +482,7 @@ Fireworks:
     Random: true
     flicker: true
     trail: true
-    # Firework types
+    # Firework type
     # All types can be found in https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/FireworkEffect.Type.html
     type: STAR
     colors:
@@ -463,7 +491,7 @@ Fireworks:
     - 0,0,104
     power: 1
     # Fire shooting time in ticks.
-    # Example: 20 tick = 1 second
+    # 20 tick = 1 second
     ShootTime: 20
 # You can disable this to save SMALL amount of server resources
 Signs:
@@ -499,6 +527,8 @@ JobsGUI:
   DisableJoiningJobThroughGui: false
   # Do you want to show the action names in GUI?
   ShowActionNames: true
+  # Do we hide all item attributes in GUI?
+  HideItemAttributes: true
   # Defines size in rows of GUI
   Rows: 5
   # Defines back button slot in GUI
@@ -518,8 +548,6 @@ JobsGUI:
   Filler:
     Material: GREEN_STAINED_GLASS_PANE
 Commands:
-  # Do you want to filter the hidden player names from tab-complete?
-  FilterHiddenPlayersInTabComplete: false
   PageRow:
     JobsTop:
       # Defines amount of players to be shown in one page for /jobs top & /jobs gtop
@@ -539,3 +567,9 @@ Commands:
   JobsInfo:
     # Open up the jobs browse action list, when your performed /jobs info command?
     open-browse: false
+BlockOwnership:
+  # Set to 0 or lower if you want to disable this. Setting to positive number will mean that player needs to be in this range from owner block to get paid
+  Range: 0
+  # When enabled by interacting with furncae ownership will get transfered to new player
+  # If set to false then furnace will belong to player who interacted with it first until its ownership is removed
+  TakeOver: false

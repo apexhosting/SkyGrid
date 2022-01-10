@@ -8,6 +8,9 @@ catalog:
         &aPermitir que BentoBox se conecte a GitHub en
         &aLa configuración o vuelva a intentarlo más tarde.
 
+
+
+      
       name: '&bEsto se ve vacío aquí...'
     GAMEMODES:
       title: Catalogo de Modo de juegos
@@ -1466,6 +1469,9 @@ panel:
 
         &aPermitir que BentoBox se conecte a GitHub en
         &a la configuración o intente nuevamente más tarde.
+
+
+
 
 prefixes:
   bentobox: '&6 BentoBox &7 &l > &r '

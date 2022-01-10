@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.2]
+
+### Changed
+- Updated to 1.18.1
+- Added Bank system
+- Aded extra mobs system
+- Replaced Cobblegen System
+- Added chat system
+- Added Biomes system 
+- Added Controlpanel GUI
+- Added Warps System
+
 ## [3.1]
 
 ### Changed
@@ -84,6 +96,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Initial commit of pack to Github for version control
 
+[3.2]: https://github.com/apexhosting/SkyGrid/releases/tag/3.2
 [3.1]: https://github.com/apexhosting/SkyGrid/releases/tag/3.1
 [3.0]: https://github.com/apexhosting/SkyGrid/releases/tag/3.0
 [2.1]: https://github.com/apexhosting/SkyGrid/releases/tag/2.1

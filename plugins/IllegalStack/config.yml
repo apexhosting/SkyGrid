@@ -9,7 +9,15 @@ Exploits:
     PreventOverStackedItemInHoppers: true
     GroupStack: []
     RemoveItemsOfType: []
-  Enchants: {}
+  Enchants:
+    RemoveUnbreakableFlag: false
+    FixIllegalEnchants: false
+    RemoveCustomAttributes: false
+    CustomEnchantOverride: []
+    EnchantedItemWhitelist: []
+    OnlyFunctionInWorlds: []
+    DestroyIllegallyEnchantedItemsInstead: false
+    AllowBypass: false
   SignExploit:
     DestroyBadSignsOnChunkLoad: false
   PortalDupe:

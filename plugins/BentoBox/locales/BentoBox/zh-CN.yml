@@ -178,6 +178,7 @@ commands:
       banned-players: 已封禁的玩家：
       island-protection-center: '&d保护中心： &f[xyz]'
       island-center: '&d岛屿中心： &f[xyz]'
+      last-login-date-time-format: EEE MMM dd HH:mm:ss zzz yyyy
     purge:
       stop:
         description: 停止正在进行的清除
@@ -393,6 +394,10 @@ commands:
       confirmation: '&c您确定要把所处位置设置为该岛屿的出生点？'
       success: '&a成功将所处位置设置为该岛屿的出生点。'
       island-spawnpoint-changed: '&b[user] &a更改了岛屿出生点。'
+    deletehomes:
+      parameters: <玩家>
+      description: 从岛上删除所有命名的房屋
+      warning: '&c 所有已命名的房屋将从岛上删除！'
   bentobox:
     about:
       description: 显示版权和协议信息
@@ -693,6 +698,8 @@ commands:
       parameters: '[home name]'
       enter-new-name: '&6输入新名称'
       already-exists: '&c该名称已存在， 请输入一个不同的名称。'
+    homes:
+      description: 列出你的家
   delay:
     previous-command-cancelled: '&c上条命令已取消'
     stand-still: '&6站好了！[seconds] 秒后执行传送！'
@@ -1248,6 +1255,47 @@ protection:
         &7允许/禁止 岛屿保护范围外的TNT
         &7和TNT矿车破坏方块和实体
       name: '&a&l世界TNT伤害'
+    BARREL:
+      name: 桶
+      description: 切换桶交互
+      hint: 桶访问已禁用
+    BLOCK_EXPLODE_DAMAGE:
+      description: |-
+        &a 允许床和重生锚
+        &a 打破块和损坏
+        &a 实体。
+      name: 阻止爆炸伤害
+    COMPOSTER:
+      name: 堆肥工
+      description: 切换堆肥器交互
+      hint: 堆肥器交互已禁用
+    FLOWER_POT:
+      name: 花盆
+      description: 切换花盆互动
+      hint: 花盆互动禁用
+    SHULKER_BOX:
+      name: 潜影盒
+      description: 切换潜影盒交互
+      hint: 潜影盒访问被禁用
+    TRAPPED_CHEST:
+      name: 被困的箱子
+      description: 切换困宝箱互动
+      hint: 被困胸部访问禁用
+    VISITOR_KEEP_INVENTORY:
+      name: 游客对死亡进行盘点
+      description: |-
+        &a 防止玩家失去他们的
+        &a 物品和经验，如果他们死了
+        &a 他们是游客的岛屿。
+        ＆一个
+        &a 岛成员仍然丢失他们的物品
+        &a 如果他们死在自己的岛上！
+    WORLD_BLOCK_EXPLODE_DAMAGE:
+      description: |-
+        &a 允许床和重生锚
+        &a 打破块和损坏
+        &a 岛屿限制之外的实体。
+      name: 世界方块爆炸伤害
   locked: '&c本岛屿已被锁定！'
   panel:
     flag-item:

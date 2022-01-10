@@ -1,4 +1,4 @@
-# 
+#
 # This is a YML file. Be careful when editing. Check your edits in a YAML checker like    #
 # the one at http://yaml-online-parser.appspot.com                                        #
 #                                                                                         #
@@ -1309,6 +1309,9 @@ management:
             &c Mohou být přítomny chyby a podivné chování
             &c a většina funkcí může vykazovat nestabilitu.
 
+
+
+
 catalog:
   panel:
     GAMEMODES:
@@ -1345,6 +1348,9 @@ catalog:
         &a Povol pluginu BentoBox v připojení na GitHub
         &a v konfiguraci nebo to zkus později.
 
+
+
+
 panel:
   credits:
     title: '&8 [name] &2 Autoři'
@@ -1360,6 +1366,9 @@ panel:
 
         &a Povol pluginu BentoBox v připojení na GitHub
         &a v konfiguraci nebo to zkus později.
+
+
+
 
 successfully-loaded: |2
 
