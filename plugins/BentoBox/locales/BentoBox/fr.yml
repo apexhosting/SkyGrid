@@ -38,6 +38,8 @@ general:
 
 
 
+
+
   
   worlds:
     nether: Nether
@@ -1415,6 +1417,8 @@ management:
 
 
 
+
+
 catalog:
   panel:
     GAMEMODES:
@@ -1450,6 +1454,8 @@ catalog:
 
         &aAutorisez BentoBox à se connecter à GitHub
         &adans la configuration ou réessayez plus tard.
+
+
 
 
 

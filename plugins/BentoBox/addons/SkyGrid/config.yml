@@ -47,14 +47,14 @@ world:
     BOOKSHELF: 10
     PINK_TULIP: 8
     STRIPPED_ACACIA_LOG: 1
-    JUNGLE_SAPLING: 19
     OAK_WOOD: 19
+    JUNGLE_SAPLING: 19
     WHITE_TULIP: 2
     CACTUS: 6
     SPRUCE_WOOD: 9
     BLUE_ORCHID: 1
-    STRIPPED_ACACIA_WOOD: 1
     PUMPKIN: 9
+    STRIPPED_ACACIA_WOOD: 1
     STRIPPED_BIRCH_LOG: 1
     WHEAT: 4
     STRIPPED_OAK_LOG: 1
@@ -88,11 +88,11 @@ world:
     PODZOL: 4
     ACACIA_LEAVES: 8
     GRASS: 100
-    LARGE_FERN: 8
     STRIPPED_SPRUCE_WOOD: 1
+    LARGE_FERN: 8
+    SAND: 50
     FIRE_CORAL_BLOCK: 1
     GRANITE: 50
-    SAND: 50
     SUGAR_CANE: 4
     JUNGLE_LEAVES: 10
     JUNGLE_WOOD: 20
@@ -101,27 +101,27 @@ world:
     SPAWNER: 5
     JUNGLE_LOG: 17
     MOSSY_COBBLESTONE: 1
-    PRISMARINE: 3
     DANDELION: 16
+    PRISMARINE: 3
     ALLIUM: 12
     ACACIA_WOOD: 16
-    PEONY: 7
     OAK_SAPLING: 11
-    STRIPPED_DARK_OAK_LOG: 1
+    PEONY: 7
     LAVA: 5
+    STRIPPED_DARK_OAK_LOG: 1
     OBSIDIAN: 1
     AZURE_BLUET: 1
     OXEYE_DAISY: 6
     DARK_OAK_LEAVES: 9
     GRAVEL: 20
-    SEA_LANTERN: 1
     MELON: 15
+    SEA_LANTERN: 1
     COBWEB: 7
     COARSE_DIRT: 17
     LAPIS_ORE: 6
     ACACIA_SAPLING: 17
-    BIRCH_SAPLING: 8
     OAK_LOG: 10
+    BIRCH_SAPLING: 8
     BEETROOTS: 9
     STRIPPED_JUNGLE_WOOD: 1
     BIRCH_LOG: 2
@@ -134,8 +134,8 @@ world:
     SPRUCE_LEAVES: 9
     SPONGE: 1
     SNOW_BLOCK: 1
-    BIRCH_LEAVES: 9
     ORANGE_TULIP: 10
+    BIRCH_LEAVES: 9
     ANDESITE: 90
     STONE: 180
     ROSE_BUSH: 8
@@ -171,11 +171,11 @@ world:
     blocks:
       CHEST: 5
       END_ROD: 1
-      CHORUS_PLANT: 2
       OBSIDIAN: 1
+      CHORUS_PLANT: 2
       END_STONE: 200
-      GRAVEL: 10
       SPAWNER: 5
+      GRAVEL: 10
       PURPUR_BLOCK: 10
     # This option indicates if obsidian platform in the end should be generated
     # when player enters the end world.
@@ -216,8 +216,8 @@ world:
   # Mob white list - these mobs will NOT be removed when logging in or doing /island
   remove-mobs-whitelist:
   - 'null'
-  - ZOMBIE_VILLAGER
   - WITHER
+  - ZOMBIE_VILLAGER
   - GUARDIAN
   # World flags. These are boolean settings for various flags for this world
   flags:
@@ -344,15 +344,15 @@ world:
     END_PORTAL: 500
     BREEDING: 500
     HURT_VILLAGERS: 500
-    FROST_WALKER: 500
     TURTLE_EGGS: 500
+    FROST_WALKER: 500
     COLLECT_LAVA: 500
     BREAK_SPAWNERS: 500
     LEVER: 500
     ELYTRA: 0
     RIDING: 500
-    HURT_MONSTERS: 500
     CAKE: 500
+    HURT_MONSTERS: 500
     ARMOR_STAND: 500
     NAME_TAG: 500
     TRADING: 500
@@ -366,8 +366,8 @@ world:
     SHULKER_BOX: 500
     CROP_TRAMPLE: 500
     ITEM_PICKUP: 500
-    BREWING: 500
     DROPPER: 500
+    BREWING: 500
     TNT_PRIMING: 500
     COLLECT_WATER: 500
     COMPOSTER: 500
@@ -376,15 +376,15 @@ world:
     COMMAND_RANKS: 500
     BEACON: 500
     TRAPDOOR: 500
-    EXPERIENCE_BOTTLE_THROWING: 500
     PRESSURE_PLATE: 500
+    EXPERIENCE_BOTTLE_THROWING: 500
     HIVE: 500
     DYE: 500
     ITEM_FRAME: 500
     PLACE_BLOCKS: 500
     CRAFTING: 500
-    ENCHANTING: 500
     SHEARING: 500
+    ENCHANTING: 500
     FLOWER_POT: 500
     BOAT: 500
     SPAWN_EGGS: 500
@@ -395,13 +395,13 @@ world:
     EXPERIENCE_PICKUP: 500
     HOPPER: 500
     LEASH: 500
-    MOUNT_INVENTORY: 500
     BREAK_BLOCKS: 500
+    MOUNT_INVENTORY: 500
     CHORUS_FRUIT: 500
     CONTAINER: 500
-    JUKEBOX: 500
-    BARREL: 500
     POTION_THROWING: 500
+    BARREL: 500
+    JUKEBOX: 500
   # These are the default settings for new protected areas
   default-settings:
     PVP_END: false

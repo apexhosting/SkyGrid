@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.3]
+
+### Changed
+- Updated to 1.18.2.
+
 ## [3.2]
 
 ### Changed
@@ -96,6 +101,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Initial commit of pack to Github for version control
 
+[3.3]: https://github.com/apexhosting/SkyGrid/releases/tag/3.3
 [3.2]: https://github.com/apexhosting/SkyGrid/releases/tag/3.2
 [3.1]: https://github.com/apexhosting/SkyGrid/releases/tag/3.1
 [3.0]: https://github.com/apexhosting/SkyGrid/releases/tag/3.0

@@ -1385,6 +1385,8 @@ management:
 
 
 
+
+
 catalog:
   panel:
     GAMEMODES:
@@ -1424,6 +1426,8 @@ catalog:
 
 
 
+
+
 panel:
   credits:
     title: '&8 [name] &2 Zaszczyty'
@@ -1439,6 +1443,8 @@ panel:
 
         &a Pozwól BentoBoxowi połączyć się z GitHubem
         &a w konfiguracji lub spróbuj ponownie później.
+
+
 
 
 

@@ -1460,6 +1460,8 @@ catalog:
 
 
 
+
+
 panel:
   credits:
     title: ＆8 [名前]＆2クレジット
@@ -1475,6 +1477,8 @@ panel:
 
         ＆aBentoBoxでGitHubに接続できるようにする
         設定を変更するか、後で再試行してください。
+
+
 
 
 
