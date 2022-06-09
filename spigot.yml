@@ -3,17 +3,17 @@
 # with caution, and make sure you know what each option does before configuring.
 # For a reference for any variable inside this file, check out the Spigot wiki at
 # http://www.spigotmc.org/wiki/spigot-configuration/
-#
+# 
 # If you need help with the configuration or have any questions related to Spigot,
-# join us at the Discord or drop by our forums and leave a post.
-#
-# Discord: https://www.spigotmc.org/go/discord
+# join us at the IRC or drop by our forums and leave a post.
+# 
+# IRC: #spigot @ irc.spi.gt ( http://www.spigotmc.org/pages/irc/ )
 # Forums: http://www.spigotmc.org/
 
 settings:
   debug: false
-  bungeecord: false
   sample-count: 12
+  bungeecord: false
   player-shuffle: 0
   user-cache-size: 1000
   save-user-cache-on-stop-only: false
@@ -43,28 +43,48 @@ advancements:
   disable-saving: false
   disabled:
   - minecraft:story/disabled
+players:
+  disable-saving: false
 commands:
+  tab-complete: 0
+  send-namespaced: true
+  spam-exclusions:
+  - /skill
+  silent-commandblock-console: false
   replace-commands:
   - setblock
   - summon
   - testforblock
   - tellraw
   log: true
-  tab-complete: 0
-  send-namespaced: true
-  spam-exclusions:
-  - /skill
-  silent-commandblock-console: false
-players:
-  disable-saving: false
-config-version: 12
-stats:
-  disable-saving: false
-  forced-stats: {}
 world-settings:
   default:
+    seed-bastion: 30084232
+    seed-fortress: 30084232
+    max-entity-collisions: 8
     below-zero-generation-in-existing-chunks: true
     verbose: false
+    growth:
+      cactus-modifier: 100
+      cane-modifier: 100
+      melon-modifier: 100
+      mushroom-modifier: 100
+      pumpkin-modifier: 100
+      sapling-modifier: 100
+      beetroot-modifier: 100
+      carrot-modifier: 100
+      potato-modifier: 100
+      wheat-modifier: 100
+      netherwart-modifier: 100
+      vine-modifier: 100
+      cocoa-modifier: 100
+      bamboo-modifier: 100
+      sweetberry-modifier: 100
+      kelp-modifier: 100
+      twistingvines-modifier: 100
+      weepingvines-modifier: 100
+      cavevines-modifier: 100
+      glowberry-modifier: 100
     entity-activation-range:
       animals: 32
       monsters: 32
@@ -91,27 +111,6 @@ world-settings:
       villagers-active-for-panic: true
       tick-inactive-villagers: true
       ignore-spectators: false
-    growth:
-      cactus-modifier: 100
-      cane-modifier: 100
-      melon-modifier: 100
-      mushroom-modifier: 100
-      pumpkin-modifier: 100
-      sapling-modifier: 100
-      beetroot-modifier: 100
-      carrot-modifier: 100
-      potato-modifier: 100
-      wheat-modifier: 100
-      netherwart-modifier: 100
-      vine-modifier: 100
-      cocoa-modifier: 100
-      bamboo-modifier: 100
-      sweetberry-modifier: 100
-      kelp-modifier: 100
-      twistingvines-modifier: 100
-      weepingvines-modifier: 100
-      cavevines-modifier: 100
-      glowberry-modifier: 100
     merge-radius:
       exp: 3.0
       item: 2.5
@@ -137,11 +136,11 @@ world-settings:
     seed-outpost: 165745296
     seed-endcity: 10387313
     seed-slime: 987234911
-    seed-bastion: 30084232
-    seed-fortress: 30084232
+    seed-nether: 30084232
     seed-mansion: 10387319
     seed-fossil: 14357921
     seed-portal: 34222645
+    seed-stronghold: default
     hunger:
       jump-walk-exhaustion: 0.05
       jump-sprint-exhaustion: 0.2
@@ -154,11 +153,11 @@ world-settings:
     max-tick-time:
       tile: 50
       entity: 50
-    enable-zombie-pigmen-portal-spawns: true
     view-distance: default
     simulation-distance: default
     thunder-chance: 100000
     item-despawn-rate: 6000
+    enable-zombie-pigmen-portal-spawns: true
     wither-spawn-sound-radius: 0
     arrow-despawn-rate: 1200
     trident-despawn-rate: 1200
@@ -167,5 +166,11 @@ world-settings:
     nerf-spawner-mobs: false
     mob-spawn-range: 8
     end-portal-sound-radius: 0
+    squid-spawn-range:
+      min: 45.0
   worldeditregentempworld:
     verbose: false
+config-version: 12
+stats:
+  disable-saving: false
+  forced-stats: {}

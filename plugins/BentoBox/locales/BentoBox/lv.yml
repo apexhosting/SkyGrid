@@ -3,17 +3,11 @@ catalog:
     ADDONS:
       title: Papildinājumu Katalogs
     empty-here:
-      description: |+
+      description: |
         &cBentoBox nevarēja sazināties ar GitHub.
 
         &aAtļauj BentoBox savienoties ar GitHub
         &auzstādījumos vai arī mēģini vēlāk.
-
-
-
-
-
-      
       name: '&bŠis izskatās tukšs...'
     GAMEMODES:
       title: Spēles Režīmu Katalogs
@@ -54,6 +48,14 @@ commands:
       copying: '&bKopē blokus...'
       could-not-load: '&cNeizdevās ielādēt šo failu!'
       could-not-save: '&cHmm, kaut kas nogāja greizi saglabājot failu: [message]'
+      delete:
+        confirmation: |-
+          &c Vai tiesām vēlies dzēst šo salas shēmas plānu?
+          &c Tiklīdz dzēsts, to nevarēs vairs atjaunot.
+        description: dzēš salas shēmas plānu
+        no-blueprint: '&b [name] &c neeksistē.'
+        parameters: <nosaukums>
+        success: '&a Veiksmīgi dzēts salas shēmas plāns &b [name]&a .'
       description: manipulē ar shēmām
       file-exists: '&cFails jau eksistē, vai pārrakstīt?'
       list:
@@ -124,27 +126,29 @@ commands:
         description: uzstāda pirmo stūri priekš kuboīda iekš starpieliktuves
       pos2:
         description: uzstāda otro stūri priekš kuboīda iekš starpieliktuves
+      rename:
+        description: pārsaukt shēmas plānu
+        parameters: <shēmas plāna nosaukums> <jaunais nosaukums>
+        pick-different-name: '&c Lūdzu izvēlies citu shēmas plāna nosaukumu.'
+        success: '&a Shēmas plāns &b [old] &a veiksmīgi pārsaukts par &b [name]&a.'
       save:
         description: saglabā kopēto shēmu no starpieliktuves
         parameters: <shēmas nosaukums>
       set-different-pos: '&cUzstādi citu pozīciju - šī jau ir uzstādīta!'
       set-pos1: '&aPozīcija 1 uzstādīta uz [vector]'
       set-pos2: '&aPozīcija 2 uzstādīta uz [vector]'
-      delete:
-        confirmation: |-
-          &c Vai tiesām vēlies dzēst šo salas shēmas plānu?
-          &c Tiklīdz dzēsts, to nevarēs vairs atjaunot.
-        description: dzēš salas shēmas plānu
-        no-blueprint: '&b [name] &c neeksistē.'
-        parameters: <nosaukums>
-        success: '&a Veiksmīgi dzēts salas shēmas plāns &b [name]&a .'
-      rename:
-        description: pārsaukt shēmas plānu
-        parameters: <shēmas plāna nosaukums> <jaunais nosaukums>
-        pick-different-name: '&c Lūdzu izvēlies citu shēmas plāna nosaukumu.'
-        success: '&a Shēmas plāns &b [old] &a veiksmīgi pārsaukts par &b [name]&a.'
     deaths:
+      add:
+        description: palielina nāvju skaitu spēlētājam
+        parameters: <spēlētājs> <nāvju skaits>
+        success: '&a Veiksmīgi palielināts nāvju skaits par &b [number] &a priekš
+          &b [name], kopā sasniedzot &b [total]&a  nāves.'
       description: maina nāvju skaitu spēlētājam
+      remove:
+        description: samazina nāvju skaitu spēlētājam
+        parameters: <spēlētājs> <nāvju skaits>
+        success: '&a Veiksmīgi samazināts nāvju skaits par &b [number] &a priekš &b
+          [name], kopā sasniedzot &b [total]&a  nāves.'
       reset:
         description: uzstāda nāvju skaitu spēlētājam uz 0
         parameters: <spēlētājs>
@@ -153,16 +157,6 @@ commands:
         description: maina nāvju skaitu spēlētājam
         parameters: <spēlētājs> <nāves>
         success: '&aSpēlētājam &b[name]&a nāvju skaits uzstādīts uz &b[number]&a.'
-      add:
-        description: palielina nāvju skaitu spēlētājam
-        parameters: <spēlētājs> <nāvju skaits>
-        success: '&a Veiksmīgi palielināts nāvju skaits par &b [number] &a priekš
-          &b [name], kopā sasniedzot &b [total]&a  nāves.'
-      remove:
-        description: samazina nāvju skaitu spēlētājam
-        parameters: <spēlētājs> <nāvju skaits>
-        success: '&a Veiksmīgi samazināts nāvju skaits par &b [number] &a priekš &b
-          [name], kopā sasniedzot &b [total]&a  nāves.'
     delete:
       cannot-delete-owner: '&cVisi spēlētāja komandas biedriem ir jābūt izmestiem
         no komandas pirms salas dzēšanas.'
@@ -206,7 +200,7 @@ commands:
     purge:
       completed: '&aDzēšana pabeigta.'
       confirm: '&dRaksti &e[label] purge confirm&d, lai sāktu dzēšanu'
-      days-or-more: Nevar būt mazāks par 1 dienu
+      days-one-or-more: Nevar būt mazāks par 1 dienu
       description: nodzēst salas kas nav aktīvas vairāk par [days] dienām
       number-error: '&cParametram ir jābūt dienu skatitam.'
       parameters: '[days]'
@@ -226,8 +220,12 @@ commands:
       unowned:
         description: Dzēst bezīpašnieku salas - nepieciešams apstiprinājums
         unowned-islands: '&dAtrastas [number] salas'
-      days-one-or-more: Nevar būt mazāks par 1 dienu
     range:
+      add:
+        description: palielina salas aizsardzības rādiusa distanci
+        parameters: <spēlētājs> <attālums>
+        success: '&a Veiksmīgi palielināts &b [name]&a salas aizsardzības rādiuss
+          līdz &b [total] &7 (&b +[number]&7 )&a .'
       description: Admina salas distances komanda
       display:
         already-off: '&cIndikātors ir jau izslēgts'
@@ -239,6 +237,16 @@ commands:
           &7Pelēkās daļiņas &frāda maksimālo salas distances lielumu.
           &aZaļās daļiņas &frāda noklusējuma aizsardzības distanci, ja pašreizējā distance no tās atšķiras.
         showing: '&2Distances indikātors tiek rādīts'
+      invalid-value:
+        same-as-before: '&c Aizsardzības rādiuss ir uzstādīts uz &b [number]&c !'
+        too-high: '&c Aizsardzības rādiusam ir jābūt mazākam vai vienādam ar &b [number]&c
+          !'
+        too-low: '&c Aizsardzības rādiusam ir jābūt lielākam par &b 1&c !'
+      remove:
+        description: samazina salas aizsardzības rādiusa distanci
+        parameters: <spēlētājs> <attālums>
+        success: '&a Veiksmīgi samazināts &b [name]&a salas aizsardzības rādiuss līdz
+          &b [total] &7 (&b +[number]&7 )&a .'
       reset:
         description: atiesta aizsardzības distanci uz pasaules noklusējuma vērtību
         parameters: <spēlētājs>
@@ -252,21 +260,6 @@ commands:
           too-low: '&cAizsardzības distancei jābūt lielākai par &b1&c!'
         parameters: <spēlētājs> <distance>
         success: '&aSalas aizsardzības distance nomainīta uz &b[number]&a.'
-      add:
-        description: palielina salas aizsardzības rādiusa distanci
-        parameters: <spēlētājs> <attālums>
-        success: '&a Veiksmīgi palielināts &b [name]&a salas aizsardzības rādiuss
-          līdz &b [total] &7 (&b +[number]&7 )&a .'
-      invalid-value:
-        same-as-before: '&c Aizsardzības rādiuss ir uzstādīts uz &b [number]&c !'
-        too-high: '&c Aizsardzības rādiusam ir jābūt mazākam vai vienādam ar &b [number]&c
-          !'
-        too-low: '&c Aizsardzības rādiusam ir jābūt lielākam par &b 1&c !'
-      remove:
-        description: samazina salas aizsardzības rādiusa distanci
-        parameters: <spēlētājs> <attālums>
-        success: '&a Veiksmīgi samazināts &b [name]&a salas aizsardzības rādiuss līdz
-          &b [total] &7 (&b +[number]&7 )&a .'
     register:
       already-owned: '&cSala jau pieder citam spēlētājam!'
       cannot-make-island: '&cAtvaino, bet neizdevās izveidot šeit salu. Iespējams
@@ -274,23 +267,33 @@ commands:
       description: piereģistrē spēlētāju pie salas, kurai nav īpašnieka un uz kuras
         tu stāvi
       in-deletion: '&cŠī salas pozīcija šobrīt tiek dzēsta. Mēģini vēlāk.'
+      island-is-spawn: '&6 Šī ir sākuma sala. Vai tiešām vēlies turpināt? Ievadi komandu
+        vēlreiz, lai apstiprinātu.'
       no-island-here: '&cŠeit neatrodas neviena sala! Apstiprini, lai izveidotu.'
       parameters: <spēlētājs>
       registered-island: '&aPiereģistrē spēlētāju pie salas ar koordinātēm [xyz].'
       reserved-island: '&aSala ir rezērvēta [xyz] priekš spēlētāja.'
-      island-is-spawn: '&6 Šī ir sākuma sala. Vai tiešām vēlies turpināt? Ievadi komandu
-        vēlreiz, lai apstiprinātu.'
     reload:
       description: pārlādēt
     resetflags:
-      description: Atiestatī visu salu noklusējuma karodziņu iestatījumus no config.yml
-      success: '&aVeiksmīgi atiestatīti visi salu iestatījumi uz sākotnējām vērtībām.'
       confirm: '&4 Šis atjaunos visus karogus uz sākotnējām vērtībām priekš visām
         salām!'
+      description: Atiestatī visu salu noklusējuma karodziņu iestatījumus no config.yml
       parameters: '[karogs]'
+      success: '&aVeiksmīgi atiestatīti visi salu iestatījumi uz sākotnējām vērtībām.'
       success-one: '&a [name] karogs ir atjaunots uz sākotnējo vērtību visās salās.'
     resets:
+      add:
+        description: palielina atsākšanu skaitu spēlētājam
+        parameters: <spēlētājs> <cipars>
+        success: '&a Veiksmīgi palielināts par &b [number] &a atsākšanu skaits priekš
+          &b [name], šobrīd kopā &b [total]&a  atsākšanas reizes.'
       description: mainīt spēlētāja 'resetus'
+      remove:
+        description: samazina atsākšanu skaitu spēlētājam
+        parameters: <spēlētājs> <cipars>
+        success: '&a Veiksmīgi samazināts par &b [number] &a atsākšanu skaits priekš
+          &b [name], šobrīd kopā &b [total]&a  atsākšanas reizes.'
       reset:
         description: uzstāta spēlētājam 'resetus' uz 0
         parameters: <spēlētājs>
@@ -303,27 +306,17 @@ commands:
         parameters: <spēlētājs> <reseti>
         success: '&a Veiksmīgi uzstādītas &b [number]&a atssākšanas reizes spēlētājam
           &b [name]&a .'
-      add:
-        description: palielina atsākšanu skaitu spēlētājam
-        parameters: <spēlētājs> <cipars>
-        success: '&a Veiksmīgi palielināts par &b [number] &a atsākšanu skaits priekš
-          &b [name], šobrīd kopā &b [total]&a  atsākšanas reizes.'
-      remove:
-        description: samazina atsākšanu skaitu spēlētājam
-        parameters: <spēlētājs> <cipars>
-        success: '&a Veiksmīgi samazināts par &b [number] &a atsākšanu skaits priekš
-          &b [name], šobrīd kopā &b [total]&a  atsākšanas reizes.'
     setrange:
       description: uzstāda aizsardzības distanci spēlētāja salai
       parameters: <spēlētājs> <distance>
       range-updated: Aizsardzības distance uzstādīta uz [number]
     setrank:
       description: uzstāda spēlētājam rangu uz viņa salas
+      name-not-owner: '&b [name] &c nav salas īpašnieks.'
       not-possible: '&cRangam ir jābūt lielākam par apmeklētāju'
       parameters: <spēlētājs> <rangs>
       rank-set: '&aSpēlētājam nomainīts rangs no [from] uz [to].'
       unknown-rank: '&cNezināms rangs!'
-      name-not-owner: '&b [name] &c nav salas īpašnieks.'
     setspawn:
       already-spawn: '&cŠī sala jau ir uzstādīta kā sākuma sala!'
       confirmation: '&cVai tiešām vēlies uzstādīt šo salu kā sākuma salu?'
@@ -375,7 +368,7 @@ commands:
       description: pārvietoto uz spēlētāja salu
       manual: '&cNeizdevās atrast drošu nosēšanās vietu! Pārvietojies manuāli ar tp
         blakus &b[location]&c, lai pārbaudītu iemeslu.'
-      parameters: <spēlētājs>
+      parameters: <spēlētājs> [cits spēlētājs]
     trash:
       count: '&l&dSala [number]:'
       description: attaino salas ar vai bez īpašniekiem, kas atrodas atkritnē
@@ -434,8 +427,7 @@ commands:
       addon-syntax: '&2[name] &3[version] &7(&3[state]&7)'
       database: '&2Databāze: &3[database]'
       description: parādīt BentoBox un papildinājumu versijas
-      game-world: '&2[name] &7(&3[addon]&7): &aOverworld&7, &r[nether_color]Nether&7,
-        &r[end_color]End'
+      game-world: '&2[name] &7(&3[addon]&7): &aOverworld&7, &r Nether&7, &r End'
       loaded-addons: 'Ielādētie Papildinājumi:'
       loaded-game-worlds: 'Ielādētās spēles pasaules:'
       plugin-version: '&2BentoBox versija: &3[version]'
@@ -480,35 +472,35 @@ commands:
       you-can-ban: '&bTev vēl ir iespēja liegt &e[number] &bspēlētājiem atrasties
         uz tavas salas.'
     create:
+      cannot-create-island: '&c Neizdevās atrast brīvu salas vietu laikā, mēģini vēlreiz...'
       creating-island: '&aTiek veidota tava sala. Uzgaidi mirklīti...'
       description: izveido salu, ar iespēju izmantot shēmas (nepieciešamas atļaujas)
+      on-first-login: '&a Sveicināts! Mums ir nepieciešamas pāris sekundes tavas salas
+        sagatavošanai.'
       parameters: <shēma>
+      pasting:
+        blocks: '&a Būvē ik pa blokam: bloku skaits &b [number] &a...'
+        done: '&a Darīts! Tava sala ir gatava un gaida tevi!'
+        entities: '&a Aizpilda ar radībām: kopā &b [number] &a radības...'
+        estimated-time: '&a Aptuvenais laiks: &b [number] &a sekundes.'
       pick: '&aIzvēlies salas veidu'
       pick-world: '&cIzvēkies pasauli no [worlds].'
       too-many-islands: '&cŠajā pasaulē ir sasniegts salu limits. Tavai salai nav
         vietas.'
       unable-create-island: '&cNeizdevās izveidot tavu salu, ziņo par kļūdu administratoram.'
       unknown-blueprint: '&cŠī shēma nav ielādēta vai tā neeksistē.'
-      cannot-create-island: '&c Neizdevās atrast brīvu salas vietu laikā, mēģini vēlreiz...'
-      on-first-login: '&a Sveicināts! Mums ir nepieciešamas pāris sekundes tavas salas
-        sagatavošanai.'
-      pasting:
-        blocks: '&a Būvē ik pa blokam: bloku skaits &b [number] &a...'
-        done: '&a Darīts! Tava sala ir gatava un gaida tevi!'
-        entities: '&a Aizpilda ar radībām: kopā &b [number] &a radības...'
-        estimated-time: '&a Aptuvenais laiks: &b [number] &a sekundes.'
       you-can-teleport-to-your-island: '&a Tu vari pārvietoties uz savu salu, kad
         vien vēlies.'
     expel:
       cannot-ban-member: '&cTu nevari izraidīt komandas biedrus!'
       cannot-expel: '&cŠis spēlētājs nevar tikt izraidīts.'
+      cannot-expel-member: '&c Tu nevari izraidīt komandas biedru!'
       cannot-expel-yourself: '&cTu nevari izraidīt pats sevi!'
       description: izraida spēlētāju no salas
       not-on-island: '&cŠis spēlētājs nav uz tavas salas!'
       parameters: <spēlētājs>
       player-expelled-you: '&b[name]&c izraidīja tevi no salas!'
       success: '&aTu izmeti spēlētāju &b[name] &ano savas salas.'
-      cannot-expel-member: '&c Tu nevari izraidīt komandas biedru!'
     go:
       description: pārvieto tevi uz tavu salu
       parameters: '[mājas numurs]'
@@ -533,16 +525,16 @@ commands:
       the-following-islands: '&aSekojošās salas ir tev apkārt:'
       west: Rietumos
     reset:
-      description: pārstartē salu vai izdzēš iepriekšējo
-      none-left: '&cTu esi sasniedzis restartu limitu!'
-      parameters: <shēma>
-      resets-left: '&cTev ir palikušas &b[number] &catstatīšanas reizes'
       confirmation: |-
         &cVai esi pārliecināts, ka vēlies to darīt?
         &cVisi salas biedri tiks izmesti no komandas, nāksies viņus aicināt vēlreiz.
         &cŠai darbībai nav atpakaļceļa. Salu nevarēs atjaunot!
+      description: pārstartē salu vai izdzēš iepriekšējo
       kicked-from-island: '&cTu esi izmests no salas iekš [gamemode], jo tās īpašnieks
         savu salu atstatīja.'
+      none-left: '&cTu esi sasniedzis restartu limitu!'
+      parameters: <shēma>
+      resets-left: '&cTev ir palikušas &b[number] &catstatīšanas reizes'
     resetname:
       description: noņemt salas nosaukumu
       success: '&a Tavas salas nosaukums atjaunots veiksmīgi.'
@@ -560,10 +552,10 @@ commands:
         not-allowed: '&cTev nav atļaujas uzstādīt mājas punktu Beigās.'
     setname:
       description: uzstāda nosaukumu tavai salai
+      name-already-exists: '&cSala ar šādu nosaukumu jau eksistē šajā spēles režīmā.'
       name-too-long: '&cPārāk garšs. Maksimālais izmērs ir [number] simboli.'
       name-too-short: '&cPārāk īss. Minimālais izmērs ir [number] simboli.'
       parameters: <nosaukums>
-      name-already-exists: '&cSala ar šādu nosaukumu jau eksistē šajā spēles režīmā.'
       success: '&a Salas nosaukums veiksmīgi nomainīts uz &b [name]&a .'
     settings:
       description: attaino salas iestatījumus
@@ -576,11 +568,11 @@ commands:
         already-has-rank: '&cSpēlētājam jau ir šis rangs!'
         cannot-coop-yourself: '&cTu nevari uzlikt sev šo rangu!'
         description: uzstādīt spēlētājam sabiedrotā rangu
+        name-has-invited-you: '&a [name] ielūdza tevi pievienoties savai salai kā
+          sabiedrotais.'
         parameters: <spēlētājs>
         success: '&aSabiedrotā rangs uzstādīts spēlētājam &b[name].'
         you-are-a-coop-member: '&2Tu esi uzstādīts kā sabiedrotajs spēlētājam [name]'
-        name-has-invited-you: '&a [name] ielūdza tevi pievienoties savai salai kā
-          sabiedrotais.'
       demote:
         description: samazina spēlētāja komandas rangu
         errors:
@@ -644,9 +636,9 @@ commands:
       kick:
         cannot-kick: '&cTu nevari izmest pats sevi!'
         description: izmest spēlētāju no tavas salas
+        owner-kicked: '&cĪpašnieks jūs izmeta no savas salas iekš [gamemode]!'
         parameters: <spēlētājs>
         success: '&b[name] &atika izmests no šīs salas.'
-        owner-kicked: '&cĪpašnieks jūs izmeta no savas salas iekš [gamemode]!'
       leave:
         cannot-leave: '&cĪpašnieks nevar pamest komandu! Nodod salu citam vai izmet
           visus no komandas.'
@@ -670,13 +662,13 @@ commands:
       trust:
         description: uzstādīt spēlētājam uzticams rangu
         members-trusted: '&cKomandas biedriem jau ir šis rangs!'
+        name-has-invited-you: '&a [name] ielūdza tevi pievienoties savai salai kā
+          uzticams.'
         parameters: <spēlētājs>
         player-already-trusted: '&cSpēlētājam jau ir šis rangs!'
         success: '&aUzticamā rangs uzstādīts spēlētājam &b[name]&a.'
         trust-in-yourself: '&cTu jau sev esi uzticams!'
         you-are-trusted: '&2Spēlētājs [name] tev uzticas!'
-        name-has-invited-you: '&a [name] ielūdza tevi pievienoties savai salai kā
-          uzticams.'
       uncoop:
         all-members-logged-off: '&cVisi salas spēlētāji ir izgājuši, tā ka tu vairs
           neesi sabiedrotais [name] salā.'
@@ -751,12 +743,12 @@ management:
       catalog:
         description: '&aAtvērt papildinājumu katalogu'
         name: '&6Papildinājumu katalogs'
-      empty-here:
-        description: '&aKā būtu, ja tu apskatītu katalogu?'
-        name: '&bŠis izskatās tukšs...'
       credits:
         description: '&a Atvērt  patecības sarakstu priekš BentoBox'
         name: '&6 Pateicība'
+      empty-here:
+        description: '&aKā būtu, ja tu apskatītu katalogu?'
+        name: '&bŠis izskatās tukšs...'
     information:
       state:
         description:
@@ -769,7 +761,7 @@ management:
 
             &aVisas funkcionalitātes tika radītas
             &atieši šai videi.
-          INCOMPATIBLE: |+
+          INCOMPATIBLE: |
             &aPalaista &e[name] [version]&a.
 
             &aBentoBox šobrīd strādā ar
@@ -778,12 +770,6 @@ management:
 
             &cDīvaina uzvedība un kļūdas ir sagaidāmas un
             &clielākā daļa funkcionalitātes ir nestabilas.
-
-
-
-
-
-          
           NOT_SUPPORTED: |
             &aPalaista &e[name] [version]&a.
 
@@ -828,6 +814,20 @@ meta:
   - BONNe1704
   - Poslovitch
   banner: WHITE_BANNER:1:STRIPE_SMALL:RED:STRIPE_LEFT:RED:STRIPE_RIGHT:RED
+panel:
+  credits:
+    contributor:
+      description: '&a Labojumi: &b [commits]'
+      name: '&a [name]'
+    empty-here:
+      description: |-
+        &c BentoBox nevarēja iegūt Izstrādātājus
+        &c šim papildinājumam.
+
+        &a Ļauj BentoBox savienoties ar GitHub
+        &a konfigurācijā vai mēgīni vēlāk.
+      name: '&c Šis izskatās tukšs...'
+    title: '&8 [name] &2 Pateicība'
 protection:
   command-is-banned: Komanda nav atļauta apmeklētājiem
   flags:
@@ -874,6 +874,10 @@ protection:
       description: Pārslēdz pogu izmantošanu
       hint: Pogu spiešana nav atļauta
       name: Pogas
+    CAKE:
+      description: Pārslēdz iespēju ēst kūkas
+      hint: Kūku ēšana nav atļauta
+      name: Kūkas
     CHEST_DAMAGE:
       description: Pārslēdz lāžu bojāšanu no sprādzieniem
       name: Lāžu bojāšana
@@ -1123,6 +1127,15 @@ protection:
     LEASH:
       description: Pārslēdz pavadu lietošanu
       name: Pavadi
+    LECTERN:
+      description: |-
+        &a Ļauj novietot grāmatas uz lektora
+        &a vai arī tās noņemt
+
+        &c Neaizsargā grāmatas no lasīšanas,
+        &c kamēr tās ir uz lektora
+      hint: nav ļauts novietot vai paņemt grāmatas no lektora.
+      name: Lektors
     LEVER:
       description: Pārslēdz sviras lietošanu
       hint: Sviras lietošana nav atļauta
@@ -1210,9 +1223,10 @@ protection:
       name: Bezsaistes Sarkanakmens
     PISTON_PUSH:
       description: |-
-        &aĻauj virzulim izstumt
-        &ablokus ārpus salas
-      name: Bloku izbīdīšana
+        &a Iespējojiet šo opciju,
+        &a lai novērstu virzuļu
+        &a pārvietošanos no blokiem no salas.
+      name: Virzuļa Spiešanas Aizsardzība
     PLACE_BLOCKS:
       description: |-
         &aPārslēdz iespēju novietot blokus
@@ -1296,6 +1310,13 @@ protection:
         &aradīšanas olas.
       hint: Radīšanas olu mešana nav atļauta
       name: Radīšanas olas
+    SPAWNER_SPAWN_EGGS:
+      description: |-
+        &aAtļauj mainīt radību iekš radīšanas
+        &ablokiem lietojot radīšanas olas.
+      hint: |
+        mainīt radību radīšanas bloka radību izmantojot radīšanas olu nav atļauta
+      name: Radīšanas olas uz radīšanas blokiem
     TNT_DAMAGE:
       description: |-
         &aĻauj Dinamītam un Vagonam
@@ -1343,26 +1364,6 @@ protection:
         &aĻauj katlem saplēst blokus
         &aun bojāt radības.
       name: Pārslēgt
-    SPAWNER_SPAWN_EGGS:
-      description: |-
-        &aAtļauj mainīt radību iekš radīšanas
-        &ablokiem lietojot radīšanas olas.
-      name: Radīšanas olas uz radīšanas blokiem
-      hint: |
-        mainīt radību radīšanas bloka radību izmantojot radīšanas olu nav atļauta
-    CAKE:
-      description: Pārslēdz iespēju ēst kūkas
-      hint: Kūku ēšana nav atļauta
-      name: Kūkas
-    LECTERN:
-      description: |-
-        &a Ļauj novietot grāmatas uz lektora
-        &a vai arī tās noņemt
-
-        &c Neaizsargā grāmatas no lasīšanas,
-        &c kamēr tās ir uz lektora
-      hint: nav ļauts novietot vai paņemt grāmatas no lektora.
-      name: Lektors
   locked: '&cŠī sala ir slēgta!'
   panel:
     flag-item:
@@ -1400,6 +1401,11 @@ protection:
         &aAizsardzības iestatījumi
         &apriekš šis salas
       title: '&6Aizsardzība'
+    reset-to-default:
+      description: |-
+        &a Atjaunot &c &l VISUS &r &a iestatījumus
+        &a uz sākotnējām vērtībām
+      name: '&c Atjaunot uz sākotnējām vērtībām'
     SETTING:
       description: |-
         &aĢenerālie iestatījumi
@@ -1414,11 +1420,6 @@ protection:
     WORLD_SETTING:
       description: '&aSpēles režīma iestatījumi'
       title: '&b[world_name] &6Iestatījumi'
-    reset-to-default:
-      description: |-
-        &a Atjaunot &c &l VISUS &r &a iestatījumus
-        &a uz sākotnējām vērtībām
-      name: '&c Atjaunot uz sākotnējām vērtībām'
   protected: '&cSala ir aizsargāta: [description]'
   spawn-protected: '&cSākuma sala ir aizsargāta: [description]'
   world-protected: '&cPasaule aizsargāta: [description]'
@@ -1436,22 +1437,8 @@ successfully-loaded: |2
 
   &6  ____             _        ____
   &6 |  _ \           | |      |  _ \             &7veidoja &atastybento &7un &aPoslovitch
-  &6 | |_) | ___ _ __ | |_ ___ | |_) | _____  __  &72017 - 2019
+  &6 | |_) | ___ _ __ | |_ ___ | |_) | _____  __  &72017 - 2022
   &6 |  _ < / _ \ '_ \| __/ _ \|  _ < / _ \ \/ /
   &6 | |_) |  __/ | | | || (_) | |_) | (_) >  <   &bv&e[version]
   &6 |____/ \___|_| |_|\__\___/|____/ \___/_/\_\  &8Ielādēts &e[time]&8ms.
   &6                                              &7Tulkoja &aBONNe1704
-panel:
-  credits:
-    contributor:
-      description: '&a Labojumi: &b [commits]'
-      name: '&a [name]'
-    empty-here:
-      description: |-
-        &c BentoBox nevarēja iegūt Izstrādātājus
-        &c šim papildinājumam.
-
-        &a Ļauj BentoBox savienoties ar GitHub
-        &a konfigurācijā vai mēgīni vēlāk.
-      name: '&c Šis izskatās tukšs...'
-    title: '&8 [name] &2 Pateicība'

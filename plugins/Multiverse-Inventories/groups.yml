@@ -1,0 +1,19 @@
+# Multiverse-Inventories Groups
+
+# To ADD, DELETE, and EDIT groups use the command /mvinv group.
+# No support will be given for those who manually edit these groups.
+groups:
+  default:
+    worlds:
+    - skygrid-world_nether
+    - skygrid-world
+    - skygrid-world_the_end
+    shares:
+    - all
+  lobby:
+    worlds:
+    - skygrid_world
+    - skygrid_world_the_end
+    - skygrid_world_nether
+    shares:
+    - all

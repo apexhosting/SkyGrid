@@ -1,4 +1,4 @@
-#
+# 
 # This is a YML file. Be careful when editing. Check your edits in a YAML checker like    #
 # the one at http://yaml-online-parser.appspot.com                                        #
 warp:
@@ -15,16 +15,34 @@ warps:
     not-enough-level: '&c Your island level is not high enough!'
     not-on-island: '&c You must be on your island to do that!'
     not-safe: '&c That warp is not safe!'
-    your-level-is: '&c You island level is only [level] and must be higher than [required].
+    your-level-is: '&c Your island level is only [level] and must be higher than [required].
       Run the level command.'
   help:
     description: open the warps panel
-  next: '&6 Next page'
   player-warped: '&2 [name] warped to your warp sign!'
-  previous: '&6 Previous page'
-  random: '&4 Random Warp'
   sign-removed: '&c Warp sign removed!'
   success: '&a Success!'
-  title: Warp Signs
   warpTip: '&6 Place a warp sign with [text] on the top'
   warpToPlayersSign: '&6 Warping to [player]''s sign'
+  gui:
+    titles:
+      warp-title: '&0&l Warp Signs'
+    buttons:
+      previous:
+        name: '&f&l Previous Page'
+        description: '&7 Switch to [number] page'
+      next:
+        name: '&f&l Next Page'
+        description: '&7 Switch to [number] page'
+      warp:
+        name: '&f&l [name]'
+        description: '[sign_text]'
+      random:
+        name: '&f&l Random Warp'
+        description: '&7 Hmm, where will I appear?'
+    tips:
+      click-to-previous: '&e Click &7 to view previous page.'
+      click-to-next: '&e Click &7 to view next page.'
+      click-to-warp: '&e Click &7 to warp.'
+  conversations:
+    prefix: '&l&6 [BentoBox]: &r'

@@ -1,6 +1,3 @@
-#
-# This is a YML file. Be careful when editing. Check your edits in a YAML checker like    #
-# the one at http://yaml-online-parser.appspot.com                                        #
 warp:
   help:
     description: Oyuncunun bölge tabelası.
@@ -8,7 +5,7 @@ warp:
 warps:
   deactivate: '&cEski ada warpı silindi!'
   error:
-    does-not-exist: '&4Malasef sorun oluştu. Tekrar dene.'
+    does-not-exist: '&cÜzgünüm. Böyle bir bölge artık yok!'
     no-permission: '&4Buna yetkin yok!'
     no-remove: '&4Bu tabelayı kıramazsın!'
     no-warps-yet: '&4Böyle bir bölge henüz yok.'
@@ -22,9 +19,8 @@ warps:
   next: '&6Sonraki Sayfa'
   player-warped: '&d[name] &9ada bölgene ışınlandı!'
   previous: '&6Önceki sayfa'
-  sign-removed: '&4Ada tabelası kaldırıldı!'
-  success: '&9Başarılı!'
-  title: '&3&lSon&b&lCesurlar &e&lBölgeler &5'
-  warpTip: '&9Ada warpı açmak için tabelanın en üstüne &e[text] &9yaz!'
-  warpToPlayersSign: '&d[player] &9bölgesine gidiliyor!'
   random: '&4Rastgele bölgeye git!'
+  sign-removed: '&4Ada tabelası kaldırıldı!'
+  title: '&dOyuncu bölgeleri &8- &5'
+  warpTip: '&6Ada bölgesi açmak için tabelanın en üstüne &a[text] &9yaz!'
+  warpToPlayersSign: '&d[player] &9bölgesine gidiliyor!'

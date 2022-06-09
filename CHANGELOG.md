@@ -1,6 +1,25 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.4]
+
+### Changed
+
+- Setup new lobby.
+- Setup Inventories groups for each world.
+- Setup limits for the End, Nether worlds.
+- Setup RTP/Wild functions safely for each player.
+- Setup a GUI shop system.
+- Setup Custom death messages.
+- Added the New gen cosmetics from the doug verse into the setup.
+- Added scoreboard with stats.
+
+Internal changes
+
+- Changed the server's core version to latest Paper 1.17.1.
+- Added Viaversion for 1.17-1.18 support.
+- Optimized Bukkit and Paper settings for performance.
+
 ## [3.3]
 
 ### Changed
@@ -101,6 +120,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Initial commit of pack to Github for version control
 
+[3.4]: https://github.com/apexhosting/SkyGrid/releases/tag/3.4
 [3.3]: https://github.com/apexhosting/SkyGrid/releases/tag/3.3
 [3.2]: https://github.com/apexhosting/SkyGrid/releases/tag/3.2
 [3.1]: https://github.com/apexhosting/SkyGrid/releases/tag/3.1
