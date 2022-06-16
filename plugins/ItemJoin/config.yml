@@ -81,8 +81,8 @@ Active-Commands:
 # This determines if the action is allowed for all items in the specified worlds.
 # To disable an action, simply set the action to true for all worlds or list each world separated by a comma.
 Prevent:
-  Pickups: true
-  itemMovement: true
-  Self-Drops: true
-  Death-Drops: true
+  Pickups: false
+  itemMovement: false
+  Self-Drops: false
+  Death-Drops: false
   Bypass: CREATIVE, OP

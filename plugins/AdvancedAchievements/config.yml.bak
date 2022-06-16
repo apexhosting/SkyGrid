@@ -165,12 +165,12 @@ LanguageFileName: lang.yml
 
 # Time in seconds between each statistic count. Only the listed categories are currently supported.
 StatisticCooldown:
-  LavaBuckets: 10
-  WaterBuckets: 10
-  Milk: 10
-  Beds: 30
-  Brewing: 5
-  MusicDiscs: 30
+  LavaBuckets: 0
+  WaterBuckets: 0
+  Milk: 0
+  Beds: 0
+  Brewing: 0
+  MusicDiscs: 0
 
 # Display action bar message when player performs an action while in the cooldown period.
 # No effect if using Minecraft 1.7.9 or 1.7.10.

@@ -6,7 +6,7 @@ npc:
     metadata:
       cached-skin-uuid: b4e6d297-cfba-469a-a423-4ffb8da70c39
       cached-skin-uuid-name: apexhosting
-    name: §e§lMY BLOCK
+    name: §d§lSKYGRID §7§lVERSE
     uuid: fc0b91ff-a2f6-4b8a-917b-72b5135f43a8
     traits:
       skintrait:
@@ -18,13 +18,13 @@ npc:
       owner:
         uuid: f0e7f028-4955-4dc8-8e40-d334ef0bd19a
       location:
-        bodyYaw: -156.28867
+        bodyYaw: -136.8429
         world: skygrid_world
         x: '-9.3245'
         y: '127.0'
         z: '-60.6312'
-        yaw: '-156.2887'
-        pitch: '-29.4216'
+        yaw: '-136.8429'
+        pitch: '0.0'
       type: PLAYER
       commandtrait:
         cost: -1.0
@@ -58,7 +58,10 @@ npc:
           '0': 0.0
           '1': 360.0
       spawned: true
-    traitnames: type,inventory,smoothrotationtrait,lookclose,owner,mounttrait,commandtrait,age,skintrait,scoreboardtrait,location,spawned
+      hologramtrait:
+        direction: BOTTOM_UP
+        lineHeight: -1.0
+    traitnames: mounttrait,spawned,scoreboardtrait,smoothrotationtrait,lookclose,type,inventory,location,skintrait,commandtrait,owner,hologramtrait,age
     navigator:
       speedmodifier: '1.0'
       avoidwater: false

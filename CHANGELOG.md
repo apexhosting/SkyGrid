@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.5]
+
+### Changed 
+
+- Corrected internal issue within the achievements color code formatting.
+- Corrected permissions issues that caused the player to be unable to interact with items.
+- Implemented 1.19 Support.
+
 ## [3.4]
 
 ### Changed
@@ -120,6 +128,7 @@ Internal changes
 ### Added
 - Initial commit of pack to Github for version control
 
+[3.5]: https://github.com/apexhosting/SkyGrid/releases/tag/3.5
 [3.4]: https://github.com/apexhosting/SkyGrid/releases/tag/3.4
 [3.3]: https://github.com/apexhosting/SkyGrid/releases/tag/3.3
 [3.2]: https://github.com/apexhosting/SkyGrid/releases/tag/3.2
