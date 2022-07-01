@@ -1,11 +1,13 @@
 meta:
-  banner: WHITE_BANNER
   authors:
   - tastybento
+  - null
+  banner: WHITE_BANNER
 prefixes:
   bentobox: '&6 BentoBox &7 &l> &r'
 general:
   success: '&a Succes!'
+  invalid: Ongeldig
   errors:
     command-cancelled: '&c Commando geannuleerd.'
     no-permission: '&c U heeft geen toestemming om deze opdracht uit te voeren (&7
@@ -31,7 +33,6 @@ general:
     you-must-wait: '&c Je moet [number]seconden wachten voordat je dat commando opnieuw
       kunt doen.'
     must-be-positive-number: '&c [number] is geen geldig positief getal.'
-  invalid: Ongeldig
   worlds:
     overworld: Bovenwereld
     nether: Nether
@@ -74,6 +75,7 @@ commands:
     purge:
       parameters: '[days]'
       description: eilanden zuiveren die al meer dan [days] zijn verlaten
+      days-one-or-more: Moet minimaal 1 dag of langer duren
       purgable-islands: '&a Gevonden &b [number]&a zuiverbare eilanden.'
       purge-in-progress: '&c Bezig met spoelen. Gebruik &b /[label] purge stop &c
         om te annuleren.'
@@ -98,7 +100,6 @@ commands:
         description: geeft de status van de zuivering weer
         status: '&b [purged] &a eilanden gezuiverd uit &b [purgeable] &7 (& b [percentage]%
           &7) &a.'
-      days-one-or-more: Moet minimaal 1 dag of langer duren
     team:
       add:
         parameters: <eigenaar> <speler>
@@ -113,6 +114,16 @@ commands:
         use-disband-owner: '&c Geen eigenaar! Gebruik ontbinden [owner].'
         disbanded: '&c Admin heeft je team ontbonden!'
         success: '&b [name] &a ''s team is opgeheven.'
+      fix:
+        description: scant en repareert het lidmaatschap van meerdere eilanden in
+          de database
+        scanning: Database scannen ...
+        duplicate-owner: '&c Speler bezit meer dan één eiland in de database: [name]'
+        player-has: '&c Speler [name] heeft [number]eilanden'
+        duplicate-member: '&c Speler [name] is lid van meer dan één eiland in de database'
+        rank-on-island: '&c [rank] op het eiland op [xyz]'
+        fixed: '&a vaste'
+        done: '&a scan'
       kick:
         parameters: <teamspeler>
         description: schop een speler uit een team
@@ -125,16 +136,6 @@ commands:
         description: draagt het eilandbezit over aan de speler
         already-owner: '&c [name] is al de eigenaar van dit eiland!'
         success: '&b [name] &a is nu de eigenaar van dit eiland.'
-      fix:
-        description: scant en repareert het lidmaatschap van meerdere eilanden in
-          de database
-        scanning: Database scannen ...
-        duplicate-owner: '&c Speler bezit meer dan één eiland in de database: [name]'
-        player-has: '&c Speler [name] heeft [number]eilanden'
-        fixed: '&a vaste'
-        done: '&a scan'
-        duplicate-member: '&c Speler [name] is lid van meer dan één eiland in de database'
-        rank-on-island: '&c [rank] op het eiland op [xyz]'
     range:
       description: admin eilandbereik commando
       invalid-value:
@@ -202,6 +203,8 @@ commands:
       team-members-title: 'Leden van het team:'
       team-owner-format: '&a [name] [rank]'
       team-member-format: '&b [name] [rank]'
+      island-protection-center: 'Beschermingsgebied centrum: [xyz]'
+      island-center: 'Eilandcentrum: [xyz]'
       island-coords: 'Eilandcoördinaten: [xz1] tot [xz2]'
       islands-in-trash: '&d Player heeft eilanden in de prullenbak.'
       protection-range: 'Beschermingsbereik: [range]'
@@ -212,8 +215,6 @@ commands:
       banned-players: 'Verbannen spelers:'
       banned-format: '&c [name]'
       unowned: '&c Onbeheerd'
-      island-protection-center: 'Beschermingsgebied centrum: [xyz]'
-      island-center: 'Eilandcentrum: [xyz]'
     switch:
       description: bescherming bypass in- / uitschakelen
       op: '&c Ops kunnen de bescherming altijd omzeilen. Deop om het commando te gebruiken.'
@@ -270,6 +271,18 @@ commands:
       not-possible: '&c Rang moet hoger zijn dan bezoeker.'
       rank-set: '&a Rang ingesteld van &b [from] &a naar &b [to] &a op &b [name] &a
         ''s eiland.'
+    setprotectionlocation:
+      parameters: '[x y z coördinaten]'
+      description: stel de huidige locatie in of [x y z] als centrum van het beschermde
+        gebied van het eiland
+      island: '&c Dit heeft gevolgen voor het eiland op [xyz] dat eigendom is van
+        ''[name]''.'
+      confirmation: '&c Weet u zeker dat u [xyz] wilt instellen als het beschermingscentrum?'
+      success: '&a [xyz] met succes ingesteld als het beschermingscentrum.'
+      fail: '&a Kan [xyz] niet instellen als het beschermingscentrum.'
+      island-location-changed: '&a [user] heeft het beschermingscentrum van het eiland
+        gewijzigd in [xyz].'
+      xyz-error: '&c Specificeer drie integer-coördinaten: bijvoorbeeld 100120100'
     setspawn:
       description: stel een eiland in als spawn voor deze spelmodus
       already-spawn: '&c Dit eiland is al een spawn!'
@@ -357,9 +370,13 @@ commands:
           Plaats blauwdruk
           naar rechts om in te stellen
         trash: Prullenbak
+        no-trash: Kan niet weggooien
         trash-instructions: Klik hier met de rechtermuisknop om te verwijderen
+        no-trash-instructions: Kan standaardbundel niet weggooien
         permission: Toestemming
+        no-permission: Geen toestemming
         perm-required: Verplicht
+        no-perm-required: Kan geen permissie instellen voor standaardbundel
         perm-not-required: Niet verplicht
         perm-format: '&e'
         remove: Klik met de rechtermuisknop om te verwijderen
@@ -388,10 +405,6 @@ commands:
         slot-instructions: |
           &a linkermuisknop om te verhogen
           &a Klik met de rechtermuisknop om te verlagen
-        no-trash: Kan niet weggooien
-        no-trash-instructions: Kan standaardbundel niet weggooien
-        no-permission: Geen toestemming
-        no-perm-required: Kan geen permissie instellen voor standaardbundel
     resetflags:
       parameters: '[vlag]'
       description: Reset alle eilanden naar de standaard vlaginstellingen in config.yml
@@ -406,6 +419,7 @@ commands:
       cannot-delete-owner: '&c Alle eilandleden moeten van het eiland worden verwijderd
         voordat ze het kunnen verwijderen.'
       deleted-island: '&a Island at &e [xyz] &a is succesvol verwijderd.'
+    deletehomes: {}
     why:
       parameters: <speler>
       description: schakel foutopsporingsrapportage voor consolebeveiliging in
@@ -432,19 +446,6 @@ commands:
         parameters: <speler> <doden>
         success: '&a Met succes verwijderd &b [number]&a sterfgevallen aan &b [name],
           waardoor het totaal afneemt tot &b [total] &a sterfgevallen.'
-    setprotectionlocation:
-      parameters: '[x y z coördinaten]'
-      description: stel de huidige locatie in of [x y z] als centrum van het beschermde
-        gebied van het eiland
-      island: '&c Dit heeft gevolgen voor het eiland op [xyz] dat eigendom is van
-        ''[name]''.'
-      confirmation: '&c Weet u zeker dat u [xyz] wilt instellen als het beschermingscentrum?'
-      success: '&a [xyz] met succes ingesteld als het beschermingscentrum.'
-      fail: '&a Kan [xyz] niet instellen als het beschermingscentrum.'
-      island-location-changed: '&a [user] heeft het beschermingscentrum van het eiland
-        gewijzigd in [xyz].'
-      xyz-error: '&c Specificeer drie integer-coördinaten: bijvoorbeeld 100120100'
-    deletehomes: {}
   bentobox:
     description: BentoBox admin-opdracht
     about:
@@ -532,6 +533,11 @@ commands:
         het voorbereiden van uw eiland.'
       you-can-teleport-to-your-island: '&a Je kunt naar je eiland teleporteren wanneer
         je maar wilt.'
+    deletehome:
+      description: een thuislocatie verwijderen
+      parameters: '[naam huis]'
+    homes:
+      description: lijst uw huizen
     info:
       description: informatie weergeven over uw eiland of het eiland van de speler
       parameters: <speler>
@@ -558,7 +564,10 @@ commands:
     sethome:
       description: stel uw thuisteleporteerpunt in
       must-be-on-your-island: '&c Je moet op je eiland zijn om naar huis te gaan!'
+      too-many-homes: '&c Kan niet instellen - je eiland heeft maximaal [number] huizen.'
       home-set: '&6 Uw eilandhuis is ingesteld op uw huidige locatie.'
+      homes-are: '&6 eilandwoningen zijn:'
+      home-list-syntax: '&6 [name]'
       nether:
         not-allowed: '&c Het is niet toegestaan om uw huis in Nederland te plaatsen.'
         confirmation: '&c Weet u zeker dat u uw huis in de Nether wilt plaatsen?'
@@ -566,9 +575,6 @@ commands:
         not-allowed: '&c Je mag je huis niet op het einde zetten.'
         confirmation: '&c Weet u zeker dat u uw huis op het einde wilt zetten?'
       parameters: '[naam huis]'
-      too-many-homes: '&c Kan niet instellen - je eiland heeft maximaal [number] huizen.'
-      homes-are: '&6 eilandwoningen zijn:'
-      home-list-syntax: '&6 [name]'
     setname:
       description: stel een naam voor je eiland in
       name-too-short: '&c Te kort. Minimale grootte is [number]tekens.'
@@ -576,6 +582,11 @@ commands:
       name-already-exists: '&c Er is al een eiland met die naam in deze spelmodus.'
       parameters: <naam>
       success: '&a Stel de naam van je eiland succesvol in op &b [name] &a.'
+    renamehome:
+      description: de naam van een thuislocatie wijzigen
+      parameters: '[naam huis]'
+      enter-new-name: '&6 Voer de nieuwe naam in'
+      already-exists: '&c Die naam bestaat al, probeer een andere naam.'
     resetname:
       description: reset je eilandnaam
       success: '&a Reset je eilandnaam succesvol.'
@@ -750,16 +761,6 @@ commands:
       not-on-island: '&c Die speler is niet op jouw eiland!'
       player-expelled-you: '&b [name] &c hebben je van het eiland verdreven!'
       success: '&a Je hebt &b [name] &a van het eiland verdreven.'
-    deletehome:
-      description: een thuislocatie verwijderen
-      parameters: '[naam huis]'
-    renamehome:
-      description: de naam van een thuislocatie wijzigen
-      parameters: '[naam huis]'
-      enter-new-name: '&6 Voer de nieuwe naam in'
-      already-exists: '&c Die naam bestaat al, probeer een andere naam.'
-    homes:
-      description: lijst uw huizen
 ranks:
   owner: Eigenaar
   sub-owner: Ondereigenaar
@@ -847,6 +848,13 @@ protection:
         &7 Andere containers worden behandeld
         &7 door speciale vlaggen.
       hint: Containertoegang uitgeschakeld
+    CHEST: {}
+    BARREL: {}
+    BLOCK_EXPLODE_DAMAGE: {}
+    COMPOSTER: {}
+    FLOWER_POT: {}
+    SHULKER_BOX: {}
+    TRAPPED_CHEST: {}
     DISPENSER:
       name: Dispensers
       description: Wissel de interactie tussen de dispenser
@@ -1017,6 +1025,10 @@ protection:
         &a buitenkant beschermd
         &a eilandruimte
       name: '&e Beperk mobs tot het eiland'
+    HIVE:
+      description: '&a Toggle bijenkorf oogsten.'
+      name: Bijenkorf oogsten
+      hint: Oogsten uitgeschakeld
     HURT_ANIMALS:
       description: Schakel pijn uit
       name: Gekwetste dieren
@@ -1177,6 +1189,13 @@ protection:
         &a Kan vertraging helpen verminderen.
         &a Heeft geen invloed op het spawn-eiland.
       name: Offline Redstone
+    PETS_STAY_AT_HOME:
+      description: |-
+        &a Bij actieve, getemde huisdieren
+        &a kan alleen naar en gaan
+        &a kan de eigenaar niet verlaten
+        &a thuiseiland.
+      name: Huisdieren blijven thuis
     PISTON_PUSH:
       description: |-
         &a Schakel dit in om te voorkomen
@@ -1313,37 +1332,19 @@ protection:
         &a terug naar hun eiland met behulp van commando's
         &a als ze vallen.
       hint: '&c Dat kun je niet doen terwijl je valt.'
+    VISITOR_KEEP_INVENTORY: {}
     WITHER_DAMAGE:
       name: Schakel schoftschade in
       description: |-
         &a Indien actief, kan de schoft
         &a schadeblokken en spelers
+    WORLD_BLOCK_EXPLODE_DAMAGE: {}
     WORLD_TNT_DAMAGE:
       description: |-
         &a Allow TNT en TNT mijnkarren
         &a om blokken te breken en te beschadigen
         &a entiteit buiten de eilandgrenzen.
       name: Wereld TNT-schade
-    PETS_STAY_AT_HOME:
-      description: |-
-        &a Bij actieve, getemde huisdieren
-        &a kan alleen naar en gaan
-        &a kan de eigenaar niet verlaten
-        &a thuiseiland.
-      name: Huisdieren blijven thuis
-    HIVE:
-      description: '&a Toggle bijenkorf oogsten.'
-      name: Bijenkorf oogsten
-      hint: Oogsten uitgeschakeld
-    CHEST: {}
-    BARREL: {}
-    BLOCK_EXPLODE_DAMAGE: {}
-    COMPOSTER: {}
-    FLOWER_POT: {}
-    SHULKER_BOX: {}
-    TRAPPED_CHEST: {}
-    VISITOR_KEEP_INVENTORY: {}
-    WORLD_BLOCK_EXPLODE_DAMAGE: {}
   locked: '&c Dit eiland is op slot!'
   protected: '&c Eiland beschermd: [omschrijving].'
   world-protected: '&c Wereld beschermd: [omschrijving].'
@@ -1485,7 +1486,7 @@ management:
             &a Terwijl de meeste functies werken
             &a correct, &6 platformspecifieke bugs of
             &6 problemen zijn te verwachten &a.
-          INCOMPATIBLE: |+
+          INCOMPATIBLE: |
             &a Running &e [name] [version] &a.
 
             &a BentoBox draait momenteel op een
@@ -1494,10 +1495,6 @@ management:
 
             &c Er kunnen raar gedrag en bugs optreden
             &c en de meeste functies zijn mogelijk instabiel.
-
-
-
-
 catalog:
   panel:
     GAMEMODES:
@@ -1528,42 +1525,11 @@ catalog:
       install-now: Installeer nu!
     empty-here:
       name: '&b Dit ziet er hier leeg uit ...'
-      description: |+
+      description: |
         &c BentoBox kon geen verbinding maken met GitHub.
 
         &a Sta BentoBox toe om verbinding te maken met GitHub in
         &a de configuratie of probeer het later opnieuw.
-
-
-
-
-panel:
-  credits:
-    title: '&8 [name] &2 credits'
-    contributor:
-      name: '&a naam]'
-      description: |
-        &a Commits: &b [commits]
-    empty-here:
-      name: '&c Dit ziet er hier leeg uit ...'
-      description: |+
-        &c BentoBox kon de bijdragers niet verzamelen
-        &c voor deze add-on.
-
-        &a Sta BentoBox toe om verbinding te maken met GitHub in
-        &a de configuratie of probeer het later opnieuw.
-
-
-
-
-successfully-loaded: |2
-
-  &6 ____ _ ____
-  &6 | _ \ | | | _ \ &7 door &a tastybento &7 en &a Poslovitch
-  &6 | | _) | ___ _ __ | | _ ___ | | _) | _____ __ &7 2017-2021
-  &6 | _ </ _ \ '_ \ | __ / _ \ | _ </ _ \ \ / /
-  &6 | | _) | __ / | | | || (_) | | _) | (_)> <&b v &e [version]
-  &6 | ____ / \ ___ | _ | | _ | \ __ \ ___ / | ____ / \ ___ / _ / \ _ \ &8 Geladen in &e [time] &8 ms.
 enums:
   DamageCause:
     CONTACT: Contact
@@ -1594,3 +1560,26 @@ enums:
     HOT_FLOOR: Hete vloer
     CRAMMING: Proppen
     DRYOUT: Uitdrogen
+panel:
+  credits:
+    title: '&8 [name] &2 credits'
+    contributor:
+      name: '&a naam]'
+      description: |
+        &a Commits: &b [commits]
+    empty-here:
+      name: '&c Dit ziet er hier leeg uit ...'
+      description: |
+        &c BentoBox kon de bijdragers niet verzamelen
+        &c voor deze add-on.
+
+        &a Sta BentoBox toe om verbinding te maken met GitHub in
+        &a de configuratie of probeer het later opnieuw.
+successfully-loaded: |2
+
+  &6 ____ _ ____
+  &6 | _ \ | | | _ \ &7 door &a tastybento &7 en &a Poslovitch
+  &6 | | _) | ___ _ __ | | _ ___ | | _) | _____ __ &7 2017-2022
+  &6 | _ </ _ \ '_ \ | __ / _ \ | _ </ _ \ \ / /
+  &6 | | _) | __ / | | | || (_) | | _) | (_)> <&b v &e [version]
+  &6 | ____ / \ ___ | _ | | _ | \ __ \ ___ / | ____ / \ ___ / _ / \ _ \ &8 Geladen in &e [time] &8 ms.

@@ -1,247 +1,40 @@
-#
-# This is a YML file. Be careful when editing. Check your edits in a YAML checker like    #
-# the one at http://yaml-online-parser.appspot.com                                        #
-meta:
-  authors:
-  - Poslovitch
-  banner: WHITE_BANNER:1:STRIPE_TOP:BLUE:STRIPE_BOTTOM:RED
-general:
-  success: '&aSuccès!'
-  invalid: Invalide
-  errors:
-    command-cancelled: '&cCommande annulée.'
-    no-permission: '&cVous n''avez pas la permission d''exécuter cette commande (&7[permission]&c).'
-    use-in-game: '&cCette commande n''est disponible que pour les joueurs.'
-    no-team: '&cVous n''avez pas d''équipe !'
-    no-island: '&cVous n''avez pas d''île !'
-    player-has-island: '&cCe joueur a déjà une île !'
-    player-has-no-island: '&cCe joueur n''a pas d''île !'
-    already-have-island: '&cVous avez déjà une île !'
-    no-safe-location-found: '&cImpossible de trouver un endroit sécurisé où vous téléporter
-      sur cette île.'
-    not-owner: '&cVous n''êtes pas le propriétaire de votre île !'
-    not-in-team: '&cCe joueur n''est pas membre de votre île !'
-    offline-player: '&cCe joueur est déconnecté ou n''existe pas.'
-    unknown-player: '&c[name] est inconnu !'
-    general: '&cCette commande ne peut fonctionner actuellement, contactez un administrateur.'
-    unknown-command: '&cCommande inconnue. Entrez &b/[label] help &cpour afficher
-      l''aide.'
-    wrong-world: '&cVous ne pouvez pas faire ça dans ce monde !'
-    you-must-wait: '&cVous devez attendre [number]s avant de pouvoir utiliser cette
-      commande.'
-    must-be-positive-number: '&c[number] n''est pas un nombre positif.'
-    player-is-not-owner: '&b [name] &c n''est pas le propriétaire d''une île.'
-  tips:
-    changing-obsidian-to-lava: |+
-      Transformation de l'obsidienne en lave
-      &cSoyez plus prudent la prochaine fois !
+catalog:
+  panel:
+    ADDONS:
+      title: Catalogue d'addons
+    empty-here:
+      description: |
+        &c BentoBox n'a pas pu se connecter à son GitHub.
 
+        &a Autorisez BentoBox à se connecter à son GitHub dans
+        &a la configuration ou réessayez plus tard.
+      name: '&b C''est vide ici...'
+    GAMEMODES:
+      title: Catalogue de modes de jeu
+    icon:
+      already-installed: Déjà installé!
+      description-template: |
+        &8 [topic]
+        &a [install]
 
+        &7 &o [description]
 
-  
-  worlds:
-    nether: Nether
-    overworld: Overworld
-    the-end: End
+        &e Cliquez sur &a pour obtenir le lien vers la
+        &a dernière version.
+      install-now: Installez maintenant!
+    views:
+      addons:
+        name: '&6 Addons'
+        description: |-
+          &e Cliquez &a pour parcourir les
+          &a addons officiels disponibles.
+      gamemodes:
+        description: |
+          &e Cliquez sur &a pour parcourir les
+          &a Gamemodes officiels disponibles.
+        name: '&6 Gamemodes'
 commands:
-  help:
-    header: '&7=========== &cAide de [label] &7==========='
-    syntax: '&b[usage] &a[parameters]&7: &e[description]'
-    syntax-no-parameters: '&b[usage]&7: &e[description]'
-    end: '&7================================='
-    parameters: '[command]'
-    description: affiche l'aide
-    console: Console
   admin:
-    help:
-      description: commande d'administration
-    resets:
-      description: modifie le nombre de resets des joueurs
-      set:
-        description: modifie le nombre de resets de ce joueur
-        parameters: <joueur> <resets>
-        success: '&a Défini avec succès &b [number] &a  de resets à &b [name] &a.'
-      reset:
-        description: réinitialise le nombre de resets de ce joueur
-        parameters: <joueur>
-        success: '&a Remis avec succès le compteur de Reset de &b [name] &a à 0.'
-        success-everyone: '&a Remis avec succès le compteur de Reset de &b Tout le
-          Monde &a à 0.'
-      add:
-        description: ajoute au nombre de fois où ce joueur a réinitialisé son île
-        parameters: <player> <resets>
-        success: '&a Ajouté avec succès &b [number] &a resets à &b [name], augmentant
-          le total de resets à &b [total] &a.'
-      remove:
-        description: supprime le nombre de fois où ce joueur a réinitialisé son île
-        parameters: <player> <resets>
-        success: '&a Supprimé avec succès &b [number] &a resets à &b [name], diminuant
-          le total de resets à &b [total] &a.'
-    team:
-      add:
-        parameters: <propriétaire> <joueur>
-        description: ajoute le joueur à une île
-        name-not-owner: '&c[name] n''est pas le propriétaire d''une île.'
-        name-has-island: '&c[name] a une île. Supprimez son île ou retirez-le d''elle.'
-        success: '&b[name]&a a été ajouté à l''île de &b[owner]&a.'
-      disband:
-        parameters: <propriétaire>
-        description: dissout l'équipe du propriétaire
-        use-disband-owner: '&cCe joueur n''est pas propriétaire de l''île ! Utilisez
-          &bdisband [owner]&c.'
-        disbanded: '&cUn administrateur a dissous votre équipe!'
-        success: '&aL''équipe de &b[name]&a a été dissoute.'
-      kick:
-        parameters: <membre>
-        description: expulse un membre de l'île
-        cannot-kick-owner: '&cVous ne pouvez pas expulser le propriétaire. Expulsez
-          les membres d''abord.'
-        not-in-team: '&cCe joueur ne fait pas partie d''une île.'
-        admin-kicked: '&cUn administrateur vous a expulsé de l''île.'
-        success: '&b[name] &aa été expulsé de l''île de &b[owner]&a.'
-      setowner:
-        parameters: <joueur>
-        description: transfère la propriété d'une île à un joueur
-        already-owner: '&c[name] est déjà le propriétaire de cette île !'
-        success: '&b[name]&a est désormais le propriétaire de cette île.'
-    range:
-      description: commande de gestion des portées des zones de protection
-      display:
-        already-off: '&cLes indicateurs sont déjà désactivés.'
-        already-on: '&cLes indicateurs sont déjà activés.'
-        description: affiche/cache les indicateurs des zones de protection
-        hiding: '&2Désactivation des indicateurs des zones de protection.'
-        hint: |-
-          &fLes &cicônes rouge des barrières &fmontrent la portée actuelle de la zone de protection de l'île.
-          &fLes &7particules grises &fmontrent la portée maximum que peut avoir la zone de protection.
-          &fLes &aparticules vertes &fmontrent la portée par défaut de la zone de protection (uniquement si la portée actuelle est différente).
-        showing: '&2Affichage des indicateurs des zones de protection.'
-      set:
-        parameters: <joueur> <portée>
-        description: modifie la portée de la zone de protection de l'île
-        invalid-value:
-          not-numeric: '&c[number] n''est pas un nombre entier !'
-          too-low: '&cLa portée doit être supérieure à &b1 &c!'
-          too-high: '&cLa portée doit être inférieure ou égale à &b[number] &c!'
-          same-as-before: '&cLa portée est déjà de &b[number] &cblocs!'
-        success: '&aPortée modifiée à &b[number]&a blocs.'
-      reset:
-        parameters: <joueur>
-        description: réinitialise la portée de la zone de protection de l'île à la
-          valeur par défaut
-        success: '&aPortée réinitialisée à &b[number]&a blocs.'
-      add:
-        description: augmente l''aire de protection de l'île
-        parameters: <player> <range>
-        success: '&a A augmenté avec succès &b [name]&a ''s island protected range
-          to &b [total] &7 (&b +[number]&7 )&a .'
-      invalid-value:
-        same-as-before: '&c La distance de protection est déjà réglée sur &b [number]&c
-          !'
-        too-high: '&c La distance de protection doit être égale ou inférieure à &b
-          [number]&c !'
-        too-low: '&c La distance de protection doit être supérieure à &b 1&c !'
-      remove:
-        description: diminue l''aire de protection de l''île
-        parameters: <player> <range>
-        success: '&a Successfully decreased &b [name]&a ''s l''aire de répartition
-          protégée de l''île à &b [total] &7 (&b -[number]&7 )&a .'
-    register:
-      parameters: <joueur>
-      already-owned: '&c Cette île appartient déjà à un autre joueur!'
-      cannot-make-island: '&c Une île ne peut pas être placée ici, désolé. Voir la
-        console pour les erreurs possibles.'
-      description: enregistrer le joueur sur l'île sans propriétaire où vous êtes
-      in-deletion: '&c Cette île est en cours de suppression. Essayer plus tard.'
-      island-is-spawn: '&6 L''île est un spawn. Êtes-vous sûr? Entrez à nouveau la
-        commande pour confirmer.'
-      no-island-here: '&c Il n''y a pas d''île ici. Confirmez pour en faire une.'
-      registered-island: '&b [name] &a possède maintenant l''île aux coordonnées [xyz].'
-      reserved-island: '&a l''île à [xyz] est réservée pour le joueur &b [name] &a
-        .'
-    info:
-      parameters: <joueur>
-      banned-format: '&c [name]'
-      banned-players: 'Joueurs bannis : '
-      deaths: 'Morts : [number]'
-      description: obtenir des informations sur l'endroit où vous êtes ou sur l'île
-        du joueur
-      island-coords: 'Coordonnées de l''île : [xz1] to [xz2]'
-      island-location: 'Centre de l''île : [xyz]'
-      islands-in-trash: '&d Le joueur a des îles dans la Corbeille.'
-      island-uuid: 'UUID : [uuid]'
-      is-spawn: L'île est un spawn
-      last-login: 'Dernière connexion : [date]'
-      max-protection-range: 'La plus grande gamme de protection historique: [range]'
-      no-island: '&c Vous n''êtes pas sur une île en ce moment...'
-      owner: '&cPropriétaire : [owner]'
-      protection-coords: 'Coordonnées de protection: [xz1] to [xz2]'
-      protection-range: 'Rayon de protection : [range]'
-      purge-protected: L'île est protégée contre la purge
-      resets-left: 'Resets : [number] (Max : [total])'
-      team-member-format: '&b [name] [rank]'
-      team-members-title: 'Membres de l''équipe :'
-      team-owner-format: '&a [name] [rank]'
-      title: ========== Informations sur l'île ============
-      unowned: '&c Sans propriétaire'
-    version:
-      description: affiche la version de BentoBox et des addons
-    tp:
-      parameters: <joueur>
-      description: se téléporter sur l''île d'un joueur
-      manual: '&c Aucun Warp sûr trouvé! Téléportez-vous manuellement près de &b [location]
-        &c et vérifiez le warp en question'
-    getrank:
-      parameters: <joueur>
-      description: affiche le rang d'un joueur sur son île
-      rank-is: '&aCe joueur est &b[rank] &asur son île.'
-    setrank:
-      parameters: <joueur> <rang>
-      description: modifie le rang d'un joueur sur son île
-      unknown-rank: '&cRang inconnu!'
-      not-possible: '&cLe rang spécifié doit être supérieur à Visiteur.'
-      rank-set: '&aRang modifié de &b[from] &aà &b[to]&a.'
-    setspawn:
-      description: définit une île comme étant le spawn de ce monde
-      already-spawn: '&cCette île est déjà le spawn !'
-      no-island-here: '&cIl n''y a pas d''île ici.'
-      confirmation: '&cÊtes-vous certain de vouloir définir cette île comme étant
-        le spawn de ce monde ?'
-      success: '&aCette île a été définie comme spawn pour ce monde.'
-    settings:
-      parameters: '[joueur]'
-      description: affiche les paramètres du monde ou de l'île du joueur
-    delete:
-      parameters: <joueur>
-      cannot-delete-owner: '&c Tous les membres de l''île doivent être expulsés avant
-        de la supprimer.'
-      deleted-island: '&a L''île aux coordonnées &e [xyz] &a a été supprimée.'
-      description: supprime l'île d'un joueur
-    why:
-      parameters: <joueur>
-      description: active/désactive le débogage de protection
-      turning-off: Débogage de protection désactivé pour [name].
-      turning-on: Débogage de protection activé pour [name].
-    deaths:
-      reset:
-        parameters: <joueur>
-        description: réinitialise le nombre de morts du joueur
-        success: '&a Le nombre de morts de &b [name] &a a été réinitialisé à &b 0&a.'
-      set:
-        parameters: <joueur> <morts>
-        description: définit le nombre de morts du joueur
-        success: '&a Nombre de morts de &b [name] &a définit à &b [number]&a.'
-      add:
-        description: ajoute des morts au joueur
-        parameters: <player> <deaths>
-        success: '&a Ajouté avec succès &b [number] &a morts à &b [name], augmentant
-          le total de morts à &b [total] &a.'
-      description: édite le nombre de morts du joueur
-      remove:
-        description: enlève les morts au joueur
-        parameters: <player> <deaths>
-        success: '&a Supprimé avec succès &b [number] &a morts à &b [name], diminuant
-          le total de morts à &b [total] &a.'
     blueprint:
       bedrock-required: '&c Au moins un bloc de Bedrock doit être dans le Blueprint!'
       copied-blocks: '&b Copie de [nombre] blocs dans le presse-papiers'
@@ -341,15 +134,72 @@ commands:
         est déjà définie!'
       set-pos1: '&a Position 1 définie sur [vector]'
       set-pos2: '&a Position 2 définie sur [vector]'
+    deaths:
+      add:
+        description: ajoute des morts au joueur
+        parameters: <player> <deaths>
+        success: '&a Ajouté avec succès &b [number] &a morts à &b [name], augmentant
+          le total de morts à &b [total] &a.'
+      description: édite le nombre de morts du joueur
+      remove:
+        description: enlève les morts au joueur
+        parameters: <player> <deaths>
+        success: '&a Supprimé avec succès &b [number] &a morts à &b [name], diminuant
+          le total de morts à &b [total] &a.'
+      reset:
+        description: réinitialise le nombre de morts du joueur
+        parameters: <joueur>
+        success: '&a Le nombre de morts de &b [name] &a a été réinitialisé à &b 0&a.'
+      set:
+        description: définit le nombre de morts du joueur
+        parameters: <joueur> <morts>
+        success: '&a Nombre de morts de &b [name] &a définit à &b [number]&a.'
+    delete:
+      cannot-delete-owner: '&c Tous les membres de l''île doivent être expulsés avant
+        de la supprimer.'
+      deleted-island: '&a L''île aux coordonnées &e [xyz] &a a été supprimée.'
+      description: supprime l'île d'un joueur
+      parameters: <joueur>
     emptytrash:
       description: Vider la corbeille pour le joueur, ou toutes les îles non possédées
         dans la corbeille
       parameters: '[player]'
       success: '&a la Corbeille a été vidée avec succès.'
+    getrank:
+      description: obtenir le rang d'un joueur sur son île ou sur l'île du propriétaire
+      parameters: <player> [propriétaire de l'île]
+      rank-is: '&a Le rang du joueur est &b [rank] &a sur l''île de &b[name]&a.'
+    help:
+      description: commande admin
+    info:
+      banned-format: '&c [name]'
+      banned-players: 'Joueurs bannis : '
+      deaths: 'Morts : [number]'
+      description: obtenir des informations sur l'endroit où vous êtes ou sur l'île
+        du joueur
+      island-coords: 'Coordonnées de l''île : [xz1] to [xz2]'
+      island-location: 'Centre de l''île : [xyz]'
+      islands-in-trash: '&d Le joueur a des îles dans la Corbeille.'
+      island-uuid: 'UUID : [uuid]'
+      is-spawn: L'île est un spawn
+      last-login: 'Dernière connexion : [date]'
+      max-protection-range: 'La plus grande gamme de protection historique: [range]'
+      no-island: '&c Vous n''êtes pas sur une île en ce moment...'
+      owner: '&cPropriétaire : [owner]'
+      parameters: <player>
+      protection-coords: 'Coordonnées de protection: [xz1] to [xz2]'
+      protection-range: 'Rayon de protection : [range]'
+      purge-protected: L'île est protégée contre la purge
+      resets-left: 'Resets : [number] (Max : [total])'
+      team-member-format: '&b [name] [rank]'
+      team-members-title: 'Membres de l''équipe :'
+      team-owner-format: '&a [name] [rank]'
+      title: ========== Informations sur l'île ============
+      unowned: '&c Sans propriétaire'
     purge:
       completed: '&a Purge complétée.'
       confirm: '&d Tapez &b /[label] purge confirmez &d pour commencer la purge'
-      days-or-more: Veuillez spécifier une durée supérieure à 1 jour.
+      days-one-or-more: Veuillez spécifier une durée supérieure à 1 jour.
       description: supprime les îles inactives depuis plus de [jours] jours
       no-purge-in-progress: '&c Il n''y a actuellement aucune purge en cours.'
       number-error: '&c L''argument doit être un nombre de jours'
@@ -375,7 +225,63 @@ commands:
       unowned:
         description: supprimer les îles sans propriétaire
         unowned-islands: '&a Trouvé &b [number] &a îles sans propriétaire.'
-      days-one-or-more: Veuillez spécifier une durée supérieure à 1 jour.
+    range:
+      add:
+        description: augmente l''aire de protection de l'île
+        parameters: <player> <range>
+        success: '&a A augmenté avec succès &b [name]&a ''s island protected range
+          to &b [total] &7 (&b +[number]&7 )&a .'
+      description: rayon de la zone de protection de l'île
+      display:
+        already-off: '&c Les indicateurs sont déjà éteints'
+        already-on: '&c Les indicateurs sont déjà allumés'
+        description: afficher/masquer les indicateurs de portée de l''île
+        hiding: '&2 Cacher les indicateurs de rayon de la zone de protection'
+        hint: |-
+          &c Les icônes de la barrière rouge &f indiquent la limite du rayon de la zone de protection de l'île actuelle.
+          &7 Les particules grises &f indiquent la limite maximale des îles.
+          &a Les particules vertes &f affichent le rayon de la zone de  protection par défaut si le rayon de la zone de protection de l'île a été modifiée en jeu.
+        showing: '&2 Affichage des indicateurs de rayon de la zone de protection'
+      invalid-value:
+        same-as-before: '&c La distance de protection est déjà réglée sur &b [number]&c
+          !'
+        too-high: '&c La distance de protection doit être égale ou inférieure à &b
+          [number]&c !'
+        too-low: '&c La distance de protection doit être supérieure à &b 1&c !'
+      remove:
+        description: diminue l''aire de protection de l''île
+        parameters: <player> <range>
+        success: '&a Successfully decreased &b [name]&a ''s l''aire de répartition
+          protégée de l''île à &b [total] &7 (&b -[number]&7 )&a .'
+      reset:
+        description: réinitialise le rayon de la zone de protection de l'île à la
+          valeur par défaut
+        parameters: <player>
+        success: '&a Remise à zéro du rayon de la zone de protection de l''île à &b
+          [nombre] &a blocs.'
+      set:
+        description: définit la distance du rayon de la zone de protection de l'île
+        invalid-value:
+          not-numeric: '&c[number] n''est pas un nombre entier !'
+          same-as-before: '&cLa portÃ©e est dÃ©jÃ  de &b[number] &cblocs!'
+          too-high: '&cLa portÃ©e doit Ãªtre infÃ©rieure ou Ã©gale Ã  &b[number] &c!'
+          too-low: '&cLa portÃ©e doit Ãªtre supÃ©rieure Ã  &b1 &c!'
+        parameters: <player> <range>
+        success: '&a Le rayon de la zone de protection de l''île a été réglé à &b
+          [number] &a blocs.'
+    register:
+      already-owned: '&c Cette île appartient déjà à un autre joueur!'
+      cannot-make-island: '&c Une île ne peut pas être placée ici, désolé. Voir la
+        console pour les erreurs possibles.'
+      description: enregistrer le joueur sur l'île sans propriétaire où vous êtes
+      in-deletion: '&c Cette île est en cours de suppression. Essayer plus tard.'
+      island-is-spawn: '&6 L''île est un spawn. Êtes-vous sûr? Entrez à nouveau la
+        commande pour confirmer.'
+      no-island-here: '&c Il n''y a pas d''île ici. Confirmez pour en faire une.'
+      parameters: <player>
+      registered-island: '&b [name] &a possède maintenant l''île aux coordonnées [xyz].'
+      reserved-island: '&a l''île à [xyz] est réservée pour le joueur &b [name] &a
+        .'
     reload:
       description: recharger
     resetflags:
@@ -385,11 +291,47 @@ commands:
       parameters: '[flag]'
       success: '&a Réinitialisation des flags de toutes les îles aux valeurs par défaut.'
       success-one: '&a flag[name] défini par défaut pour toutes les îles.'
+    resets:
+      add:
+        description: ajoute au nombre de fois où ce joueur a réinitialisé son île
+        parameters: <player> <resets>
+        success: '&a Ajouté avec succès &b [number] &a resets à &b [name], augmentant
+          le total de resets à &b [total] &a.'
+      description: éditer le nombre de réinitialisations des joueurs
+      remove:
+        description: supprime le nombre de fois où ce joueur a réinitialisé son île
+        parameters: <player> <resets>
+        success: '&a Supprimé avec succès &b [number] &a resets à &b [name], diminuant
+          le total de resets à &b [total] &a.'
+      reset:
+        description: réinitialise le nombre de fois où ce joueur a réinitialisé son
+          île à 0
+        parameters: <joueur>
+        success: '&a Remis avec succès le compteur de Reset de &b [name] &a à 0.'
+        success-everyone: '&a Remis avec succès le compteur de Reset de &b Tout le
+          Monde &a à 0.'
+      set:
+        description: définit le nombre de réinitialisations du joueur
+        parameters: <joueur> <nombre de réinitialisations>
+        success: '&a Défini avec succès &b [number] &a  de resets à &b [name] &a.'
     setrange:
       description: définir le rayon de protection de l'île du joueur
       parameters: <player> <range>
       range-updated: '&a le rayon de protection de l''île a été mis à jour à &b [number]
         &a blocs.'
+    setrank:
+      description: définir le rang d'un joueur sur son île ou sur l'île du propriétaire
+      not-possible: '&c Le classement doit être supérieur à celui du visiteur.'
+      parameters: <player> <rank> [propriétaire de l'île]
+      rank-set: '&a Rang défini de &b [from] &a à &b [to] &&a sur l''île de &b[name]&a.'
+      unknown-rank: '&c Rang inconnu!'
+    setspawn:
+      already-spawn: '&c Cette île est déjà un spawn!'
+      confirmation: '&c Êtes-vous sûr de vouloir faire de cette île le spawn de ce
+        mode de jeu?'
+      description: définir une île comme spawn pour ce mode de jeu
+      no-island-here: '&c Il n''y a pas d''île ici.'
+      success: '&a Cette île est le spawn de ce mode de jeu.'
     setspawnpoint:
       confirmation: '&c Voulez-vous vraiment définir cet emplacement comme point d''apparition
         pour cette île?'
@@ -397,6 +339,10 @@ commands:
       island-spawnpoint-changed: '&a [user] a modifié ce spawn de l''île.'
       no-island-here: '&c Il n''y a pas d''île ici.'
       success: '&a Spawn de l''île défini avec succès.'
+    settings:
+      description: ouvrir les réglages du système ou les réglages de l'île pour le
+        joueur
+      parameters: '[player]'
     switch:
       adding: Ajout d'un bypass de protection...
       description: mise en marche/arrêt du bypass de protection
@@ -411,6 +357,37 @@ commands:
         &l [label] trash [player] &r &c pour voir les numéros d''îles'
       parameters: <player> <number>
       success: '&a l''île du joueur a bien été inversée avec celle spécifiée.'
+    team:
+      add:
+        description: ajouter un joueur à l'équipe du propriétaire
+        name-has-island: '&c [nom] a une île. Désinscrivez-vous ou supprimez-les d''abord!'
+        name-not-owner: '&c [name] n''est pas le propriétaire.'
+        parameters: <propriétaire> <joueur>
+        success: '&b [name] &a a été ajouté à l''île de &b [owner] &a.'
+      disband:
+        description: dissoudre l'équipe du propriétaire
+        disbanded: '&c Admin a dissous votre équipe!'
+        parameters: <propriétaire>
+        success: L'équipe de &b [name] &a a été dissoute.
+        use-disband-owner: '&c Pas propriétaire! Utilisez dissoudre [owner].'
+      kick:
+        admin-kicked: '&c L''administrateur vous a kické de l''équipe.'
+        cannot-kick-owner: '&c Vous ne pouvez pas kicker le propriétaire. Kickez d''abord
+          les membres.'
+        description: Kicker le joueur de son équipe
+        not-in-team: '&c Ce joueur ne fait pas partie d''une équipe.'
+        parameters: <joueur>
+        success: '&b [name] &a a été kické de l''île de &b [owner] &a.'
+      setowner:
+        already-owner: '&c [name] est déjà propriétaire de cette île!'
+        description: transférer la propriété de l'île au joueur
+        parameters: <joueur>
+        success: '&b [name] &a est maintenant le propriétaire de cette île.'
+    tp:
+      description: se téléporter sur l''île d'un joueur
+      manual: '&c Aucun Warp sûr trouvé! Téléportez-vous manuellement près de &b [location]
+        &c et vérifiez le warp en question'
+      parameters: <joueur> [joueur à téléporter]
     trash:
       count: '&l &d île numéro [number] :'
       description: montrer les îles sans propriétaire ou les îles du joueur dans la
@@ -428,43 +405,28 @@ commands:
         de l''île
       parameters: <owner>
       unregistered-island: '&b [name] &a a été supprimé de l''île à [xyz].'
+    version:
+      description: afficher les versions de BentoBox et des addons
+    why:
+      description: active/désactive le débogage de protection
+      parameters: <joueur>
+      turning-off: Débogage de protection désactivé pour [name].
+      turning-on: Débogage de protection activé pour [name].
     world:
       description: Gérer les paramètres du monde
   bentobox:
-    description: commande administrateur de BentoBox
     about:
-      description: affiche le copyright et la licence.
-    reload:
-      description: recharge paramètres, addons (si supportés) et langues
-      locales-reloaded: '&2Langues rechargées.'
-      addons-reloaded: '&2Addons rechargés.'
-      settings-reloaded: '&2Paramètres rechargés.'
-      addon: '[prefix_bentobox] &2 Rechargement de &b [name]&2.'
-      addon-reloaded: '[prefix_bentobox] &b [nom] &2 rechargé.'
-      locales:
-        description: recharger les locales
-      unknown-addon: '[prefix_bentobox] &c Addon inconnu !'
-      warning: '[prefix_bentobox] &c Attention : le rechargement peut provoquer une
-        instabilité. Si vous rencontrez des erreurs par la suite, redémarrez le serveur.'
-    version:
-      plugin-version: '&2Version de BentoBox : &3[version]'
-      description: affiche la version de BentoBox et des addons
-      loaded-addons: 'Addons :'
-      loaded-game-worlds: 'Mondes de jeu :'
-      addon-syntax: '&2[name] &3[version] &7(&3[state]&7)'
-      game-world: '&2[name] &7(&3[addon]&7): &aOverworld&7, &r[nether_color]Nether&7,
-        &r[end_color]End'
-      server: '&2Serveur : &3[name] [version]&2.'
-      database: '&2Base de données : &3[database]'
-    manage:
-      description: affiche le menu de gestion
+      description: affiche les informations sur la licence
     catalog:
       description: affiche le catalogue
+    description: commande d'administration de BentoBox
     locale:
       description: effectue l'analyse des fichiers de traduction
       see-console: |-
         [prefix_bentobox] &a Vérifiez la console pour voir les résultats de l'analyse.
         [prefix_bentobox] &a Les résultats sont trop larges pour être lus depuis le tchat.
+    manage:
+      description: affiche le menu de gestion
     migrate:
       addons: '[prefix_bentobox] &6 Migration des données des addons'
       class: '[prefix_bentobox] &6 Migration de [description]'
@@ -472,149 +434,48 @@ commands:
       migrated: '[prefix_bentobox] &a Migration terminée'
       names: '[prefix_bentobox] &6 Migration des pseudos'
       players: '[prefix_bentobox] &6 Migration des joueurs'
+    reload:
+      addon: '[prefix_bentobox] &2 Rechargement de &b [name]&2.'
+      addon-reloaded: '[prefix_bentobox] &b [nom] &2 rechargé.'
+      addons-reloaded: '[prefix_bentobox] &2 Addons rechargés.'
+      description: recharge BentoBox et tous les addons, paramètres et traductions
+      locales:
+        description: recharger les locales
+      locales-reloaded: '[prefix_bentobox] &2 Traductions rechargées.'
+      settings-reloaded: '[prefix_bentobox] &2 Paramètres rechargés.'
+      unknown-addon: '[prefix_bentobox] &c Addon inconnu !'
+      warning: '[prefix_bentobox] &c Attention : le rechargement peut provoquer une
+        instabilité. Si vous rencontrez des erreurs par la suite, redémarrez le serveur.'
+    version:
+      addon-syntax: '&2 [name] &3 [version] &7 (&3[state]&7)'
+      database: '&2 Base de données : &3 [database]'
+      description: affiche les versions de BentoBox et des addons
+      game-world: '&2 [name] &7 (&3 [addon]&7 ) : &3 [worlds]'
+      loaded-addons: 'Addons chargés :'
+      loaded-game-worlds: 'Mondes de jeu chargés :'
+      plugin-version: '&2 Version de BentoBox : &3 [version]'
+      server: '&2 Serveur &3 [name] [version]&2.'
   confirmation:
-    confirm: '&cEntrez cette commande à nouveau sous &b[seconds] secondes &cpour confirmer.'
-    previous-request-cancelled: '&6La demande de confirmation a été annulée.'
-    request-cancelled: '&cLa demande de confirmation a expiré.'
+    confirm: '&c Entrez à nouveau la commande dans &b [secondes] secondes &c pour
+      confirmer.'
+    previous-request-cancelled: '&6 La demande de confirmation est annulée.'
+    request-cancelled: '&c Délai de confirmation dépassé - &b demande annulée.'
+  delay:
+    moved-so-command-cancelled: '&c Vous avez bougé. Téléportation annulée.'
+    previous-command-cancelled: '&c Commande annulée'
+    stand-still: '&6 Ne bougez pas ! Téléportation dans [seconds] secondes.'
+  help:
+    console: Console
+    description: commande d'aide
+    end: '&7 ================================='
+    header: '&7 =========== &c Aide de [label] &7 ==========='
+    parameters: '[command]'
+    syntax: '&b [usage] &a [parameters] &7: &e [description]'
+    syntax-no-parameters: '&b [usage] &7: &e [description]'
   island:
     about:
-      description: à propos de cet addon
-    info:
-      parameters: <joueur>
-      description: afficher des informations sur votre île ou celle du joueur
-    team:
-      description: gère votre équipe
-      coop:
-        parameters: <joueur>
-        already-has-rank: '&c Ce joueur est membre de votre île.'
-        cannot-coop-yourself: '&c Vous ne pouvez pas vous coop vous-même'
-        description: coop un joueur sur votre île
-        name-has-invited-you: '&a [name] vous a invité(e) à devenir coop sur son île.'
-        success: '&a Vous avez coop &b [name]&a.'
-        you-are-a-coop-member: '&2 Vous avez été coop par [name].'
-      uncoop:
-        parameters: <joueur>
-        all-members-logged-off: '&c Tous les membres de l''île de [name] se sont déconnectés,
-          vous n''êtes donc plus coop.'
-        cannot-uncoop-member: '&c Vous ne pouvez pas retirer le coop à un membre de
-          l''île.'
-        cannot-uncoop-yourself: '&c Vous ne pouvez pas vous retirer le coop.'
-        description: retirer le coop du joueur
-        is-full: '&c Vous ne pouvez ajouter personne d''autre dans votre coop.'
-        player-not-cooped: '&c Ce joueur n''est pas coop !'
-        success: '&b [name] &a n''est plus coop sur votre île.'
-        you-are-no-longer-a-coop-member: '&c Vous n''êtes plus coop sur l''île de
-          [name].'
-      trust:
-        parameters: <joueur>
-        description: trust un joueur sur votre île
-        is-full: '&c Vous ne pouvez Trust d''avantage de joueurs.'
-        player-already-trusted: '&c Ce joueur est déjà trust !'
-        success: '&a Vous avez trust &b [name]&a.'
-        trust-in-yourself: '&c Croyez en vous !'
-        you-are-trusted: '&b [name] &2 vous a trust sur son île.'
-        name-has-invited-you: '&a [name] vous a invité(e) à devenir trust sur son
-          île.'
-      untrust:
-        parameters: <joueur>
-        cannot-untrust-member: '&c Vous ne pouvez pas retirer le trust à un membre
-          de l''île.'
-        cannot-untrust-yourself: '&c Vous ne pouvez pas vous retirer le trust.'
-        description: retirer le trust du joueur
-        player-not-trusted: '&c Ce joueur n''est pas trust !'
-        you-are-no-longer-trusted: '&c Vous n''êtes plus trust sur l''île de &b[name]&a.'
-        success: '&b[name] &a n''est plus trust sur votre île.'
-      invite:
-        invitation-sent: '&aInvitation envoyée à &b[name]&a.'
-        removing-invite: '&cInvitation supprimée.'
-        parameters: <joueur>
-        you-can-invite: '&aVous pouvez inviter &b[number] &ajoueurs supplémentaires.'
-        accept:
-          confirmation: |-
-            &c Voulez-vous vraiment accepter cette invitation?
-            &c &l Vous allez &n PERDRE &r &c &l votre île actuelle!
-          description: accepter une invitation
-          name-joined-your-island: '&a [name] a rejoint votre île !'
-          you-joined-island: '&a Vous avez rejoint une île ! Utilisez &b/ [label]
-            team &a pour voir les autres membres.'
-        description: inviter un joueur à rejoindre votre île
-        errors:
-          cannot-invite-self: '&c Vous ne pouvez pas vous inviter vous-même !'
-          cooldown: '&c Vous ne pouvez pas inviter cette personne pendant encore [number]
-            secondes.'
-          invalid-invite: '&c Cette invitation n''est plus valide, désolé.'
-          island-is-full: '&c Votre île est pleine, vous ne pouvez inviter personne
-            d''autre.'
-          none-invited-you: '&c Personne ne vous a invité. :c'
-          you-already-are-in-team: '&c Vous faites déjà partie d''une équipe !'
-          already-on-team: '&c Ce joueur fait déjà partie d''une équipe !'
-          you-have-already-invited: '&c Vous avez déjà invité ce joueur !'
-        name-has-invited-you: '&b [name] &a vous a invité à rejoindre son île.'
-        reject:
-          description: refuser une invitation
-          name-rejected-your-invite: '&c [nom] a rejeté votre invitation sur l''île!'
-          you-rejected-invite: '&a Vous avez rejeté l''invitation à rejoindre une
-            île.'
-        to-accept-or-reject: '&a Faites &b/[label] team accept &a pour accepter ou
-          &b/[label] team reject] &a pour refuser.'
-        you-will-lose-your-island: '&c ATTENTION ! Vous perdrez votre île actuelle
-          si vous acceptez !'
-        cancel:
-          description: annuler l'invitation en attente
-      kick:
-        parameters: <joueur>
-        cannot-kick: '&c Vous ne pouvez pas vous botter!'
-        description: supprimer un membre de votre île
-        owner-kicked: '&c Le propriétaire vous a viré de l''île en [mode de jeu]!'
-        success: '&b [nom] &a a été exclu de votre île.'
-      demote:
-        parameters: <joueur>
-        errors:
-          cant-demote-yourself: '&c Vous ne pouvez pas vous rétrograder!'
-        failure: '&c Le joueur ne peut plus être rétrogradé!'
-        success: '&un [nom] rétrogradé à [rang]'
-        description: rétrograder un joueur de votre île à un rang inférieur
-      promote:
-        parameters: <joueur>
-        description: promouvoir un joueur de votre île à un rang supérieur
-        failure: '&c Le joueur ne peut plus être promu!'
-        success: '&un [nom] promu au [rang]'
-      setowner:
-        parameters: <joueur>
-        description: transfère la propriété de l'île à un membre
-        errors:
-          cant-transfer-to-yourself: '&cVous ne pouvez pas transférer la propriété
-            à vous-même! &7(&oTechniquement, c''est possible. Mais nous ne voulons
-            pas que vous le fassiez. Parce que c''est inutile.&r&7)'
-          target-is-not-member: '&cCe joueur n''est pas membre sur votre île.'
-        name-is-the-owner: '&a[name] est désormais le propriétaire de l''île !'
-        you-are-the-owner: '&aVous êtes désormais le propriétaire de l''île !'
-      leave:
-        cannot-leave: |
-          &cEn tant que propriétaire, vous ne pouvez pas quittez l'île.
-          &cVous devez d'abord devenir membre sur l'île ou en expulser les membres actuels.
-        description: quittez votre île
-        left-your-island: '&c[name] &ca quitté votre île.'
-        success: '&aVous avez quitté l''île.'
-      info:
-        description: afficher des informations détaillées sur votre équipe
-        last-seen:
-          days: jours
-          hours: heures
-          minutes: minutes
-          layout: '&7 il y a &b [number] &7 [unit]'
-        member-layout:
-          offline: '&a &l o &r &f [name] &7 ([last_seen])'
-          online: '&a &l o &r &f [name]'
-        header: |-
-          &f --- &a Détails de l'équipe &f ---
-          &a Membres : &b [total] &7 / &b [max]
-          &a Membres en ligne : &b [online]
-        rank-layout:
-          owner: '&6 [rank] :'
-          generic: '&6 [rank] &7 (&b [number]&7) &6 :'
+      description: affiche des informations sur cet addon
     ban:
-      parameters: <joueur>
       cannot-ban: '&c Ce joueur ne peut pas être banni.'
       cannot-ban-member: '&c Frappez d''abord le membre de l''équipe, puis bannissez.'
       cannot-ban-more-players: '&c Vous avez atteint la limite d''interdiction, vous
@@ -625,26 +486,7 @@ commands:
       player-already-banned: '&c Player est déjà banni.'
       player-banned: '&b [name] &c est désormais banni de votre île.'
       you-are-banned: '&b Vous êtes banni de cette île!'
-    unban:
       parameters: <joueur>
-      cannot-unban-yourself: '&c Vous ne pouvez pas vous défaire!'
-      player-not-banned: '&c Le lecteur n''est pas interdit.'
-      player-unbanned: '&b [nom] &a est désormais interdit sur votre île.'
-      you-are-unbanned: '&b [nom] &a vous a banni de leur île!'
-      description: débannir un joueur de votre île
-    settings:
-      description: affiche les paramètres de l'île
-    language:
-      description: sélectionne la langue
-    expel:
-      parameters: <joueur>
-      success: '&aVous avez expulsé &b[name] &ade votre île.'
-      cannot-expel: '&c Ce joueur ne peut pas être expulsé.'
-      cannot-expel-member: '&c Vous ne pouvez pas expulser un membre de l''équipe!'
-      cannot-expel-yourself: '&c Vous ne pouvez pas vous expulser!'
-      description: expulser un joueur de votre île
-      not-on-island: '&c Ce joueur n''est pas sur votre île!'
-      player-expelled-you: '&b [nom] &c vous a expulsé de l''île!'
     banlist:
       names: '&c [line]'
       noone: '&a Personne n''est interdit sur cette île.'
@@ -673,6 +515,15 @@ commands:
       unknown-blueprint: '&c Ce blueprint n''existe pas.'
       you-can-teleport-to-your-island: '&a Vous pouvez vous téléporter sur votre île
         quand vous le désirez.'
+    expel:
+      cannot-expel: '&c Ce joueur ne peut pas être expulsé.'
+      cannot-expel-member: '&c Vous ne pouvez pas expulser un membre de l''équipe!'
+      cannot-expel-yourself: '&c Vous ne pouvez pas vous expulser!'
+      description: expulser un joueur de votre île
+      not-on-island: '&c Ce joueur n''est pas sur votre île!'
+      player-expelled-you: '&b [nom] &c vous a expulsé de l''île!'
+      success: '&a Vous avez expulsé &b [nom] &a de l''île.'
+      parameters: <joueur>
     go:
       description: vous téléporter sur votre île
       parameters: '[numéro de l''home]'
@@ -680,6 +531,9 @@ commands:
       teleported: '&a Téléportation vers votre home &e#[number]&a.'
     help:
       description: commande principale pour l'île
+    info:
+      description: afficher des informations sur votre île ou celle du joueur
+      parameters: <joueur>
     near:
       description: montrer le nom des îles voisines autour de vous
       east: Est
@@ -727,63 +581,294 @@ commands:
       description: vous téléporter au spawn
       no-spawn: '&c Il n''y a pas de spawn dans ce mode de jeu.'
       teleporting: '&a Téléportation vers le spawn.'
-  delay:
-    moved-so-command-cancelled: '&c Vous avez bougé. Téléportation annulée.'
-    previous-command-cancelled: '&c Commande annulée'
-    stand-still: '&6 Ne bougez pas ! Téléportation dans [seconds] secondes.'
-ranks:
-  owner: Propriétaire
-  sub-owner: Officier
-  member: Membre
-  trusted: Trust
-  coop: Coop
-  visitor: Visiteur
-  banned: Banni
-  admin: Administrateur
-  mod: Modérateur
+    team:
+      coop:
+        already-has-rank: '&c Ce joueur est membre de votre île.'
+        cannot-coop-yourself: '&c Vous ne pouvez pas vous coop vous-même'
+        description: coop un joueur sur votre île
+        name-has-invited-you: '&a [name] vous a invité(e) à devenir coop sur son île.'
+        parameters: <joueur>
+        success: '&a Vous avez coop &b [name]&a.'
+        you-are-a-coop-member: '&2 Vous avez été coop par [name].'
+      demote:
+        errors:
+          cant-demote-yourself: '&c Vous ne pouvez pas vous rétrograder!'
+        failure: '&c Le joueur ne peut plus être rétrogradé!'
+        success: '&un [nom] rétrogradé à [rang]'
+        description: rétrograder un joueur de votre île à un rang inférieur
+        parameters: <joueur>
+      description: gérer votre équipe
+      info:
+        description: afficher des informations détaillées sur votre équipe
+        last-seen:
+          days: jours
+          hours: heures
+          minutes: minutes
+          layout: '&7 il y a &b [number] &7 [unit]'
+        member-layout:
+          offline: '&a &l o &r &f [name] &7 ([last_seen])'
+          online: '&a &l o &r &f [name]'
+        header: |-
+          &f --- &a Détails de l'équipe &f ---
+          &a Membres : &b [total] &7 / &b [max]
+          &a Membres en ligne : &b [online]
+        rank-layout:
+          owner: '&6 [rank] :'
+          generic: '&6 [rank] &7 (&b [number]&7) &6 :'
+      invite:
+        accept:
+          confirmation: |-
+            &c Voulez-vous vraiment accepter cette invitation?
+            &c &l Vous allez &n PERDRE &r &c &l votre île actuelle!
+          description: accepter une invitation
+          name-joined-your-island: '&a [name] a rejoint votre île !'
+          you-joined-island: '&a Vous avez rejoint une île ! Utilisez &b/ [label]
+            team &a pour voir les autres membres.'
+        description: inviter un joueur à rejoindre votre île
+        errors:
+          cannot-invite-self: '&c Vous ne pouvez pas vous inviter vous-même !'
+          cooldown: '&c Vous ne pouvez pas inviter cette personne pendant encore [number]
+            secondes.'
+          invalid-invite: '&c Cette invitation n''est plus valide, désolé.'
+          island-is-full: '&c Votre île est pleine, vous ne pouvez inviter personne
+            d''autre.'
+          none-invited-you: '&c Personne ne vous a invité. :c'
+          you-already-are-in-team: '&c Vous faites déjà partie d''une équipe !'
+          already-on-team: '&c Ce joueur fait déjà partie d''une équipe !'
+          you-have-already-invited: '&c Vous avez déjà invité ce joueur !'
+        invitation-sent: '&a Invitation envoyée à &b[name]&a.'
+        name-has-invited-you: '&b [name] &a vous a invité à rejoindre son île.'
+        parameters: <player>
+        reject:
+          description: refuser une invitation
+          name-rejected-your-invite: '&c [nom] a rejeté votre invitation sur l''île!'
+          you-rejected-invite: '&a Vous avez rejeté l''invitation à rejoindre une
+            île.'
+        removing-invite: '&c Suppression de l''invitation.'
+        to-accept-or-reject: '&a Faites &b/[label] team accept &a pour accepter ou
+          &b/[label] team reject] &a pour refuser.'
+        you-will-lose-your-island: '&c ATTENTION ! Vous perdrez votre île actuelle
+          si vous acceptez !'
+        cancel:
+          description: annuler l'invitation en attente
+        you-can-invite: '&a Vous pouvez inviter [number] joueurs supplémentaires.'
+      kick:
+        cannot-kick: '&c Vous ne pouvez pas vous botter!'
+        description: supprimer un membre de votre île
+        owner-kicked: '&c Le propriétaire vous a viré de l''île en [mode de jeu]!'
+        success: '&b [nom] &a a été exclu de votre île.'
+        parameters: <joueur>
+      leave:
+        cannot-leave: '&c Les propriétaires ne peuvent pas partir! Devenez d''abord
+          un membre ou limitez tous les membres.'
+        description: quitter votre île
+        left-your-island: '&c [nom] &c a quitté votre île'
+        success: '&a Vous avez quitté cette île.'
+      promote:
+        description: promouvoir un joueur de votre île à un rang supérieur
+        failure: '&c Le joueur ne peut plus être promu!'
+        success: '&un [nom] promu au [rang]'
+        parameters: <joueur>
+      setowner:
+        description: transférer la propriété de votre île à un membre
+        errors:
+          cant-transfer-to-yourself: '&c Vous ne pouvez pas vous transférer la propriété!
+            &7 (&o Eh bien, en fait, vous pourriez ... Mais nous ne voulons pas de
+            vous. Parce que c''est inutile. &R &7)'
+          target-is-not-member: '&c Ce joueur ne fait pas partie de votre équipe insulaire!'
+        name-is-the-owner: '&a [nom] est maintenant le propriétaire de l''île!'
+        you-are-the-owner: '&a Vous êtes maintenant le propriétaire de l''île!'
+        parameters: <joueur>
+      trust:
+        description: trust un joueur sur votre île
+        is-full: '&c Vous ne pouvez Trust d''avantage de joueurs.'
+        parameters: <joueur>
+        player-already-trusted: '&c Ce joueur est déjà trust !'
+        success: '&a Vous avez trust &b [name]&a.'
+        trust-in-yourself: '&c Croyez en vous !'
+        you-are-trusted: '&b [name] &2 vous a trust sur son île.'
+        name-has-invited-you: '&a [name] vous a invité(e) à devenir trust sur son
+          île.'
+      uncoop:
+        all-members-logged-off: '&c Tous les membres de l''île de [name] se sont déconnectés,
+          vous n''êtes donc plus coop.'
+        cannot-uncoop-member: '&c Vous ne pouvez pas retirer le coop à un membre de
+          l''île.'
+        cannot-uncoop-yourself: '&c Vous ne pouvez pas vous retirer le coop.'
+        description: retirer le coop du joueur
+        is-full: '&c Vous ne pouvez ajouter personne d''autre dans votre coop.'
+        parameters: <joueur>
+        player-not-cooped: '&c Ce joueur n''est pas coop !'
+        success: '&b [name] &a n''est plus coop sur votre île.'
+        you-are-no-longer-a-coop-member: '&c Vous n''êtes plus coop sur l''île de
+          [name].'
+      untrust:
+        cannot-untrust-member: '&c Vous ne pouvez pas retirer le trust à un membre
+          de l''île.'
+        cannot-untrust-yourself: '&c Vous ne pouvez pas vous retirer le trust.'
+        description: retirer le trust du joueur
+        parameters: <joueur>
+        player-not-trusted: '&c Ce joueur n''est pas trust !'
+        you-are-no-longer-trusted: '&c Vous n''êtes plus trust sur l''île de &b[name]&a.'
+        success: '&b[name] &a n''est plus trust sur votre île.'
+    unban:
+      cannot-unban-yourself: '&c Vous ne pouvez pas vous défaire!'
+      player-not-banned: '&c Le lecteur n''est pas interdit.'
+      player-unbanned: '&b [nom] &a est désormais interdit sur votre île.'
+      you-are-unbanned: '&b [nom] &a vous a banni de leur île!'
+      description: débannir un joueur de votre île
+      parameters: <joueur>
+    settings:
+      description: ouvrir les paramètres de l'île
+    language:
+      description: sélectionner la langue
+general:
+  errors:
+    already-have-island: '&c Vous avez déjà une île !'
+    command-cancelled: '&c Commande annulée.'
+    general: '&c Cette commande n''est pas encore prête - contactez l''administrateur.'
+    must-be-positive-number: '&c [number] n''est pas un nombre positif valide.'
+    no-island: '&c Vous n''avez pas d''île !'
+    no-permission: '&c Vous n''êtes pas autorisé à exécuter cette commande (&7 [permission]&c).'
+    no-safe-location-found: '&c Impossible de trouver un endroit sûr pour vous téléporter
+      sur l''île.'
+    no-team: '&c Vous n''avez pas d''équipe !'
+    not-in-team: '&c Ce joueur n''est pas dans votre équipe !'
+    not-owner: '&c Vous n''êtes pas le propriétaire de l''île!'
+    offline-player: '&c Ce joueur est hors ligne ou n''existe pas.'
+    player-has-island: '&c Ce joueur a déjà une île !'
+    player-has-no-island: '&c Ce joueur n''a pas d''île !'
+    player-is-not-owner: '&b [name] &c n''est pas le propriétaire d''une île.'
+    unknown-command: '&c Commande inconnue. Faites &b /[label] help &c pour obtenir
+      de l''aide.'
+    unknown-player: '&c [name] est un joueur inconnu !'
+    use-in-game: '&c Cette commande est uniquement disponible dans le jeu.'
+    wrong-world: '&c Vous n''êtes pas dans le bon monde pour faire ça !'
+    you-must-wait: '&c Vous devez attendre [number] secondes avant de pouvoir utiliser
+      à nouveau cette commande.'
+  invalid: Invalide
+  success: '&a Succès !'
+  tips:
+    changing-obsidian-to-lava: Transformation de l''obsidienne en lave. Faites attention
+      !
+  worlds:
+    nether: Nether
+    overworld: Overworld
+    the-end: End
+language:
+  description:
+    author: '&3 - &b [name]'
+    authors: '&a Auteurs:'
+    click-to-select: '&e Cliquez &a pour sélectionner.'
+    selected: '&a Actuellement sélectionné.'
+  edited: '&a Changez votre langue en &e [lang] &a.'
+  panel-title: Sélectionnez votre langue
+management:
+  panel:
+    actions:
+      check-updates:
+        description: '&eCliquez &apour lancer une vérification des mises à jour.'
+        name: '&6Vérifiez les mises à jour'
+      reload:
+        description: '&e Clicquez &c &l deux fois &r &a pour recharger BentoBox'
+        name: '&c Recharger'
+    buttons:
+      catalog:
+        description: '&a ouvre le catalogue des Addons'
+        name: '&6 Catalogue des Addons '
+      credits:
+        description: '&a Ouvre les crédits de BentoBox'
+        name: '&6 Crédits'
+      empty-here:
+        description: '&a Et si vous jetiez un œil à notre catalogue ?'
+        name: '&b C''est vide ici...'
+    information:
+      state:
+        description:
+          COMPATIBLE: "&a Tourne sous &e [name] [version] &a.\n\n&a BentoBox fonctionne\
+            \ actuellement sur une\n&a version logicielle serveur \n&a &l COMPATIBLE\
+            \ &r &a.\n\n&a Ses fonctionnalités sont entièrement conçues pour\n&a course\
+            \ dans cet environnement.\n"
+          NOT_SUPPORTED: "&a Tourne sous &e [name] [version] &a.\n\n&a BentoBox fonctionne\
+            \ actuellement sur une\n&a version logicielle serveur \n&6 &l NON SUPPORTÉ\
+            E &r &a.\n\n&a Bien que la plupart de ses fonctionnalités fonctionnent\n\
+            &a correctement, &6 bogues spécifiques à la plate-forme ou\n&6 problè\
+            mes sont à prévoir &a.\n"
+          SUPPORTED: "&a Tourne sous &e [name] [version] &a.\n\n&a BentoBox fonctionne\
+            \ actuellement sur une\n&a version logicielle serveur \n&a &l SUPPORTÉ\
+            E &r &a.\n\n&a La plupart de ses fonctionnalités fonctionneront sans problè\
+            me\n&a dans cet environnement.\n"
+          INCOMPATIBLE: "&a Tourne sous &e [name] [version] &a.\n\n&a BentoBox fonctionne\
+            \ actuellement sur une\n&a version logicielle serveur \n&c &l INCOMPATIBLE\
+            \ &r &a.\n\n&c Des comportements étranges et des bugs peuvent survenir\n\
+            &c et la plupart des fonctionnalités peuvent être instables."
+        name: '&6 Compatibilité'
+    title: Gestion de BentoBox
+    views:
+      addons:
+        description: '&e Cliquez &a pour afficher les addons actuellement chargés'
+        name: '&6 Addons'
+      gamemodes:
+        blueprints:
+          description: '&a Ouvre le menu Admin Blueprint.'
+          name: '&6 Blueprints'
+        gamemode:
+          description: '&a Îles : &b [islands]'
+          name: '&f [name]'
+        name: '&6 Gamemodes'
+        description: '&e Cliquez &a pour afficher les modes de jeu actuellement chargés'
+      hooks:
+        description: '&e Cliquez &a pour afficher le Hook actuellement chargé'
+        name: '&6 Hooks'
+meta:
+  authors:
+  - Poslovitch
+  - AFGAME
+  - jAvEE_fr
+  banner: WHITE_BANNER:1:STRIPE_TOP:BLUE:STRIPE_BOTTOM:RED
+panel:
+  credits:
+    contributor:
+      name: '&a [name]'
+      description: '&a Commits : &b [commits]'
+    empty-here:
+      description: |-
+        &c BentoBox n'a pas pu rassembler les contributeurs
+        &c pour cet addon.
+
+        &a Autorisez BentoBox à se connecter à GitHub dans
+        &a la configuration ou réessayez plus tard.
+      name: '&c C''est vide ici...'
+    title: '&2 Crédits de &8 [name]'
+prefixes:
+  bentobox: '&6 BentoBox &7 &l> &r'
 protection:
-  command-is-banned: Cette commande ne peut pas être utilisée par les visiteurs.
   flags:
-    ANIMAL_SPAWN:
-      description: Autoriser l'apparition
-      name: Apparition des animaux
     ANVIL:
-      description: Autoriser l'interaction
       name: Enclumes
-      hint: L'utilisation des enclumes est désactivée
-    ARMOR_STAND:
-      description: Autoriser l'interaction
-      name: Porte-armures
-      hint: L'utilisation des porte-armures est désactivée
+      description: Autoriser l'utilisation des enclumes
+      hint: vous ne pouvez pas utiliser les enclumes
     BEACON:
-      description: Autoriser l'interaction
       name: Balises
-      hint: L'utilisation des balises est désactivée
+      description: Autoriser l'interaction avec les balises
+      hint: vous ne pouvez pas interagir avec les balises
     BED:
-      description: Autoriser l'interaction
       name: Lits
-      hint: L'utilisation des lits est désactivée
+      description: Autoriser l'utilisation des lits
+      hint: vous ne pouvez pas utiliser les lits
     BOAT:
-      description: Autoriser l'interaction avec les bateaux
       name: Bateaux
-      hint: Aucune interaction avec les bateaux n'est autorisée
-    BREAK_BLOCKS:
-      description: Autoriser le cassage de blocs
-      name: Casser les blocs
-      hint: casser des blocs est interdit
-    BREEDING:
-      description: Autoriser la reproduction
-      name: Reproduire les animaux
-      hint: La reproduction des animaux est désactivée
-    BREWING:
-      description: Autoriser l'interaction
-      name: Alambics
-      hint: L'utilisation des alambics est désactivée
+      description: Autoriser l'interaction avec les bateaux
+      hint: vous ne pouvez pas interagir avec les bateaux
     BREAK_SPAWNERS:
       description: est-ce que les joueurs peuvent détruire les spawners? Remplace
         le flag.
       hint: Casse spawners désactivée
       name: Casser les Spawners
+    BREWING:
+      hint: Brassage désactivé
+      description: Autoriser l'utilisation des alambics
+      name: Alambics
     BUCKET:
       hint: Utilisation du godet désactivée
       description: vous ne pouvez pas utiliser les alambics
@@ -1256,6 +1341,21 @@ protection:
         &a S'il est actif, le Wither peut
         &a faire des dégâts aux blocs et aux joueurs
       name: Toggle wither damage
+    ANIMAL_SPAWN:
+      description: Autoriser l'apparition naturelle des animaux
+      name: Apparition des animaux
+    ARMOR_STAND:
+      description: Autoriser l'interaction avec les portes-armures
+      name: Portes-armures
+      hint: vous ne pouvez pas interagir avec les portes-armures
+    BREAK_BLOCKS:
+      description: Autoriser à casser des blocs
+      name: Casser les blocs
+      hint: vous ne pouvez pas casser des blocs
+    BREEDING:
+      description: Autoriser la reproduction des animaux
+      name: Reproduction des animaux
+      hint: vous ne pouvez pas reproduire les animaux
     DISPENSER:
       name: Dispensers
       description: Autoriser l'interaction avec dispensers
@@ -1264,217 +1364,79 @@ protection:
       name: Entonnoirs
       description: Autoriser l'interaction avec les entonnoirs
       hint: vous ne pouvez pas interagir avec les entonnoirs
-  locked: '&cCette île est verrouillée!'
-  protected: '&cÎle protégée: [description]'
-  spawn-protected: '&cSpawn protégé: [description]'
+  locked: '&c Cette île est verrouillée!'
   panel:
-    next: Page suivante
-    previous: Page précédente
+    flag-item:
+      allowed-rank: '&3 - &a'
+      blocked-rank: '&3 - &c'
+      description-layout: |-
+        &a [description]
+
+        &7 Autorisé pour :
+      menu-layout: '&a [description]'
+      minimal-rank: '&3 - &2'
+      name-layout: '&a [name]'
+      setting-active: '&a actif'
+      setting-cooldown: '&c Le paramètre est en cours de recharge'
+      setting-disabled: '&c Désactivé'
+      setting-layout: |-
+        &a [description]
+
+        &7 Réglage actuel : [setting]
     mode:
       advanced:
-        name: '&6Paramètres avancés'
-        description: '&aAffiche un nombre important de paramètres.'
+        description: '&a Affiche une quantité raisonnable de paramètres.'
+        name: '&6 Paramètres avancés'
       basic:
-        name: '&aParamètres simplifiés'
-        description: '&aAffiche les paramètres les plus utilisés.'
+        name: '&a Paramètres de base'
+        description: '&a Affiche les paramètres les plus utiles.'
+      click-to-switch: '&e Cliquez &a pour aller vers le &r [next]&r &a .'
       expert:
-        name: '&cParamètres complets'
-        description: '&aAffiche tous les paramètres disponibles.'
-      click-to-switch: '&eCliquez &apour afficher les &r[next]&r&a.'
+        description: '&a Affiche tous les paramètres disponibles.'
+        name: '&c Paramètres experts'
+    previous: '&f Page précédente'
     PROTECTION:
-      title: '&6Protection'
       description: |-
-        &aParamètres de protection
-        &apour cette île
-    SETTING:
-      title: '&6Options'
-      description: |-
-        &aParamètres génériques
-        &apour cette île
-    WORLD_SETTING:
-      title: '&6Options &b[world_name]'
-      description: '&aParamètres pour ce monde'
-    flag-item:
-      name-layout: '&a[name]'
-      description-layout: |
-        &a[description]
-
-        &7Autorisé pour :
-      allowed-rank: '&3- &a'
-      blocked-rank: '&3- &c'
-      minimal-rank: '&3- &2'
-      menu-layout: '&a[description]'
-      setting-layout: |
-        &a[description]
-
-        &7État : [setting]
-      setting-active: '&aActivé'
-      setting-disabled: '&cDésactivé'
-      setting-cooldown: '&c Le paramètre est en cours de recharge'
+        &a Paramètres de protection
+        &a pour cette île
+      title: '&6 Protection'
     reset-to-default:
       description: |-
         &a Réinitialise &c &l TOUT &r &a les paramètres à leur
         &a valeur par défaut.
       name: '&c Rétablir les valeurs par défaut'
+    SETTING:
+      description: |-
+        &a Paramètres généraux
+        &a pour cette île
+      title: '&6 Paramètres'
     WORLD_DEFAULTS:
       description: |
         &a Paramètres de protection lorsque
         &a le joueur est en dehors de leur île
       title: '&b [world_name] &6 Protections des worlds'
+    WORLD_SETTING:
+      description: '&a Paramètres pour ce monde de jeu'
+      title: '&b [world_name] &6 Paramètres'
+    next: '&f Page suivante'
   world-protected: '&c Monde protégé: [description]'
-language:
-  panel-title: Choisissez votre langue
-  description:
-    selected: '&aActuellement sélectionné.'
-    click-to-select: '&eCliquez &apour sélectionner.'
-    authors: '&aAuteurs :'
-    author: '&3- &b[name]'
-  edited: '&aLangue modifiée en &e[lang]&a.'
-management:
-  panel:
-    title: Gestion de BentoBox
-    views:
-      gamemodes:
-        name: '&6Modes de jeu'
-        description: '&eCliquez &apour afficher les modes de jeu chargés.'
-        blueprints:
-          name: '&6Blueprints'
-          description: '&aAffiche le menu de gestion des Blueprints.'
-        gamemode:
-          description: '&a Îles : &b [islands]'
-          name: '&f [name]'
-      addons:
-        name: '&6Addons'
-        description: '&eCliquez &apour afficher les addons chargés.'
-      hooks:
-        name: '&6Intégrations'
-        description: '&eCliquez &apour afficher les intégrations actuelles.'
-    actions:
-      check-updates:
-        name: '&6Vérifiez les mises à jour'
-        description: '&eCliquez &apour lancer une vérification des mises à jour.'
-      reload:
-        name: '&cReload'
-        description: '&eCliquez &c&ldeux fois &r&apour reload BentoBox.'
-    buttons:
-      catalog:
-        name: '&6Catalogue'
-        description: '&aOuvre le catalogue.'
-      empty-here:
-        name: '&bC''est vide ici...'
-        description: '&aEt si vous jetiez un œil à notre catalogue ?'
-      credits:
-        description: '&a Ouvre les crédits de BentoBox'
-        name: '&6 Crédits'
-    information:
-      state:
-        name: '&6Compatibilité'
-        description:
-          COMPATIBLE: |
-            &aServeur : &e[name] [version]&a.
-
-            &aBentoBox fonctionne actuellement sur
-            &aune plateforme logicielle dont la
-            &aversion est &lCOMPATIBLE&r&a.
-
-            &aLes fonctionnalités sont parfaitement
-            &aconçues pour fonctionner dans cet
-            &aenvironnement.
-          SUPPORTED: |
-            &aServeur : &e[name] [version]&a.
-
-            &aBentoBox fonctionne actuellement sur
-            &aune plateforme logicielle dont la
-            &aversion est &lSUPPORTÉE&r&a.
-
-            &aLa majorité des fonctionnalités
-            &avont fonctionner correctement dans
-            &acet environnement.
-          NOT_SUPPORTED: |
-            &aServeur : &e[name] [version]&a.
-
-            &aBentoBox fonctionne actuellement sur
-            &aune plateforme logicielle dont la
-            &aversion est &6&lNON-SUPPORTÉE&r&a.
-
-            &aMême si la majorité des fonctionnalités
-            &afonctionneront correctement, &6des
-            &6bugs spécifiques à la plateforme sont
-            &6possibles.
-          INCOMPATIBLE: |+
-            &aServeur : &e[name] [version]&a.
-
-            &aBentoBox fonctionne actuellement sur
-            &aune plateforme logicielle dont la
-            &aversion est &c&lINCOMPATIBLE&r&a.
-
-            &cDes bugs ou comportements étranges
-            &cpeuvent survenir et la majorité des
-            &cfonctionnalités peuvent être instables.
-
-
-
-
-catalog:
-  panel:
-    GAMEMODES:
-      title: Catalogue de modes de jeu
-    ADDONS:
-      title: Catalogue d'addons
-    views:
-      gamemodes:
-        name: '&6Modes de jeu'
-        description: |
-          &eCliquez &apour naviguer dans la liste
-          &ades modes de jeu officiels disponibles.
-      addons:
-        name: '&6Addons'
-        description: |
-          &eCliquez &apour naviguer dans la liste
-          &ades addons officiels disponibles.
-    icon:
-      description-template: |
-        &8[topic]
-        &a[install]
-
-        &7&o[description]
-
-        &eCliquez &apour obtenir un lien vers la
-        &amise à jour la plus récente.
-      already-installed: Déjà installé!
-      install-now: Installez maintenant!
-    empty-here:
-      name: '&bC''est vide ici...'
-      description: |+
-        &cBentoBox n'a pas pu se connecter à GitHub.
-
-        &aAutorisez BentoBox à se connecter à GitHub
-        &adans la configuration ou réessayez plus tard.
-
-
-
-
-successfully-loaded: |2
-
-  &6  ____             _        ____
-  &6 |  _ \           | |      |  _ \             &7par &atastybento &7et &aPoslovitch
-  &6 | |_) | ___ _ __ | |_ ___ | |_) | _____  __  &72017 - 2019
-  &6 |  _ < / _ \ '_ \| __/ _ \|  _ < / _ \ \/ /
-  &6 | |_) |  __/ | | | || (_) | |_) | (_) >  <   &bv&e[version]
-  &6 |____/ \___|_| |_|\__\___/|____/ \___/_/\_\  &8Chargement réussi en &e[time]&8ms.
-panel:
-  credits:
-    contributor:
-      name: '&a [name]'
-      description: '&a Commits : &b [commits]'
-    empty-here:
-      description: |-
-        &c BentoBox n'a pas pu rassembler les contributeurs
-        &c pour cet addon.
-
-        &a Autorisez BentoBox à se connecter à GitHub dans
-        &a la configuration ou réessayez plus tard.
-      name: '&c C''est vide ici...'
-    title: '&2 Crédits de &8 [name]'
-prefixes:
-  bentobox: '&6 BentoBox &7 &l> &r'
+  command-is-banned: Cette commande est interdite aux visiteurs.
+  protected: '&c Île protégée: [description]'
+  spawn-protected: '&c Spawn protégé: [description]'
+ranks:
+  admin: Administrateur
+  banned: Banni
+  coop: Coop
+  member: Membre
+  mod: Modérateur
+  owner: Propriétaire
+  sub-owner: Sous-propriétaire
+  visitor: Visiteur
+  trusted: Trust
+successfully-loaded: |-
+  &6   ____             _        ____
+  &6  |  _ \           | |      |  _ \             &7 par &a tastybento &7 et &a Poslovitch
+  &6  | |_) | ___ _ __ | |_ ___ | |_) | _____  __  &7 2017 - 2022
+  &6  |  _ < / _ \ '_ \| __/ _ \|  _ < / _ \ \/ /
+  &6  | |_) |  __/ | | | || (_) | |_) | (_) >  <   &b v&e [version]
+  &6  |____/ \___|_| |_|\__\___/|____/ \___/_/\_\  &8 Chargé en &e [time]&8 ms.

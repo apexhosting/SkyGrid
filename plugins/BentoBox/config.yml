@@ -1,4 +1,4 @@
-# BentoBox v1.20.0-SNAPSHOT-b2215 configuration file.
+# BentoBox v1.20.1 configuration file.
 # 
 # This configuration file contains settings that mainly apply to or manage the following elements:
 #  * Data storage
@@ -94,7 +94,7 @@ panel:
   # Mojang API sometime may be slow and may limit requests to the player data, so this will allow to
   # get player heads a bit faster then Mojang API.
   # Added since 1.16.0.
-  use-cache-server: false
+  use-cache-server: true
   # Defines how long player skin texture link is stored into local cache before it is requested again.
   # Defined value is in the minutes.
   # Value 0 will not clear cache until server restart.
@@ -177,13 +177,13 @@ island:
   # Smaller values will help reduce noticeable lag but will make pasting take slightly longer.
   # On the contrary, greater values will make pasting take less time, but this benefit is quickly severely impacted by the
   # resulting amount of chunks that must be loaded to fulfill the process, which often causes the server to hang out.
-  paste-speed: 1000
+  paste-speed: 64
   # Island deletion: Number of chunks per world to regenerate per second.
   # If there is a nether and end then 3x this number will be regenerated per second.
   # Smaller values will help reduce noticeable lag but will make deleting take longer.
   # A setting of 0 will leave island blocks (not recommended).
   # Added since 1.7.0.
-  delete-speed: 1
+  delete-speed: 100
   deletion:
     # Toggles whether islands, when players are resetting them, should be kept in the world or deleted.
     # * If set to 'true', whenever a player resets his island, his previous island will become unowned and won't be deleted from the world.
@@ -222,4 +222,4 @@ web:
     # However, as the GitHub API data does not get updated instantly, this value cannot be set to less than 60 minutes.
     # Setting this to 0 will make BentoBox download data only at startup.
     # Added since 1.5.0.
-    connection-interval: 60
+    connection-interval: 120

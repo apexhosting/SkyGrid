@@ -1,0 +1,68 @@
+# Citizens NPC Storage
+
+last-created-npc-id: 0
+npc:
+  '0':
+    metadata:
+      cached-skin-uuid: b4e6d297-cfba-469a-a423-4ffb8da70c39
+      cached-skin-uuid-name: apexhosting
+    name: §d§lSKYGRID §7§lVERSE
+    uuid: fc0b91ff-a2f6-4b8a-917b-72b5135f43a8
+    traits:
+      skintrait:
+        fetchDefaultSkin: true
+        signature: Iws3keRWKWp0gWPDflS11NqQBap/ufy+jfOrF7bIzeHw+IUxrGdGAPLVQdJxwI/tWvAfwNTCw/r0Efv0R0dj7iTQCHqbS4id9KLiXusO1rgV12rA2AgUcd51Hcj9SAA7w4YzZaxoDecDyKk5n3Tfs//u6HQRKg/jXb7Q/fyAd8ynSOzwmV9TR7xmYof9slxuZByiQTTn6cSC9bJgiJC95TNuvvm5MI9JWbTDuId9t38RK3Bovsl2dKl7lkDpD+w5LY7Uv6VrTyWw/Y9vJVmivaToEHEZhpu5HG8unqivRudEjyiWRyURkNrvcQeoIA0oAOG3yJn6XAz5FuFVBgq2Q7IRfTKoerHqxn0AwO9OFWJWUPC/AumNLG4qaCyMKBz3eBKxugxEPCqAf2biSxO4CGI/EWk33UKOEbnjKBSeKO+aVmo30WeY2HUYraaLba/MBAJNFJ1XceSCWLdhUfi4xYGC52pDIyJJh7NHH8rFFeWZlu5GRmlzauEZJ2y35kqALdgtMB24uAAUKQnAe8A7FWnhA4YaPqYEjBVecMXqxJ9086JShSsRC1u8+e1ki+uhOR90MNcH2Ajdd5whpl2oqdoBZ9J2wqGIMTZnysYvFpUNuqFfK9Tr4OTAOXQconbQLW0XyBtYl1Kp2PSwSoFZkcuCLR2eXV6iG/zqIE2QjJY=
+        skinName: apexhosting
+        textureRaw: ewogICJ0aW1lc3RhbXAiIDogMTY1NDc3OTA0MTI0MSwKICAicHJvZmlsZUlkIiA6ICJiNGU2ZDI5N2NmYmE0NjlhYTQyMzRmZmI4ZGE3MGMzOSIsCiAgInByb2ZpbGVOYW1lIiA6ICJBcGV4SG9zdGluZyIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9iZmQyMzE5MDNmODMxOTFhYzY1YjNjZjg3MTljYmU0NjNkZTUyZDcwMzk5ZTMxODJlY2I2YjMxNTY5MmI1ZWRiIgogICAgfQogIH0KfQ==
+        updateSkins: false
+      owner:
+        uuid: f0e7f028-4955-4dc8-8e40-d334ef0bd19a
+      location:
+        bodyYaw: -136.8429
+        world: skygrid_world
+        x: '-9.3245'
+        y: '127.0'
+        z: '-60.6312'
+        yaw: '-136.8429'
+        pitch: '0.0'
+      type: PLAYER
+      commandtrait:
+        cost: -1.0
+        executionMode: LINEAR
+        experienceCost: -1.0
+        hideErrorMessages: false
+        commands:
+          '0':
+            command: sg
+            hand: RIGHT
+            player: true
+            op: false
+            cooldown: 0
+            globalcooldown: 0
+            n: -1
+            delay: 0
+      age:
+        age: 0
+        locked: true
+      lookclose:
+        range: '5.0'
+        disablewhilenavigating: true
+        enabled: true
+        enableRandomLook: false
+        randomLookDelay: 60
+        realisticlooking: false
+        randomPitchRange:
+          '0': 0.0
+          '1': 0.0
+        randomYawRange:
+          '0': 0.0
+          '1': 360.0
+      spawned: true
+      hologramtrait:
+        direction: BOTTOM_UP
+        lineHeight: -1.0
+    traitnames: mounttrait,spawned,scoreboardtrait,smoothrotationtrait,lookclose,type,inventory,location,skintrait,commandtrait,owner,hologramtrait,age
+    navigator:
+      speedmodifier: '1.0'
+      avoidwater: false
+      usedefaultstuckaction: true

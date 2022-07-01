@@ -1,4 +1,4 @@
-#
+# 
 # This is a YML file. Be careful when editing. Check your edits in a YAML checker like    #
 # the one at http://yaml-online-parser.appspot.com                                        #
 skygrid:
@@ -158,9 +158,9 @@ skygrid:
         description: Display entry and exit messages
         island: '[name]''s protected area'
         name: Enter/Exit messages
-        now-entering: '&b Now entering [name]'
-        now-leaving: '&b Now leaving [name]'
+        now-entering: '&a Now entering &b [name]&a .'
         now-entering-your-island: '&a Now entering your area.'
+        now-leaving: '&a Now leaving &b [name]&a .'
         now-leaving-your-island: '&a Now leaving your area.'
       GEO_LIMIT_MOBS:
         description: |-

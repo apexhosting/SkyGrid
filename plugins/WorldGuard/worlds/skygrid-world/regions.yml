@@ -10,24 +10,9 @@
 # REMEMBER TO KEEP PERIODICAL BACKUPS.
 #
 regions:
-    spawn:
-        min: {x: -88, y: -3, z: -29}
-        max: {x: 25, y: 261, z: 71}
+    __global__:
         members: {}
-        flags: {other-explosion: deny, lava-fire: deny, water-flow: deny, use: allow,
-            invincible: allow, leaf-decay: deny, snow-fall: deny, firework-damage: deny,
-            mob-damage: deny, ravager-grief: deny, mushroom-growth: deny, lightning: deny,
-            wither-damage: deny, ice-form: deny, chorus-fruit-teleport: deny, enderman-grief: deny,
-            pvp: deny, mob-spawning: deny, crop-growth: deny, creeper-explosion: deny,
-            vine-growth: deny, damage-animals: allow, snow-melt: deny, tnt: deny,
-            ghast-fireball: deny, entity-item-frame-destroy: deny, deny-message: '',
-            frosted-ice-form: deny, mycelium-spread: deny, ice-melt: deny, block-trampling: deny,
-            interact: allow, vehicle-destroy: deny, chest-access: allow, ride: deny,
-            fire-spread: deny, enderdragon-block-damage: deny, vehicle-place: deny,
-            snowman-trails: deny, block-break: deny, entity-painting-destroy: deny,
-            lighter: deny, block-place: deny, enderpearl: deny, soil-dry: deny, fall-damage: deny,
-            item-frame-rotation: deny, potion-splash: deny, frosted-ice-melt: deny,
-            lava-flow: deny, grass-growth: deny}
+        flags: {}
         owners: {}
-        type: cuboid
+        type: global
         priority: 0

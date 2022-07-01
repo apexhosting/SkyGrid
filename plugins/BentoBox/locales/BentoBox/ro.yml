@@ -1,6 +1,3 @@
-#
-# This is a YML file. Be careful when editing. Check your edits in a YAML checker like    #
-# the one at http://yaml-online-parser.appspot.com                                        #
 meta:
   banner: YELLOW_BANNER:1:STRIPE_TOP:BLUE:STRIPE_BOTTOM:RED
   authors:
@@ -1455,7 +1452,7 @@ management:
             &a În timp ce majoritatea funcțiilor sale vor rula
             &a corect, &6 erori specifice platformei sau
             &6 probleme sunt de așteptat &a.
-          INCOMPATIBLE: |+
+          INCOMPATIBLE: |
             &a Running &e [name] [version] &a.
 
             &a BentoBox rulează în prezent pe un
@@ -1464,10 +1461,6 @@ management:
 
             &c Pot apărea comportamente ciudate și erori
             &c și cele mai multe funcții pot fi instabile.
-
-
-
-
 catalog:
   panel:
     GAMEMODES:
@@ -1498,15 +1491,11 @@ catalog:
       install-now: Instaleaza acum!
     empty-here:
       name: '&b Aici pare gol aici ...'
-      description: |+
+      description: |
         &c BentoBox nu s-a putut conecta la GitHub.
 
         &o Permiteți BentoBox să se conecteze la GitHub în
         &a configurația sau încercați din nou mai târziu.
-
-
-
-
 panel:
   credits:
     title: '&8 [name] &2 credite'
@@ -1516,21 +1505,17 @@ panel:
         &a Commits: &b [commits]
     empty-here:
       name: '&c Acesta pare gol aici ...'
-      description: |+
+      description: |
         &c BentoBox nu a putut să adune Contribuitorii
         &c pentru acest Addon.
 
         &o Permiteți BentoBox să se conecteze la GitHub în
         &a configurația sau încercați din nou mai târziu.
-
-
-
-
 successfully-loaded: |2
 
   &6   ____             _        ____
   &6  |  _ \           | |      |  _ \             &7 by &a tastybento &7 and &a Poslovitch
-  &6  | |_) | ___ _ __ | |_ ___ | |_) | _____  __  &7 2017 - 2020
+  &6  | |_) | ___ _ __ | |_ ___ | |_) | _____  __  &7 2017 - 2022
   &6  |  _ < / _ \ '_ \| __/ _ \|  _ < / _ \ \/ /
   &6  | |_) |  __/ | | | || (_) | |_) | (_) >  <   &b v&e [version]
   &6  |____/ \___|_| |_|\__\___/|____/ \___/_/\_\  &8 Loaded in &e [time]&8 ms.

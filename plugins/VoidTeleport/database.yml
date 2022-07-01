@@ -1,0 +1,7 @@
+worlds:
+  skygrid_world:
+    spawnpoint: skygrid_world:-9.5:127.0:-66.5:-40.498657:2.850037
+    y-void: 0.0
+    enabled: true
+    keep-inventory: true
+    nether: false

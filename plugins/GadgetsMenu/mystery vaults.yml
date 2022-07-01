@@ -1,0 +1,29 @@
+Mystery-Vaults:
+  '1':
+    BlockFace: EAST
+    Location:
+      world: skygrid_world
+      x: -1.0
+      y: 128.0
+      z: -42.0
+  '2':
+    BlockFace: WEST
+    Location:
+      world: skygrid_world
+      x: 8.0
+      y: 128.0
+      z: -45.0
+  '3':
+    BlockFace: NORTH
+    Location:
+      world: skygrid_world
+      x: 11.0
+      y: 127.0
+      z: -5.0
+  '4':
+    BlockFace: EAST
+    Location:
+      world: skygrid_world
+      x: -1.0
+      y: 127.0
+      z: -2.0

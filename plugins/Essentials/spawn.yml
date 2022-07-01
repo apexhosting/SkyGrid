@@ -1,8 +1,9 @@
-spawns: 
-  default: 
-    world: SkyGrid-world
-    x: -0.017175804825378588
-    y: 129.0
-    z: 0.6022545645160142
-    yaw: -265.1747
-    pitch: 1.3502456
+spawns:
+  default:
+    world: 2f0a5045-c75a-4818-a5f3-d45922127fea
+    world-name: skygrid_world
+    x: -9.033002902098021
+    y: 127.0
+    z: -66.40516680822505
+    yaw: -40.4986572265625
+    pitch: 2.850037097930908

@@ -5,17 +5,17 @@
     "&7 Just more than",
     "&7 Basalt"
   ],
-  "generatorIcon": "is:\n  ==: org.bukkit.inventory.ItemStack\n  v: 2865\n  type: BLACKSTONE\n",
-  "lockedIcon": "is:\n  ==: org.bukkit.inventory.ItemStack\n  v: 2865\n  type: BARRIER\n",
+  "generatorIcon": "is:\n  ==: org.bukkit.inventory.ItemStack\n  v: 2730\n  type: BLACKSTONE\n",
+  "lockedIcon": "is:\n  ==: org.bukkit.inventory.ItemStack\n  v: 2730\n  type: BARRIER\n",
   "generatorType": "BASALT",
   "defaultGenerator": false,
   "priority": 3,
   "requiredMinIslandLevel": 100,
   "requiredBiomes": [
-    "WARPED_FOREST",
-    "CRIMSON_FOREST",
-    "SOUL_SAND_VALLEY",
     "BASALT_DELTAS",
+    "WARPED_FOREST",
+    "SOUL_SAND_VALLEY",
+    "CRIMSON_FOREST",
     "NETHER_WASTES"
   ],
   "requiredPermissions": [],
@@ -37,8 +37,8 @@
   },
   "treasureChanceMap": {},
   "treasureItemChanceMap": {
-    "99.0": "is:\n  ==: org.bukkit.inventory.ItemStack\n  v: 2865\n  type: GOLD_NUGGET\n",
-    "100.0": "is:\n  ==: org.bukkit.inventory.ItemStack\n  v: 2865\n  type: NETHERITE_SCRAP\n"
+    "99.0": "is:\n  ==: org.bukkit.inventory.ItemStack\n  v: 2730\n  type: GOLD_NUGGET\n",
+    "100.0": "is:\n  ==: org.bukkit.inventory.ItemStack\n  v: 2730\n  type: NETHERITE_SCRAP\n"
   },
   "treasureChance": 0.001,
   "maxTreasureAmount": 1

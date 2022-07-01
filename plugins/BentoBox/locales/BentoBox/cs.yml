@@ -1,4 +1,4 @@
-#
+# 
 # This is a YML file. Be careful when editing. Check your edits in a YAML checker like    #
 # the one at http://yaml-online-parser.appspot.com                                        #
 #                                                                                         #
@@ -73,7 +73,7 @@ commands:
     purge:
       parameters: '[days]'
       description: pročistit ostrovy opuštěné více než [days]
-      days-or-more: Musí být alespoň 1 den nebo více
+      days-one-or-more: Musí být alespoň 1 den nebo více
       purgable-islands: Nalezeno [number] pročistitelných ostrovů.
       purge-in-progress: '&c Probíhá čištění. Použij &e purge stop &c k zastavení'
       number-error: '&c Argument musí být číslo vyjadřující počet dní'
@@ -92,7 +92,6 @@ commands:
       unowned:
         description: Vyčistit nevlastněné ostrovy - vyžaduje potvrzení
         unowned-islands: '&d Nalezeno [number] ostrovů'
-      days-one-or-more: Musí být alespoň 1 den nebo více
     team:
       add:
         parameters: <owner> <player>
@@ -860,7 +859,7 @@ protection:
       description: Ukázat hlášení o návštěvě a opuštění ostrova
       island: Ostrov [name]
       name: Hlášení o návštěvě/opuštění
-      now-entering: '&a Právě vcházíš l &b [name]&a .'
+      now-entering: '&a Právě vcházíš na &b [name]&a .'
       now-entering-your-island: '&a Právě vcházíš na svůj ostrov.'
       now-leaving: '&a Právě odcházíš od &b [name]&a .'
       now-leaving-your-island: '&a Právě odcházíš ze svého ostrova.'
@@ -1300,7 +1299,7 @@ management:
             &a I když většina jeho funkcí poběží správně,
             &6 mohou se očekávat chyby nebo problémy
             &6 specifické pro platformu &a .
-          INCOMPATIBLE: |+
+          INCOMPATIBLE: |
             &a Běžím na &e [name] [version]&a .
 
             &a BentoBox právě běží na &c &l NEKOMPATIBILNÍM
@@ -1308,10 +1307,6 @@ management:
 
             &c Mohou být přítomny chyby a podivné chování
             &c a většina funkcí může vykazovat nestabilitu.
-
-
-
-
 catalog:
   panel:
     GAMEMODES:
@@ -1342,15 +1337,11 @@ catalog:
       install-now: Nainstalovat nyní!
     empty-here:
       name: '&b Tady to vypadá nějak prázdně...'
-      description: |+
+      description: |
         &c BentoBox se nemohl připojit na GitHub.
 
         &a Povol pluginu BentoBox v připojení na GitHub
         &a v konfiguraci nebo to zkus později.
-
-
-
-
 panel:
   credits:
     title: '&8 [name] &2 Autoři'
@@ -1360,21 +1351,17 @@ panel:
         &a Příspěvky: &b [commits]
     empty-here:
       name: '&c Tady to vypadá nějak prázdně...'
-      description: |+
+      description: |
         &c Pluginu BentoBox se nepodařilo najít přispěvatele
         &c pro tento Doplňek.
 
         &a Povol pluginu BentoBox v připojení na GitHub
         &a v konfiguraci nebo to zkus později.
-
-
-
-
 successfully-loaded: |2
 
   &6   ____             _        ____
   &6  |  _ \           | |      |  _ \             &7 od &a tastybento &7 a &a Poslovitch
-  &6  | |_) | ___ _ __ | |_ ___ | |_) | _____  __  &7 2017 - 2020
+  &6  | |_) | ___ _ __ | |_ ___ | |_) | _____  __  &7 2017 - 2022
   &6  |  _ < / _ \ '_ \| __/ _ \|  _ < / _ \ \/ /
   &6  | |_) |  __/ | | | || (_) | |_) | (_) >  <   &b v&e [version]
   &6  |____/ \___|_| |_|\__\___/|____/ \___/_/\_\  &8 Načteno v &e [time]&8 ms.

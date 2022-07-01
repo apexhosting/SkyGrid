@@ -1,4 +1,4 @@
-#
+# 
 # This is a YML file. Be careful when editing. Check your edits in a YAML checker like    #
 # the one at http://yaml-online-parser.appspot.com                                        #
 meta:
@@ -223,8 +223,6 @@ commands:
       loaded-addons: 已加載組件
       loaded-game-worlds: 已加載遊戲世界：
       addon-syntax: '&2[name] &3[version] &7(&3[state]&7)'
-      game-worlds: '&2[name] &7(&3[addon]&7): &aOverworld&7, &r[nether_color]Nether&7,
-        &r[end_color]End'
       game-world: '&2[name] &7(&3[addon]&7): &a Overworld&7, &r Nether&7, &r End'
   confirmation:
     confirm: '&c於 &b[seconds] &c秒內再次輸入命令來確認'
@@ -685,7 +683,7 @@ protection:
       name: 離線紅石
     PISTON_PUSH:
       description: |-
-        &a允許活塞
+        &a防止活塞
         &a將方塊推出島嶼
       name: 活塞推動
     PLACE_BLOCKS:
@@ -784,50 +782,6 @@ protection:
   locked: '&c本島嶼已被鎖定!'
   protected: '&c島嶼保護：[description]'
   spawn-protected: '&c生成保護：[description]'
-  panel:
-    next: 下一頁
-    previous: 上一頁
-    PROTECTION:
-      title: '&6保護'
-      description: |-
-        &a當前島嶼的
-        &a保護設置
-    SETTING:
-      title: '&6設置'
-      description: |-
-        &a當前島嶼的
-        &a通用設置
-    WORLD_SETTING:
-      title: '&b[world_name] &6設置'
-      description: '&a本遊戲世界的設置'
-    flag-item:
-      name-layout: '&a[name]'
-      description-layout: |
-        &a[description]
-
-        &7允許給：
-      allowed-rank: '&3- &a'
-      blocked-rank: '&3- &c'
-      minimal-rank: '&3- &2'
-      menu-layout: '&a[description]'
-      setting-layout: |
-        &a[description]
-
-        &7當前設置：[setting]
-      setting-active: '&a激活'
-      setting-disabled: '&c禁止'
-language:
-  panel-title: 選擇您的語言
-  selected: '&a當前選中。'
-  edited: '&a更改您的語言為 &e[lang]&a。'
-successfully-loaded: |2
-
-  &6  ____             _        ____
-  &6 |  _ \           | |      |  _ \             &7by &atastybento &7and &aPoslovitch
-  &6 | |_) | ___ _ __ | |_ ___ | |_) | _____  __  &72017 - 2019
-  &6 |  _ < / _ \ '_ \| __/ _ \|  _ < / _ \ \/ /
-  &6 | |_) |  __/ | | | || (_) | |_) | (_) >  <   &bv&e[version]
-  &6 |____/ \___|_| |_|\__\___/|____/ \___/_/\_\  &8使用了 &e[time]&8ms 來完成載入。
 enums:
   DamageCause:
     CONTACT: 接觸（如仙人掌）
@@ -890,3 +844,15 @@ enums:
         &7當前設置：[setting]
       setting-active: '&a激活'
       setting-disabled: '&c禁止'
+language:
+  panel-title: 選擇您的語言
+  selected: '&a當前選中。'
+  edited: '&a更改您的語言為 &e[lang]&a。'
+successfully-loaded: |2
+
+  &6  ____             _        ____
+  &6 |  _ \           | |      |  _ \             &7by &atastybento &7and &aPoslovitch
+  &6 | |_) | ___ _ __ | |_ ___ | |_) | _____  __  &72017 - 2022
+  &6 |  _ < / _ \ '_ \| __/ _ \|  _ < / _ \ \/ /
+  &6 | |_) |  __/ | | | || (_) | |_) | (_) >  <   &bv&e[version]
+  &6 |____/ \___|_| |_|\__\___/|____/ \___/_/\_\  &8使用了 &e[time]&8ms 來完成載入。
