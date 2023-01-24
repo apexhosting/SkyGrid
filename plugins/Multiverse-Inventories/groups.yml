@@ -5,9 +5,9 @@
 groups:
   default:
     worlds:
-    - skygrid-world_nether
-    - skygrid-world
-    - skygrid-world_the_end
+    - skygrid_overworld
+    - skygrid_overworld_the_end
+    - skygrid_overworld_nether
     shares:
     - all
   lobby:

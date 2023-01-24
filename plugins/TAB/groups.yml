@@ -4,8 +4,8 @@ _DEFAULT_:
   tagprefix: "%vault-prefix%"
   customtabname: "%essentials_nickname%"
   customtagname: "%essentials_nickname%" # don't forget to enable unlimited nametag mode to make this one work
-  tabsuffix: "&7 LVL &b%Level_skygrid_island_level%"
-  tagsuffix: "&7 LVL &b%Level_skygrid_island_level%"
+  tabsuffix: ""
+  tagsuffix: ""
 
 per-world:
   world1:

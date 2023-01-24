@@ -12,8 +12,6 @@ header-footer:
     - ""
   footer:
     - ""
-    - "&7Island Level: &E&L%Level_skygrid_island_level% ☆"
-    - "&7Ranked &7&l#&d&l%Level_skygrid_rank_value%"
     - "%animation:ping-tps%"
     - ""
     - "&7Visit our webpage &dapexminecrafthosting.com"

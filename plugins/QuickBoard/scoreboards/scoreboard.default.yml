@@ -5,14 +5,9 @@ text:
   - '&7&o%localtime_time%'
   - '&7Player: &d{PLAYER}'
   - ''
-  - '&7Skygrid Level: &d%Level_skygrid_island_level%'
-  - "&7Challenges Completed: &b%skygrid_challenges_completed_count%"
-  - '&7Island Rank: &e%skygrid_rank%'
-  - ''
-  - '&7Deaths: &c%skygrid_deaths%'
+  - '&7Deaths: &c%statistic_deaths%'
   - '&7Balance: &7$&a%vault_eco_balance_fixed%'
   - ''
-  - '&7Island Top Rank: &7&l#&e&l%Level_skygrid_rank_value%'
   - '{SC_info}'
   - ''
   - '&dskygrid.apexmc.co'
@@ -21,9 +16,9 @@ updater:
   text: 5
 enabledWorlds:
   - skygrid_world
-  - skygrid-world
-  - skygrid_world_nether
-  - skygrid_world_the_end
+  - skygrid_overworld
+  - skygrid_overworld_nether
+  - skygrid_overworld_the_end
 changeableText:
   perm_info:
     text:

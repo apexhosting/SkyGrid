@@ -1,118 +1,60 @@
 #  A DeluxeMenus advanced configuration guide
 #=========================================================
-menu_title: '&8> &6&lD&eM &bAdvanced Example'
+menu_title: '&9&lWORLD &7&lSELECTOR'
 open_command:
-  - advancedmenu
-  - advancedexamplemenu
-  - themostadvancedmenuintheworld
+  - worlds
 open_commands:
   - '[sound] BLOCK_BEACON_ACTIVATE'
-  - '[message] &7Opening Advanced example menu, Plugin created by &bextended_clip&7!'
+  - '[message] &7Opening world menu&7!'
 size: 27
 # as always, only cool people can open this menu :)
 open_requirement:
   requirements:
     permission:
       type: has permission
-      permission: deluxemenus.admin
+      permission: deluxemenus.worlds
       deny_commands:
-        - "[message] &8[&bDeluxe&eMenus&8] &cYou don't have perms for this!"
+        - "[message] &cYou cannot open this menu!"
 items:
-  'example':
-    material: LIME_DYE
+  'Overworld':
+    material: GRASS_BLOCK
     slot: 11
     priority: 1
     update: true
     hide_attributes: true
-    display_name: '&bExample Kit'
+    display_name: '&a&lOVERWORLD'
     lore:
       - ''
-      - '&7Cooldown : &f3 Days'
-      - '&7Left Click to Redeem'
-    view_requirement:
-      requirements:
-        kit_requirement:
-          type: string equals
-          input: '%essentials_kit_is_available_example%'
-          output: 'yes'
-        kit_perm:
-          type: has permission
-          permission: essentials.kits.example
+      - '&7Enter the peaceful overworld.'
+      - '&7Left Click to enter'
     left_click_commands:
-      - '[player] kit example'
+      - '[player] mvtp skygrid_overworld'
       - '[close]'
-  'examplecd':
-    material: GRAY_DYE
-    slot: 11
-    priority: 2
-    update: true
-    hide_attributes: true
-    display_name: '&cExample Kit Unavailable'
-    lore:
-      - '&7This kit is on cooldown!'
-      - '&7You must wait : &f%essentials_kit_time_until_available_example%'
-      - '&7Before using this kit again.'
-    view_requirement:
-      requirements:
-        kit_perm:
-          type: has permission
-          permission: essentials.kits.example
-  'examplenoperm':
-    material: GRAY_DYE
-    slot: 11
-    priority: 3
-    update: true
-    hide_attributes: true
-    display_name: '&7Example Kit'
-    lore:
-      - '&7You do not have permission for this kit!'
-  'shopexample':
-    material: head-extended_clip
-    slot: 12
-    display_name: '&r'
-    lore:
-      - '&7Shop example using'
-      - '&7view requirements!'
-      - '&fLeft click to purchase.'
+  'Nether':
+    material: NETHERRACK
+    slot: 13
     priority: 1
-    view_requirement:
-      requirements:
-        shop_perm:
-          type: has permission
-          permission: deluxemenus.shopexample
-    left_click_commands:
-      - '[sound] ENTITY_FIREWORK_ROCKET_BLAST'
-      - '[console] give %player_name% skull 1 player:extended_clip name:&bExtended_Clip lore:&8<lore>|&7Example_Shop_Item|&8<lore>'
-      - '[message] &8[&6&lDeluxeShop&8] &fYou have succesfully purchased &7extended_clips &fhead!'
-      - '[console] eco take %player_name% 666'
-      - '[close]'
-    left_click_requirement:
-      requirements:
-        balance_check:
-          type: has money
-          amount: 666
-  'shopnoperm':
-    material: head-extended_clip
-    slot: 12
-    display_name: '&7No permission'
+    update: true
+    hide_attributes: true
+    display_name: '&c&lNETHER'
     lore:
-      - '&8You are missing the &bdeluxemenus.shopexample'
-      - '&8permission which is required to view the item!'
-      - '&fLeft click to close the menu.'
+      - ''
+      - '&7Enter the NETHER world.'
+      - '&7Left Click to enter'
     left_click_commands:
-      - '[sound] ENTITY_SNOW_GOLEM_DEATH'
+      - '[player] mvtp skygrid_overworld_nether'
       - '[close]'
-      - '[message] &8[&6&lDeluxeShop&8] &fYou have closed the menu! &7(1 Second message delay!) <delay=20>'
-  'filler_item':
-    material: GRAY_STAINED_GLASS_PANE
-    slots:
-      - 0
-      - 1
-      - 2
-      - 3
-      - 4
-      - 5
-      - 6
-      - 7
-      - 8
-    display_name: ' '
+  'End':
+    material: END_STONE
+    slot: 15
+    priority: 1
+    update: true
+    hide_attributes: true
+    display_name: '&3&lEND'
+    lore:
+      - ''
+      - '&7Enter the END world.'
+      - '&7Left Click to enter'
+    left_click_commands:
+      - '[player] mvtp skygrid_overworld_the_end'
+      - '[close]'

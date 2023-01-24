@@ -1,0 +1,323 @@
+enabled: true
+safeRespawn: false
+safeFirstJoin: false
+safeTeleport: false
+fixVanillaAdvancements: true
+worlds:
+  skygrid_overworld:
+    layers:
+      default:
+        '0':
+          blocks:
+            bedrock: 1
+          replaceRegionBlocks: true
+    worlds:
+      skygrid_overworld:
+        default:
+          biome: PLAINS
+    blocks:
+      default:
+        gravel: 10
+        snow_block: 8
+        coarse_dirt: 5
+        fire_coral_block: 1
+        sunflower: 2
+        grass_block: 90
+        sandstone: 10
+        calcite: 1
+        chest: 1
+        carrots: 1
+        pointed_dripstone: 1
+        bookshelf: 3
+        orange_tulip: 2
+        sweet_berry_bush: 1
+        spruce_leaves: 10
+        mossy_cobblestone: 5
+        seagrass: 1
+        bell: 1
+        crying_obsidian: 1
+        small_dripleaf: 1
+        dead_bush: 2
+        cobblestone: 1
+        pink_tulip: 2
+        ice: 1
+        spawner: 1
+        large_fern: 2
+        oak_log: 20
+        deepslate_lapis_ore: 1
+        azure_bluet: 2
+        sand: 20
+        poppy: 2
+        cornflower: 1
+        kelp_plant: 1
+        sea_pickle: 1
+        hanging_roots: 1
+        sugar_cane: 15
+        stone: 140
+        mossy_stone_bricks: 2
+        target: 1
+        iron_ore: 20
+        acacia_log: 20
+        gold_ore: 10
+        blue_orchid: 2
+        birch_log: 20
+        dirt: 20
+        deepslate_copper_ore: 1
+        cave_vines: 1
+        lilac: 2
+        rooted_dirt: 1
+        oak_leaves: 10
+        mycelium: 15
+        bamboo_sapling: 1
+        deepslate_redstone_ore: 1
+        copper_ore: 1
+        chiseled_stone_bricks: 1
+        deepslate_diamond_ore: 1
+        brown_mushroom: 2
+        granite: 10
+        deepslate: 1
+        lapis_ore: 5
+        piston: 1
+        sea_lantern: 1
+        acacia_leaves: 10
+        fern: 2
+        bone_block: 3
+        obsidian: 5
+        amethyst_cluster: 1
+        jungle_log: 20
+        jungle_leaves: 10
+        red_mushroom: 2
+        prismarine: 2
+        diorite: 10
+        grass: 5
+        bubble_coral_block: 1
+        redstone_ore: 8
+        wheat: 1
+        red_sandstone: 3
+        potted_cactus: 1
+        red_tulip: 2
+        lily_of_the_valley: 1
+        smooth_basalt: 1
+        white_concrete_powder: 15
+        azalea: 1
+        clay: 20
+        amethyst_block: 2
+        dark_oak_log: 20
+        deepslate_coal_ore: 1
+        red_sand: 5
+        birch_leaves: 10
+        dark_prismarine: 2
+        andesite: 10
+        dark_oak_leaves: 10
+        budding_amethyst: 1
+        tall_grass: 2
+        brain_coral_block: 1
+        potatoes: 1
+        flowering_azalea: 1
+        white_tulip: 2
+        allium: 2
+        spruce_log: 20
+        white_wool: 25
+        deepslate_gold_ore: 1
+        coal_ore: 40
+        tnt: 2
+        lava: 5
+        cobweb: 10
+        beetroots: 1
+        horn_coral_block: 1
+        bee_nest: 1
+        stone_bricks: 5
+        tuff: 1
+        melon: 5
+        diamond_ore: 1
+        pumpkin: 5
+        wither_rose: 1
+        moss_block: 1
+        dandelion: 2
+        packed_ice: 2
+        tube_coral_block: 1
+        glow_lichen: 1
+        podzol: 5
+        peony: 2
+        rose_bush: 2
+        sticky_piston: 1
+        glass: 1
+        oxeye_daisy: 2
+        sponge: 1
+        water: 10
+        deepslate_iron_ore: 1
+        lily_pad: 2
+        gold_block: 1
+        powder_snow: 1
+        infested_deepslate: 1
+    spawners:
+      delay: 120
+      spawnRange: 4
+      maxNearbyEntities: 16
+      maxSpawnDelay: 800
+      minSpawnDelay: 200
+      requiredPlayerRange: 16
+      spawnCount: 4
+      entityTypes:
+      - BAT
+      - CAVE_SPIDER
+      - CHICKEN
+      - COD
+      - COW
+      - CREEPER
+      - DOLPHIN
+      - DONKEY
+      - ELDER_GUARDIAN
+      - EVOKER
+      - GUARDIAN
+      - HORSE
+      - HUSK
+      - ILLUSIONER
+      - LLAMA
+      - MULE
+      - MUSHROOM_COW
+      - OCELOT
+      - PARROT
+      - PIG
+      - POLAR_BEAR
+      - PUFFERFISH
+      - RABBIT
+      - SALMON
+      - SHEEP
+      - SILVERFISH
+      - SKELETON
+      - SKELETON_HORSE
+      - SPIDER
+      - SQUID
+      - STRAY
+      - TROPICAL_FISH
+      - TURTLE
+      - VILLAGER
+      - VINDICATOR
+      - WITCH
+      - WOLF
+      - ZOMBIE
+      - ZOMBIE_HORSE
+      - ZOMBIE_VILLAGER
+      - CAT
+      - FOX
+      - PANDA
+      - PILLAGER
+      - RAVAGER
+      - AXOLOTL
+      - GOAT
+      - GLOW_SQUID
+  skygrid_overworld_nether:
+    layers:
+      default:
+        '60':
+          blocks:
+            bedrock: 1
+          replaceRegionBlocks: true
+        '0':
+          blocks:
+            bedrock: 1
+          replaceRegionBlocks: true
+    worlds:
+      skygrid_overworld_nether:
+        default:
+          biome: NETHER_WASTES
+    blocks:
+      default:
+        crimson_roots: 2
+        gravel: 30
+        warped_fungus: 1
+        nether_gold_ore: 6
+        ancient_debris: 1
+        lava: 50
+        crimson_stem: 10
+        magma_block: 50
+        warped_stem: 10
+        soul_soil: 10
+        chest: 1
+        crimson_nylium: 60
+        shroomlight: 1
+        basalt: 20
+        polished_blackstone_bricks: 4
+        warped_roots: 2
+        nether_quartz_ore: 15
+        crying_obsidian: 1
+        nether_bricks: 30
+        crimson_fungus: 1
+        nether_brick_stairs: 15
+        nether_brick_fence: 10
+        warped_nylium: 60
+        spawner: 2
+        polished_blackstone_brick_stairs: 2
+        glowstone: 1
+        nether_wart_block: 6
+        crimson_hyphae: 6
+        twisting_vines: 2
+        soul_fire: 1
+        warped_wart_block: 10
+        soul_sand: 100
+        bone_block: 3
+        obsidian: 5
+        warped_hyphae: 6
+        polished_blackstone: 6
+        nether_wart: 30
+        nether_sprouts: 2
+        netherrack: 600
+        gold_block: 1
+        gilded_blackstone: 4
+        blackstone: 60
+    spawners:
+      delay: 120
+      spawnRange: 4
+      maxNearbyEntities: 16
+      maxSpawnDelay: 800
+      minSpawnDelay: 200
+      requiredPlayerRange: 16
+      spawnCount: 4
+      entityTypes:
+      - BLAZE
+      - GHAST
+      - MAGMA_CUBE
+      - WITHER_SKELETON
+      - HOGLIN
+      - PIGLIN
+      - STRIDER
+      - ZOMBIFIED_PIGLIN
+      - PIGLIN_BRUTE
+  skygrid_overworld_the_end:
+    layers: {}
+    worlds:
+      skygrid_overworld_the_end:
+        default:
+          biome: THE_END
+    blocks:
+      inner:
+        end_stone: 500
+        obsidian: 50
+      default:
+        chorus_flower: 10
+        ender_chest: 1
+        purple_stained_glass: 5
+        purpur_block: 15
+        spawner: 1
+        end_stone_bricks: 20
+        chest: 1
+        purpur_stairs: 10
+        obsidian: 45
+        end_stone: 400
+        end_rod: 1
+        purpur_pillar: 10
+        brewing_stand: 1
+    spawners:
+      delay: 120
+      spawnRange: 4
+      maxNearbyEntities: 16
+      maxSpawnDelay: 800
+      minSpawnDelay: 200
+      requiredPlayerRange: 16
+      spawnCount: 4
+      entityTypes:
+      - ENDERMAN
+      - SHULKER
+      - ENDERMITE
+      - PHANTOM

@@ -1,6 +1,6 @@
 # Citizens NPC Storage
 
-last-created-npc-id: 0
+last-created-npc-id: 3
 npc:
   '0':
     metadata:
@@ -18,12 +18,12 @@ npc:
       owner:
         uuid: f0e7f028-4955-4dc8-8e40-d334ef0bd19a
       location:
-        bodyYaw: -136.8429
+        bodyYaw: -165.5422
         world: skygrid_world
         x: '-9.3245'
         y: '127.0'
         z: '-60.6312'
-        yaw: '-136.8429'
+        yaw: '-165.5422'
         pitch: '0.0'
       type: PLAYER
       commandtrait:
@@ -33,10 +33,10 @@ npc:
         hideErrorMessages: false
         commands:
           '0':
-            command: sg
+            command: warp skyverse
             hand: RIGHT
             player: true
-            op: false
+            op: true
             cooldown: 0
             globalcooldown: 0
             n: -1
@@ -47,7 +47,7 @@ npc:
       lookclose:
         range: '5.0'
         disablewhilenavigating: true
-        enabled: true
+        enabled: false
         enableRandomLook: false
         randomLookDelay: 60
         realisticlooking: false
@@ -61,7 +61,160 @@ npc:
       hologramtrait:
         direction: BOTTOM_UP
         lineHeight: -1.0
-    traitnames: mounttrait,spawned,scoreboardtrait,smoothrotationtrait,lookclose,type,inventory,location,skintrait,commandtrait,owner,hologramtrait,age
+    traitnames: type,commandtrait,spawned,skintrait,mounttrait,scoreboardtrait,owner,lookclose,smoothrotationtrait,inventory,location,hologramtrait,age
+    navigator:
+      speedmodifier: '1.0'
+      avoidwater: false
+      usedefaultstuckaction: true
+  '3':
+    metadata:
+      cached-skin-uuid: b4e6d297-cfba-469a-a423-4ffb8da70c39
+      cached-skin-uuid-name: apexhosting
+    name: §4§lNETHER §7[RCLICK]
+    uuid: f64592b6-554b-43d3-b18d-e874455f5f13
+    traits:
+      type: PLAYER
+      spawned: true
+      commandtrait:
+        cost: -1.0
+        executionMode: LINEAR
+        experienceCost: -1.0
+        hideErrorMessages: false
+        commands:
+          '0':
+            command: mvtp skygrid_overworld_nether
+            hand: RIGHT
+            player: true
+            op: true
+            cooldown: 0
+            globalcooldown: 0
+            n: -1
+            delay: 0
+      skintrait:
+        fetchDefaultSkin: true
+        signature: XNw9FMXyYQwLJ5feDSqAfz5nWIp1FKHKhUfAov8zt/1bdZXlIvmP8Y9jSFtgfkQHuHlzild1r/MStwB15iVjd2qay0FAb2ZmfvRYM593QvyrTauOlKxQ4E9yGHBiFjgff7VxAcYb8FqracjscvpNA+Ao7+5FHhP/FcfzLp41AndEg5PDc3c+KRLS7SfcHV2SY0vgtsKrgDz1FmI3wjEvf2MuDbznLDFVbxzPGf62KgJ7eUxli8hjRXwqvE3U5cWeTxXs+By9l/YUPZi/jjy7wZEUzV1nxVII0qFp5t6rFSeWZHqLMMmdDI0tvE2DHS4bghHAnGzY3WSNJPVvwypbnixzMZVN3a8BXYoRQ8ggyS/5Wc7c8eR0b4kF4iGsz7Ze+Q0EMhBAWizNNLrTlTex2wQSJFMa2WQ+0r7mTBIbFfZT72kCsFxEqgmWZGAwcNb1IyCac04mwmNZd4/S0oaqpyfLxvi7clbxV7zjQimEeruIv5cl/Ins8YMI0SMKOFnWjebnSBl0y68Q9GJjDu4sNrDTT2xVfe/NgDb4Co7krCNjF5IYzUN2qczj9E3iEL0QBqcl+UP086WQPPQT7l6ZkEXBiIQrRPkr3fqswycecuy3KrgJcEeqDKASpjlWtdY7GneZUtcHnFYwrUU1QhMyzLpsErBinaqv8gAUd3bR1eM=
+        skinName: apexhosting
+        textureRaw: ewogICJ0aW1lc3RhbXAiIDogMTY3NDU2ODIwNzI4NSwKICAicHJvZmlsZUlkIiA6ICJiNGU2ZDI5N2NmYmE0NjlhYTQyMzRmZmI4ZGE3MGMzOSIsCiAgInByb2ZpbGVOYW1lIiA6ICJBcGV4SG9zdGluZyIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9iZmQyMzE5MDNmODMxOTFhYzY1YjNjZjg3MTljYmU0NjNkZTUyZDcwMzk5ZTMxODJlY2I2YjMxNTY5MmI1ZWRiIgogICAgfQogIH0KfQ==
+        updateSkins: false
+      location:
+        bodyYaw: 134.67987
+        world: skygrid_world
+        x: '9.4946'
+        y: '127.0'
+        z: '3.3392'
+        yaw: '134.6799'
+        pitch: '3.4494'
+      owner:
+        uuid: f0e7f028-4955-4dc8-8e40-d334ef0bd19a
+      hologramtrait:
+        direction: BOTTOM_UP
+        lineHeight: -1.0
+      age:
+        age: 0
+        locked: true
+    traitnames: type,spawned,commandtrait,skintrait,mounttrait,inventory,location,scoreboardtrait,owner,hologramtrait,age
+    navigator:
+      speedmodifier: '1.0'
+      avoidwater: false
+      usedefaultstuckaction: true
+  '2':
+    metadata:
+      cached-skin-uuid: b4e6d297-cfba-469a-a423-4ffb8da70c39
+      cached-skin-uuid-name: apexhosting
+    name: §3§lTHE END §7[RCLICK]
+    uuid: 9e704e7a-32a1-466e-b779-3bb2ca63f434
+    traits:
+      type: PLAYER
+      spawned: true
+      commandtrait:
+        cost: -1.0
+        executionMode: LINEAR
+        experienceCost: -1.0
+        hideErrorMessages: false
+        commands:
+          '0':
+            command: mvtp skygrid_overworld_the_end
+            hand: RIGHT
+            player: true
+            op: true
+            cooldown: 0
+            globalcooldown: 0
+            n: -1
+            delay: 0
+      skintrait:
+        fetchDefaultSkin: true
+        signature: XNw9FMXyYQwLJ5feDSqAfz5nWIp1FKHKhUfAov8zt/1bdZXlIvmP8Y9jSFtgfkQHuHlzild1r/MStwB15iVjd2qay0FAb2ZmfvRYM593QvyrTauOlKxQ4E9yGHBiFjgff7VxAcYb8FqracjscvpNA+Ao7+5FHhP/FcfzLp41AndEg5PDc3c+KRLS7SfcHV2SY0vgtsKrgDz1FmI3wjEvf2MuDbznLDFVbxzPGf62KgJ7eUxli8hjRXwqvE3U5cWeTxXs+By9l/YUPZi/jjy7wZEUzV1nxVII0qFp5t6rFSeWZHqLMMmdDI0tvE2DHS4bghHAnGzY3WSNJPVvwypbnixzMZVN3a8BXYoRQ8ggyS/5Wc7c8eR0b4kF4iGsz7Ze+Q0EMhBAWizNNLrTlTex2wQSJFMa2WQ+0r7mTBIbFfZT72kCsFxEqgmWZGAwcNb1IyCac04mwmNZd4/S0oaqpyfLxvi7clbxV7zjQimEeruIv5cl/Ins8YMI0SMKOFnWjebnSBl0y68Q9GJjDu4sNrDTT2xVfe/NgDb4Co7krCNjF5IYzUN2qczj9E3iEL0QBqcl+UP086WQPPQT7l6ZkEXBiIQrRPkr3fqswycecuy3KrgJcEeqDKASpjlWtdY7GneZUtcHnFYwrUU1QhMyzLpsErBinaqv8gAUd3bR1eM=
+        skinName: apexhosting
+        textureRaw: ewogICJ0aW1lc3RhbXAiIDogMTY3NDU2ODIwNzI4NSwKICAicHJvZmlsZUlkIiA6ICJiNGU2ZDI5N2NmYmE0NjlhYTQyMzRmZmI4ZGE3MGMzOSIsCiAgInByb2ZpbGVOYW1lIiA6ICJBcGV4SG9zdGluZyIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9iZmQyMzE5MDNmODMxOTFhYzY1YjNjZjg3MTljYmU0NjNkZTUyZDcwMzk5ZTMxODJlY2I2YjMxNTY5MmI1ZWRiIgogICAgfQogIH0KfQ==
+        updateSkins: false
+      location:
+        bodyYaw: 134.67987
+        world: skygrid_world
+        x: '13.5281'
+        y: '127.0'
+        z: '-0.6063'
+        yaw: '134.6799'
+        pitch: '3.4473'
+      owner:
+        uuid: f0e7f028-4955-4dc8-8e40-d334ef0bd19a
+      hologramtrait:
+        direction: BOTTOM_UP
+        lineHeight: -1.0
+      age:
+        age: 0
+        locked: true
+    traitnames: type,spawned,commandtrait,skintrait,mounttrait,inventory,location,scoreboardtrait,owner,hologramtrait,age
+    navigator:
+      speedmodifier: '1.0'
+      avoidwater: false
+      usedefaultstuckaction: true
+  '1':
+    metadata:
+      cached-skin-uuid: b4e6d297-cfba-469a-a423-4ffb8da70c39
+      cached-skin-uuid-name: apexhosting
+    name: §a§lWORLD §7[RCLICK]
+    uuid: 734bffb1-d428-4c9e-b786-aa3a74bca53d
+    traits:
+      type: PLAYER
+      spawned: true
+      commandtrait:
+        cost: -1.0
+        executionMode: LINEAR
+        experienceCost: -1.0
+        hideErrorMessages: false
+        commands:
+          '0':
+            command: mvtp skygrid_overworld
+            hand: RIGHT
+            player: true
+            op: true
+            cooldown: 0
+            globalcooldown: 0
+            n: -1
+            delay: 0
+      skintrait:
+        fetchDefaultSkin: true
+        signature: XNw9FMXyYQwLJ5feDSqAfz5nWIp1FKHKhUfAov8zt/1bdZXlIvmP8Y9jSFtgfkQHuHlzild1r/MStwB15iVjd2qay0FAb2ZmfvRYM593QvyrTauOlKxQ4E9yGHBiFjgff7VxAcYb8FqracjscvpNA+Ao7+5FHhP/FcfzLp41AndEg5PDc3c+KRLS7SfcHV2SY0vgtsKrgDz1FmI3wjEvf2MuDbznLDFVbxzPGf62KgJ7eUxli8hjRXwqvE3U5cWeTxXs+By9l/YUPZi/jjy7wZEUzV1nxVII0qFp5t6rFSeWZHqLMMmdDI0tvE2DHS4bghHAnGzY3WSNJPVvwypbnixzMZVN3a8BXYoRQ8ggyS/5Wc7c8eR0b4kF4iGsz7Ze+Q0EMhBAWizNNLrTlTex2wQSJFMa2WQ+0r7mTBIbFfZT72kCsFxEqgmWZGAwcNb1IyCac04mwmNZd4/S0oaqpyfLxvi7clbxV7zjQimEeruIv5cl/Ins8YMI0SMKOFnWjebnSBl0y68Q9GJjDu4sNrDTT2xVfe/NgDb4Co7krCNjF5IYzUN2qczj9E3iEL0QBqcl+UP086WQPPQT7l6ZkEXBiIQrRPkr3fqswycecuy3KrgJcEeqDKASpjlWtdY7GneZUtcHnFYwrUU1QhMyzLpsErBinaqv8gAUd3bR1eM=
+        skinName: apexhosting
+        textureRaw: ewogICJ0aW1lc3RhbXAiIDogMTY3NDU2ODIwNzI4NSwKICAicHJvZmlsZUlkIiA6ICJiNGU2ZDI5N2NmYmE0NjlhYTQyMzRmZmI4ZGE3MGMzOSIsCiAgInByb2ZpbGVOYW1lIiA6ICJBcGV4SG9zdGluZyIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9iZmQyMzE5MDNmODMxOTFhYzY1YjNjZjg3MTljYmU0NjNkZTUyZDcwMzk5ZTMxODJlY2I2YjMxNTY5MmI1ZWRiIgogICAgfQogIH0KfQ==
+        updateSkins: false
+      location:
+        bodyYaw: 134.50977
+        world: skygrid_world
+        x: '11.5254'
+        y: '127.0'
+        z: '1.5435'
+        yaw: '134.5098'
+        pitch: '3.0088'
+      owner:
+        uuid: f0e7f028-4955-4dc8-8e40-d334ef0bd19a
+      hologramtrait:
+        direction: BOTTOM_UP
+        lineHeight: -1.0
+      age:
+        age: 0
+        locked: true
+    traitnames: type,spawned,commandtrait,skintrait,mounttrait,inventory,location,scoreboardtrait,owner,hologramtrait,age
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
