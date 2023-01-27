@@ -1,0 +1,35 @@
+title:
+  - '&7&lAPEX &d&lSKYGRID'
+text:
+  - ''
+  - '&7&o%localtime_time%'
+  - '&7Player: &d{PLAYER}'
+  - ''
+  - '&7Deaths: &c%statistic_deaths%'
+  - '&7Balance: &7$&a%vault_eco_balance_fixed%'
+  - ''
+  - '{SC_info}'
+  - ''
+  - '&dskygrid.apexmc.co'
+updater:
+  title: 3
+  text: 5
+enabledWorlds:
+  - skygrid_overworld
+  - skygrid_overworld_nether
+  - skygrid_overworld_the_end
+changeableText:
+  perm_info:
+    text:
+      - '&cscoreboard.default'
+      - '&7scoreboard.default'
+      - '&6scoreboard.default'
+      - '&bscoreboard.default'
+      - '&dscoreboard.default'
+    interval: 10
+scroller:
+  info:
+    text: '&7Remember to use &a/shop &7to browse the shop.'
+    width: 18
+    spaceBetween: 4
+    update: 2

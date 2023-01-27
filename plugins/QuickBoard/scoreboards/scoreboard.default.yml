@@ -8,17 +8,12 @@ text:
   - '&7Deaths: &c%statistic_deaths%'
   - '&7Balance: &7$&a%vault_eco_balance_fixed%'
   - ''
-  - '{SC_info}'
-  - ''
   - '&dskygrid.apexmc.co'
 updater:
   title: 3
   text: 5
 enabledWorlds:
   - skygrid_world
-  - skygrid_overworld
-  - skygrid_overworld_nether
-  - skygrid_overworld_the_end
 changeableText:
   perm_info:
     text:
