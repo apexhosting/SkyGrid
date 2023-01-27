@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [4.0]
+
+### Changed 
+
+- Main core plugin replaced.
+- Added custom menus to select the worlds.
+- Upadted base version to 1.17.1
+
 ## [3.5]
 
 ### Changed 
@@ -128,6 +136,7 @@ Internal changes
 ### Added
 - Initial commit of pack to Github for version control
 
+[4.0]: https://github.com/apexhosting/SkyGrid/releases/tag/4.0
 [3.5]: https://github.com/apexhosting/SkyGrid/releases/tag/3.5
 [3.4]: https://github.com/apexhosting/SkyGrid/releases/tag/3.4
 [3.3]: https://github.com/apexhosting/SkyGrid/releases/tag/3.3

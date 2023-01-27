@@ -12,3 +12,19 @@ i1:
   location: skygrid_world, -9.316, 129.542, -60.546
   lines:
   - '&7CLICK TO GO'
+overworld:
+  location: skygrid_overworld, 120.458, 66.588, -258.435
+  lines:
+  - '&a&lOVERWORLD'
+  - '&7Welcome to the &aoverworld!'
+nether:
+  location: skygrid_overworld_nether, 0.613, 66.200, 12.340
+  lines:
+  - '&c&lNETHER'
+  - '&7Welcome to the &cNether!'
+skyverse:
+  location: skygrid_world, 11.688, 130.845, 1.415
+  lines:
+  - '&d&lSKYGRID &7&lVERSE'
+  - '&eReady to start your adventure?'
+  - '&7(&e!&7) &7First join a world then use /warp to travel through the worlds.'

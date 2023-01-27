@@ -6,12 +6,6 @@ https://apexminecrafthosting.com/skygrid-server/
 
 ## Plugin List
 - [Advanced Achievements](https://www.spigotmc.org/resources/advanced-achievements.6239/)
-- [Bento Box](https://github.com/BentoBoxWorld/BentoBox/)
-- [Challenges Addon](https://github.com/BentoBoxWorld/Challenges/)
-- [DimensionalTrees Addon](https://github.com/BentoBoxWorld/DimensionalTrees/)
-- [Level Addon](https://github.com/BentoBoxWorld/Level/)
-- [SkyGrid addon](https://github.com/BentoBoxWorld/SkyGrid/)
-- [TwerkingForTrees addon](https://github.com/BentoBoxWorld/TwerkingForTrees/)
 - [Core Protect](https://www.spigotmc.org/resources/coreprotect.8631/)
 - [EssentialsX](https://www.spigotmc.org/resources/essentialsx.9089/)
 - [Grief Prevention](https://www.spigotmc.org/resources/griefprevention.1884/)

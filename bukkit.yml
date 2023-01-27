@@ -46,3 +46,9 @@ aliases: now-in-commands.yml
 worlds:
   skygrid_world:
     generator: VoidGen
+  skygrid_overworld:
+    generator: SkyGrid
+  skygrid_overworld_nether:
+    generator: SkyGrid
+  skygrid_overworld_the_end:
+    generator: SkyGrid

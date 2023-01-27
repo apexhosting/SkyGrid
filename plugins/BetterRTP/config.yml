@@ -76,9 +76,9 @@ Overrides:
 - master_world: world
 - creative_world: world
 WorldType:
-- skygrid_world: NORMAL
-- skygrid_world_nether: NETHER
-- skygrid_world_the_end: NORMAL
+- skygrid_overworld: NORMAL
+- skygrid_overworld_nether: NETHER
+- skygrid_overworld_the_end: END
 PermissionGroup:
   Enabled: false
   Groups:
